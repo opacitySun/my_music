@@ -1,49 +1,53 @@
-// nodejs 中的path模块
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
 
-module.exports = {
-    // 入口文件，path.resolve()方法，可以结合我们给定的两个参数最后生成绝对路径，最终指向的就是我们的index.js文件
-    entry: path.resolve(__dirname, '../js/modules/index.js'),
-    // 输出配置
-    output: {
-        // 输出路径是 myProject/webapp
-        path: path.resolve(__dirname, '../webapp'),
-        publicPath: '/',
-        filename: '[name].[hash].js',
-        chunkFilename: '[id].[chunkhash].js'
-    },
-    resolve: {
-        extensions: ['', '.js', '.vue']
-    },
-    module: {
-        loaders: [
-            // 使用vue-loader 加载 .vue 结尾的文件
-            {
-                test: /\.vue$/, 
-                loader: 'vue'   
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel?presets=es2015',
-                exclude: /node_modules/
-            }
-        ]
-    },
-    plugins: [
-        new CleanWebpackPlugin(['webapp']),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.resolve(__dirname, '../views/index.html'),
-            inject: true,
-            hash: false,
-            cache: true,
-            showErrors: true,
-            minify:{    //压缩HTML文件
-                removeComments:true,    //移除HTML中的注释
-                collapseWhitespace:false    //删除空白符与换行符
-            }
-        })
-    ]
-}
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function webpackMissingModule() { throw new Error("Cannot find module \"–display-modules\""); }());
+	(function webpackMissingModule() { throw new Error("Cannot find module \"–display-chunks\""); }());
+	(function webpackMissingModule() { throw new Error("Cannot find module \"–config\""); }());
+
+
+/***/ }
+/******/ ]);
