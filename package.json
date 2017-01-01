@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/opacitySun/my_music/issues"
   },
-  "homepage": "https://github.com/opacitySun/my_music#readme"
+  "homepage": "https://github.com/opacitySun/my_music#readme",
+  "dependencies": {
+    "vue": "^2.1.8"
+  }
 }
