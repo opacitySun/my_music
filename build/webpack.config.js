@@ -1,5 +1,6 @@
 // nodejs 中的path模块
 var path = require('path');
+var stylishReporter = require('jshint-loader-reporter')('stylish');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -17,20 +18,6 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.vue']
     },
-    module: {
-        loaders: [
-            // 使用vue-loader 加载 .vue 结尾的文件
-            {
-                test: /\.vue$/, 
-                loader: 'vue'   
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel?presets=es2015',
-                exclude: /node_modules/
-            }
-        ]
-    },
     plugins: [
         new CleanWebpackPlugin(['webapp']),
         new HtmlWebpackPlugin({
@@ -45,5 +32,24 @@ module.exports = {
                 collapseWhitespace:false    //删除空白符与换行符
             }
         })
-    ]
+    ],
+    module: {
+        loaders: [
+            // 使用vue-loader 加载 .vue 结尾的文件
+            {
+                test: /\.vue$/, 
+                loader: 'vue'   
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel?presets=es2015',
+                exclude: /node_modules/
+            }
+        ]
+    },
+    jshint: {
+        emitErrors: true,
+        failOnHint: true,
+        reporter:stylishReporter
+    }
 }
