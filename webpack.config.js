@@ -25,7 +25,7 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.css', '.scss','.vue'],
         alias: {
-            'vue$': '../../node_modules/vue/dist/vue.js'
+            'vue$': 'vue/dist/vue.js'
         }
     },
     plugins: [
