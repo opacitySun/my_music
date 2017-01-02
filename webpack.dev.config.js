@@ -16,7 +16,6 @@ config.plugins = [
         $: 'jquery',
         jQuery: 'jquery'
     }),
-    new ExtractTextPlugin("../[name].[contenthash].css"),
     new HtmlWebpackPlugin({
         filename: 'index.html',
         template: path.resolve(__dirname, 'views/index.html'),
