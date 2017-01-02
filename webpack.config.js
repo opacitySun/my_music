@@ -23,7 +23,10 @@ module.exports = {
         chunkFilename: '[id].[chunkhash].js'
     },
     resolve: {
-        extensions: ['', '.js', '.vue']
+        extensions: ['', '.js', '.css', '.scss','.vue'],
+        alias: {
+            'vue$': './node_modules/vue/dist/vue.js'
+        }
     },
     plugins: [
         new CleanWebpackPlugin(['webapp']),
