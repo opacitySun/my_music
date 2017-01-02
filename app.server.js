@@ -21,11 +21,11 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 // 注册中间件
 app.use(devMiddleware);
 
-// 监听8080端口，开启服务器
-app.listen(8080, function (err) {
+// 监听8888端口，开启服务器
+app.listen(8888, function (err) {
     if (err) {
         console.log(err);
         return;
     }
-    console.log('Listening at http://localhost:8080');
+    console.log('Listening at http://localhost:8888');
 });
