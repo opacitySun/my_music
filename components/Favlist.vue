@@ -1,7 +1,5 @@
 <template>
-    <div id="test">
-        <div v-for="n in 10">div</div>
-    </div>
+    <div v-for="n in 10">div</div>
 </template>
 
 <script>
