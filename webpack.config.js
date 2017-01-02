@@ -1,5 +1,6 @@
 // nodejs 中的path模块
 var path = require('path');
+var webpack = require('webpack');
 var stylishReporter = require('jshint-loader-reporter')('stylish');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -26,6 +27,10 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['webapp']),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, 'views/index.html'),
