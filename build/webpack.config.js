@@ -19,7 +19,7 @@ module.exports = {
         extensions: ['', '.js', '.vue']
     },
     plugins: [
-        new CleanWebpackPlugin(['webapp']),
+        new CleanWebpackPlugin(['../webapp']),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, '../views/index.html'),
