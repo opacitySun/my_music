@@ -1,0 +1,9 @@
+{
+    "cwd": "",
+    "uri": "",
+    "timeout": 30,
+    "commons": [
+        "jquery",
+        "vue"
+    ]
+}

@@ -4,9 +4,15 @@ var stylishReporter = require('jshint-loader-reporter')('stylish');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var conf = require('./js/conf.json');
+
 module.exports = {
     // 入口文件，path.resolve()方法，可以结合我们给定的两个参数最后生成绝对路径，最终指向的就是我们的index.js文件
-    entry: path.resolve(__dirname, 'js/modules/index.js'),
+    entry: {
+        app: './js/modules/index.js',
+        //main: './resource/styles/main.css.js',
+        commons: conf.commons
+    },
     // 输出配置
     output: {
         // 输出路径是 myProject/webapp

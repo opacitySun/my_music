@@ -1,4 +1,4 @@
-import Vue from 'Vue';
+import Vue from 'vue';
 import Favlist from '../../components/Favlist';
 
 new Vue({
