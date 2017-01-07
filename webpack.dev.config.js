@@ -31,8 +31,6 @@ config.plugins = [
     })
 ];
 
-(env==='dev'?webpackConfig.devtool="source-map":null);
-
 // 动态向入口配置中注入 webpack-hot-middleware/client
 var devClient = './dev/dev-client';
 Object.keys(config.entry).forEach(function (name, i) {
@@ -41,3 +39,4 @@ Object.keys(config.entry).forEach(function (name, i) {
 });
 
 module.exports = config;
+(env==='dev'?config.devtool="source-map":null);
