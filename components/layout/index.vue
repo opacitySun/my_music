@@ -1,0 +1,10 @@
+<template>
+    <h1>Index</h1>
+	<hr/>
+	<p>Hello Index Page!</p>
+	<ul>
+	    <li v-for="(index,item) in items">
+	         {{item.id}} : {{item.name}}
+	    </li>
+	</ul>
+</template>
