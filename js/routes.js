@@ -6,7 +6,7 @@
 
 var Routes = {
 	'/': {
-		component: require('./modules/index')
+		component: require('./modules/layout/index')
 	},
 	'/music-list': {
 		name: 'music-list',
@@ -17,7 +17,7 @@ var Routes = {
 		component: require('./modules/music/detail')
 	},
 	'*': {
-		component: require('../modules/not-found')
+		component: require('./modules/not-found')
 	}
 };
 
