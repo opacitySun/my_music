@@ -4,7 +4,7 @@ module.exports = {
 	template: require('../../../views/music/detail.html'),
 	data:function(){
 		return {
-			test:"测试"
+			msg:{}
 		};
 	},
 	created:function(){
@@ -14,23 +14,13 @@ module.exports = {
 
 		//根据获取的参数ID，返回不同的data对象（真实业务中，这里应该是Ajax获取数据）
 		if(id === 1){
-			console.log(this.$data);
-			/*
-			this.$data = function(){
-				return {
-					id:id,
-					name:"hello111",
-					age:24
-				};
+			this.msg = {
+				"id":id,
+				"name":"hello111",
+				"age":24
 			};
-			*/
 		}else{
-			console.log(this.$data);
-			/*
-			this.$data = function(){
-				return {"id":id,"name":"hello111","age":24};
-			};
-			*/
+			this.msg = {"id":id,"name":"hello111","age":24};
 		}
 	},
 	mounted: function () {
