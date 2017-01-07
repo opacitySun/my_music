@@ -18,7 +18,7 @@ config.plugins = [
     }),
     new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: path.resolve(__dirname, 'views/index.html'),
+        template: path.resolve(__dirname, 'views/app.html'),
         inject: true,
         hash: false,
         cache: true,

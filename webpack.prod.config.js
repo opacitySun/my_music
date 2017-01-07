@@ -31,10 +31,10 @@ config.plugins = [
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     // 提取css为单文件
-    new ExtractTextPlugin("../[name].[contenthash].css"),
+    new ExtractTextPlugin("[name].[contenthash].css"),
     new HtmlWebpackPlugin({
-        filename: '../index.html',
-        template: path.resolve(__dirname, '../app/index/index.html'),
+        filename: 'index.html',
+        template: path.resolve(__dirname, 'views/app.html'),
         inject: true
     })
 ];
