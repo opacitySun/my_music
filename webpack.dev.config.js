@@ -4,6 +4,7 @@ var path = require('path');
 var webpack = require('webpack');
 // 引入基本配置
 var config = require('./webpack.config');
+var env = require('./ENV').env;
 
 config.output.publicPath = '/';
 
@@ -29,6 +30,8 @@ config.plugins = [
         }
     })
 ];
+
+(env==='dev'?webpackConfig.devtool="source-map":null);
 
 // 动态向入口配置中注入 webpack-hot-middleware/client
 var devClient = './dev/dev-client';
