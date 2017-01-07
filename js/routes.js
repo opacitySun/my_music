@@ -6,7 +6,7 @@
 
 const Routes = {
 	//配置路由模式
-	mode: 'history',
+	mode: 'hash',	//"hash" | "history" | "abstract"
 	//应用的基路径
 	base: __dirname,
 	routes: [
