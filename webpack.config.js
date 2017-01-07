@@ -59,6 +59,12 @@ module.exports = {
                 loader: 'babel?presets=es2015',
                 exclude: /node_modules/
             },
+            {
+                test: /\.html$/, 
+                loaders: [
+                    'html'
+                ]
+            },
             // 加载图片
             {
                 test: /\.(png|jpg|gif|svg)$/,
