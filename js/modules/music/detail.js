@@ -4,21 +4,39 @@ module.exports = {
 	template: require('../../../views/music/detail.html'),
 	data:function(){
 		return {
-			
+			test:"测试"
 		};
 	},
 	created:function(){
 		//获取params的参数ID
-		var id=this.$route.params.id;
+		var id = this.$route.params.id;
+		id = Number(id);
 
 		//根据获取的参数ID，返回不同的data对象（真实业务中，这里应该是Ajax获取数据）
-		if (id==1){
-			this.$data={"id":id,"name":"hello111","age":24};
+		if(id === 1){
+			console.log(this.$data);
+			/*
+			this.$data = function(){
+				return {
+					id:id,
+					name:"hello111",
+					age:24
+				};
+			};
+			*/
 		}else{
-			this.$data={"id":id,"name":"hello222","age":28};
+			console.log(this.$data);
+			/*
+			this.$data = function(){
+				return {"id":id,"name":"hello111","age":24};
+			};
+			*/
 		}
 	},
-	ready: function () {
-		console.log(this.$data);
+	mounted: function () {
+		this.$nextTick(function () {
+			// 代码保证 this.$el 在 document 中
+			//console.log(this.$data);
+		});
 	}
 };

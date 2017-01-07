@@ -10,7 +10,10 @@ module.exports = {
 			]
 		};
 	},
-	ready: function () {
-		
+	mounted: function () {
+		this.$nextTick(function () {
+			// 代码保证 this.$el 在 document 中
+			
+		});
 	}
 };
