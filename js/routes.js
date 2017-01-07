@@ -4,6 +4,11 @@
  * Created by sunbowei on 17-1-7.
  */
 
+import Index from './modules/layout/index';
+import MusicList from './modules/music/list';
+import MusicDetail from './modules/music/detail';
+import NotFound from './modules/not-found';
+
 const Routes = {
 	//配置路由模式
 	mode: 'hash',	//"hash" | "history" | "abstract"
@@ -12,21 +17,21 @@ const Routes = {
 	routes: [
 		{
 			path: '/',
-			component: require('./modules/layout/index')
+			component: Index
 		},
 		{
 			path: '/music-list',
 			name: 'music-list',
-			component: require('./modules/music/list')
+			component: MusicList
 		},
 		{
 			path: '/music-detail/:id',
 			name: 'music-detail',
-			component: require('./modules/music/detail')
+			component: MusicDetail
 		},
 		{
 			path: '*',
-			component: require('./modules/not-found')
+			component: NotFound
 		},
 	]
 };
