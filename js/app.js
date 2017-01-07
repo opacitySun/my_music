@@ -6,15 +6,16 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
+import Routes from './routes';
 
 Vue.use(VueRouter);
+Vue.use(VueResource);
+
 Vue.config.debug = true;
 Vue.config.delimiters = ['${', '}']; // 把默认的{{ }} 改成ES6的模板字符串 ${ }
 Vue.config.devtools = true;
 
-var App = Vue.extend({});
-var router = new VueRouter({});
+const router = new VueRouter(Routes);
 
-router.map(require('./routes'));
-router.start(App, '#app');
-router.go({"path":"/"});
+new Vue({router: router}).$mount('#app');
