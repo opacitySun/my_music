@@ -1,0 +1,14 @@
+{
+    "presets":[
+        "es2015"
+    ],
+    "ignore":[
+        "jquery.js",
+        "jquery.min.js",
+        "vue.js",
+        "vue.min.js",
+        "bootstrap.js",
+        "bootstrap.min.js"
+    ],
+    "compact":false
+}
