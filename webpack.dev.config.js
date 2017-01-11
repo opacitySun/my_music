@@ -4,7 +4,6 @@ var path = require('path');
 var webpack = require('webpack');
 // 引入基本配置
 var config = require('./webpack.config');
-var env = require('./ENV').env;
 
 config.output.publicPath = '/';
 
@@ -38,5 +37,7 @@ Object.keys(config.entry).forEach(function (name, i) {
     config.entry[name] = extras.concat(config.entry[name])
 });
 
+//创建静态文件定位map
+config.devtool="source-map";
+
 module.exports = config;
-(env==='dev'?config.devtool="source-map":null);
