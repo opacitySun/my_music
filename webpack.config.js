@@ -51,8 +51,8 @@ module.exports = {
         loaders: [
             // 使用vue-loader 加载 .vue 结尾的文件
             {
-                test: /\.vue$/, 
-                loader: 'vue'   
+                test: /\.vue$/,
+                loader: 'vue'
             },
             {
                 test: /\.js$/,
@@ -60,7 +60,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.html$/, 
+                test: /\.html$/,
                 loaders: [
                     'html'
                 ]

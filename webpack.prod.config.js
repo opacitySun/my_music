@@ -8,7 +8,7 @@ var config = require('./webpack.config');
 
 config.vue = {
     loaders: {
-        css: ExtractTextPlugin.extract("css");
+        css: ExtractTextPlugin.extract("css")
     }
 };
 

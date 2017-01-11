@@ -34,11 +34,11 @@ compiler.plugin('compilation', function (compilation) {
 app.use(devMiddleware);
 app.use(hotMiddleware);
 
-// 监听8888端口，开启服务器
-app.listen(8888, function (err) {
+// 监听6666端口，开启服务器
+app.listen(6666, function (err) {
     if (err) {
         console.log(err);
         return;
     }
-    console.log('Listening at http://localhost:8888');
+    console.log('Listening at http://localhost:6666');
 });
