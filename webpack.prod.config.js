@@ -35,7 +35,14 @@ config.plugins = [
     new HtmlWebpackPlugin({
         filename: 'index.html',
         template: path.resolve(__dirname, 'views/app.html'),
-        inject: true
+        inject: true,
+        hash: true,
+        cache: true,
+        showErrors: true,
+        minify:{    //压缩HTML文件
+            removeComments:true,    //移除HTML中的注释
+            collapseWhitespace:true    //删除空白符与换行符
+        }
     })
 ];
 
