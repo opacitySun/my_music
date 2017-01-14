@@ -1,6 +1,7 @@
 // 引入必要的模块
 var express = require('express');
 var webpack = require('webpack');
+var history = require('connect-history-api-fallback');
 var config = require('../webpack.dev.config');
 
 // 创建一个express实例
@@ -30,9 +31,17 @@ compiler.plugin('compilation', function (compilation) {
     })
 });
 
+//设置html5模式中间件配置
+var historyMiddleware = history({
+    rewrites: [
+        { from: /^\/abc$/, to: '/'}
+    ]
+});
+
 // 注册中间件
 app.use(devMiddleware);
 app.use(hotMiddleware);
+app.use(historyMiddleware);
 
 // 监听8888端口，开启服务器
 app.listen(8888, function (err) {

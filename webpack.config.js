@@ -4,6 +4,8 @@ var webpack = require('webpack');
 var stylishReporter = require('jshint-loader-reporter')('stylish');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var cssExtractor = new ExtractTextPlugin(1, './styles/[name].[chunkhash].css');
 
 var conf = require('./src/conf.json');
 
@@ -11,7 +13,7 @@ module.exports = {
     // 入口文件，path.resolve()方法，可以结合我们给定的两个参数最后生成绝对路径，最终指向的就是我们的index.js文件
     entry: {
         app: './src/app.js',
-        //main: './resource/styles/main.css.js',
+        main: './src/resource/styles/main.css.js',
         commons: conf.commons
     },
     // 输出配置
@@ -66,6 +68,16 @@ module.exports = {
                     limit: 10000,
                     name: '[name].[ext]?[hash:7]'
                 }
+            },
+            {
+                test: /\.scss$/,
+                loader: cssExtractor.extract('style', 'css?sourceMap!sass?sourceMap'),
+                include: path.resolve(__dirname, 'src/resource/styles')
+            }, 
+            {
+                test: /\.css$/,
+                loader: cssExtractor.extract('style-loader', 'css-loader'),
+                include: path.resolve(__dirname, 'src/resource/styles')
             }
         ]
     },

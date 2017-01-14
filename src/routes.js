@@ -11,9 +11,8 @@ import NotFound from './components/not-found';
 
 const Routes = {
 	//配置路由模式
-	mode: 'hash',	//"hash" | "history" | "abstract"
-	//应用的基路径
-	base: __dirname,
+	mode: 'history', //"hash" | "history" | "abstract"
+	//base: __dirname, //应用的基路径
 	routes: [
 		{
 			path: '/',
@@ -32,7 +31,7 @@ const Routes = {
 		{
 			path: '*',
 			component: NotFound
-		},
+		}
 	]
 };
 
