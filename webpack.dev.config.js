@@ -18,10 +18,10 @@ config.plugins = [
     }),
     new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: path.resolve(__dirname, 'views/app.html'),
+        template: path.resolve(__dirname, 'src/views/app.html'),
         inject: true,
         hash: true,
-        cache: true,
+        cache: false,
         showErrors: true,
         minify:{    //压缩HTML文件
             removeComments:false,    //移除HTML中的注释

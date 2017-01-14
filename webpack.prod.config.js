@@ -34,7 +34,7 @@ config.plugins = [
     new ExtractTextPlugin("[name].[contenthash].css"),
     new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: path.resolve(__dirname, 'views/app.html'),
+        template: path.resolve(__dirname, 'src/views/app.html'),
         inject: true,
         hash: true,
         cache: true,

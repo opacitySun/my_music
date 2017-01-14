@@ -1,13 +1,12 @@
 
 
 module.exports = {
-	template: require('../../../views/music/detail.html'),
-	data:function(){
+	data(){
 		return {
 			msg:{}
 		};
 	},
-	created:function(){
+	created(){
 		//获取params的参数ID
 		var id = this.$route.params.id;
 		id = Number(id);
@@ -20,10 +19,10 @@ module.exports = {
 				"age":24
 			};
 		}else{
-			this.msg = {"id":id,"name":"hello111","age":24};
+			this.msg = {"id":id,"name":"hello222","age":28};
 		}
 	},
-	mounted: function () {
+	mounted() {
 		this.$nextTick(function () {
 			// 代码保证 this.$el 在 document 中
 			//console.log(this.$data);

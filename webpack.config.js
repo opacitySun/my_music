@@ -5,12 +5,12 @@ var stylishReporter = require('jshint-loader-reporter')('stylish');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var conf = require('./js/conf.json');
+var conf = require('./src/conf.json');
 
 module.exports = {
     // 入口文件，path.resolve()方法，可以结合我们给定的两个参数最后生成绝对路径，最终指向的就是我们的index.js文件
     entry: {
-        app: './js/app.js',
+        app: './src/app.js',
         //main: './resource/styles/main.css.js',
         commons: conf.commons
     },
@@ -36,15 +36,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.resolve(__dirname, 'views/app.html'),
-            inject: true,
-            hash: false,
-            cache: true,
-            showErrors: true,
-            minify:{    //压缩HTML文件
-                removeComments:true,    //移除HTML中的注释
-                collapseWhitespace:false    //删除空白符与换行符
-            }
+            template: path.resolve(__dirname, 'src/views/app.html'),
+            inject: true
         })
     ],
     module: {

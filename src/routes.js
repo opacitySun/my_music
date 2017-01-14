@@ -4,10 +4,10 @@
  * Created by sunbowei on 17-1-7.
  */
 
-import Index from './modules/layout/index';
-import MusicList from './modules/music/list';
-import MusicDetail from './modules/music/detail';
-import NotFound from './modules/not-found';
+import Index from './views/layout/index';
+import MusicList from './views/music/list';
+import MusicDetail from './views/music/detail';
+import NotFound from './components/not-found';
 
 const Routes = {
 	//配置路由模式
