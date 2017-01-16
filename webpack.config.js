@@ -1,7 +1,6 @@
 // nodejs 中的path模块
 var path = require('path');
 var webpack = require('webpack');
-var stylishReporter = require('jshint-loader-reporter')('stylish');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -43,7 +42,9 @@ module.exports = {
             // 使用vue-loader 加载 .vue 结尾的文件
             {
                 test: /\.vue$/,
-                loader: 'vue'
+                loaders: [
+                    'vue'
+                ]
             },
             {
                 test: /\.js$/,
@@ -100,14 +101,5 @@ module.exports = {
                 ]
             }
         ]
-    },
-    jshint: {
-        emitErrors: true,
-        failOnHint: true,
-        reporter:stylishReporter
-    },
-    htmlLoaderConfig: {
-        root: __dirname,
-        attrs: ['img:src', 'link:href']
     }
 }
