@@ -5,12 +5,12 @@ var stylishReporter = require('jshint-loader-reporter')('stylish');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var cssExtractor = new ExtractTextPlugin(1, './styles/[name].[chunkhash].css');
+var cssExtractor = new ExtractTextPlugin(1,'styles/[name].[chunkhash].css');
 
 var conf = require('./src/conf.json');
 
 module.exports = {
-    // 入口文件，path.resolve()方法，可以结合我们给定的两个参数最后生成绝对路径，最终指向的就是我们的index.js文件
+    // 入口文件
     entry: {
         app: './src/app.js',
         main: './src/resource/styles/main.css.js',
@@ -36,11 +36,7 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         }),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.resolve(__dirname, 'src/views/app.html'),
-            inject: true
-        })
+        cssExtractor
     ],
     module: {
         loaders: [
@@ -76,8 +72,32 @@ module.exports = {
             }, 
             {
                 test: /\.css$/,
-                loader: cssExtractor.extract('style-loader', 'css-loader'),
+                loader: cssExtractor.extract('style', 'css'),
                 include: path.resolve(__dirname, 'src/resource/styles')
+            },
+            {
+                test: /\.css$/,
+                loaders: [
+                    'file?name=styles/[name].[ext]',
+                    'extract',
+                    'css'
+                ],
+                exclude: path.resolve(__dirname, 'src/resource/styles')
+            }, 
+            {
+                test: /\.css\.map$/,
+                loader: 'file?name=styles/[name].[ext]'
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file?name=fonts/[name].[ext]'
+            }, 
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loaders: [
+                    'url?mimetype=image/svg+xml',
+                    'file?name=fonts/[name].[ext]'
+                ]
             }
         ]
     },
@@ -85,5 +105,9 @@ module.exports = {
         emitErrors: true,
         failOnHint: true,
         reporter:stylishReporter
+    },
+    htmlLoaderConfig: {
+        root: __dirname,
+        attrs: ['img:src', 'link:href']
     }
 }

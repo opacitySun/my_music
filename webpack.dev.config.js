@@ -1,21 +1,16 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 // 引入基本配置
 var config = require('./webpack.config');
 
 config.output.publicPath = '/';
 
-config.plugins = [
-	new webpack.optimize.OccurenceOrderPlugin(),
+config.plugins.push(
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new CleanWebpackPlugin(['webapp']),
-    new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery'
-    }),
     new HtmlWebpackPlugin({
         filename: 'index.html',
         template: path.resolve(__dirname, 'src/views/app.html'),
@@ -28,7 +23,14 @@ config.plugins = [
             collapseWhitespace:false    //删除空白符与换行符
         }
     })
-];
+);
+
+config.module.loaders.push(
+    {
+        test: /\.(jpe?g|png(\*)?|gif)$/,
+        loaders: ['file?name=images/[name].[ext]']
+    }
+);
 
 // 动态向入口配置中注入 webpack-hot-middleware/client
 var devClient = './dev/dev-client';
