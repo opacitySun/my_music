@@ -4,8 +4,8 @@ module.exports = {
 	data(){
 		return {
 			items:[
-				{"id":1,"name":"hello11"},
-				{"id":2,"name":"hello22"}
+				{"id":3,"name":"musiclist11"},
+				{"id":4,"name":"musiclist22"}
 			]
 		};
 	},
