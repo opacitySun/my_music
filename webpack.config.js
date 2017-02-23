@@ -30,7 +30,6 @@ module.exports = {
         }
     },
     plugins: [
-        new CleanWebpackPlugin(['webapp']),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
