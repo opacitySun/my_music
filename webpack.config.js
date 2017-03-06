@@ -12,7 +12,7 @@ module.exports = {
     // 入口文件
     entry: {
         app: './src/app.js',
-        main: './src/resource/styles/main.css.js',
+        main: './src/styles/main.css.js',
         commons: conf.commons
     },
     // 输出配置
@@ -68,12 +68,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: cssExtractor.extract('style', 'css?sourceMap!sass?sourceMap'),
-                include: path.resolve(__dirname, 'src/resource/styles')
+                include: path.resolve(__dirname, 'src/styles')
             }, 
             {
                 test: /\.css$/,
                 loader: cssExtractor.extract('style', 'css'),
-                include: path.resolve(__dirname, 'src/resource/styles')
+                include: path.resolve(__dirname, 'src/styles')
             },
             {
                 test: /\.css$/,
@@ -82,7 +82,7 @@ module.exports = {
                     'extract',
                     'css'
                 ],
-                exclude: path.resolve(__dirname, 'src/resource/styles')
+                exclude: path.resolve(__dirname, 'src/styles')
             }, 
             {
                 test: /\.css\.map$/,

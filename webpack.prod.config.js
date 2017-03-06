@@ -29,6 +29,7 @@ config.plugins.push(
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
         filename: 'index.html',
+        favicon: path.resolve(__dirname, 'images/favicon.ico'),
         template: path.resolve(__dirname, 'src/views/app.html'),
         inject: true,
         hash: true,
