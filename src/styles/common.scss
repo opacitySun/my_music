@@ -1,3 +1,16 @@
 em{
 	font-style:normal;
 }
+
+footer{
+	background:#000000;
+	div{
+		height:3rem;
+		display:table-cell;
+		vertical-align: middle;
+		text-align: center;
+		i{
+			font-size: 20px;
+		}
+	}
+}
