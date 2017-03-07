@@ -1,10 +1,5 @@
 <template>
     <div>
-    	<!--
-        <div>
-            <router-link to="/music-list">music-list</router-link>
-        </div>
-        -->
         <header></header>
         <main>
             <router-view></router-view>
