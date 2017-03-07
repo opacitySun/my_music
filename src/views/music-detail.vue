@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import MusicDetail from '../../js/music/detail';
+import MusicDetail from '/src/js/music-detail';
 
 export default MusicDetail;
 </script>

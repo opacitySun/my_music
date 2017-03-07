@@ -4,9 +4,9 @@
  * Created by sunbowei on 17-1-7.
  */
 
-import Index from './views/layout/index';
-import MusicList from './views/music/list';
-import MusicDetail from './views/music/detail';
+import Index from './views/index';
+import MusicList from './views/music-list';
+import MusicDetail from './views/music-detail';
 import NotFound from './components/not-found';
 
 const Routes = {

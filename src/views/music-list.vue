@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h1>Index</h1>
+        <h1>List</h1>
 		<hr/>
-		<p>Hello Index Page!</p>
+		<p>Hello List Page!</p>
 		<ul>
 		    <li v-for="(item,index) in items">
 		         {{item.id}} : {{item.name}}
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Index from '../../js/layout/index';
+import MusicList from '/src/js/music-list';
 
-export default Index;
+export default MusicList;
 </script>
