@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import MusicList from '/src/js/music-list';
+import MusicList from '../../js/music-list';
 
 export default MusicList;
 </script>

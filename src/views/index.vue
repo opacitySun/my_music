@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Index from '/src/js/index';
+import Index from '../../js/index';
 
 export default Index;
 </script>
