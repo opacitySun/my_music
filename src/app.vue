@@ -29,3 +29,10 @@
         </footer>
     </div>
 </template>
+
+<script>
+    $("footer").on("click","div",function(){
+        $("footer div").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>
