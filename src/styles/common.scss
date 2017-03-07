@@ -16,16 +16,19 @@ footer{
 		text-align: center;
 		i{
 			color:#888888;
-			font-size: 20px;
 		}
 		p{
 			color:#888888;
 			font-size: 12px;
+			margin:0;
 		}
 		&:hover,&:active,&.active{
 			i,p{
 				color:#ffffff;
 			}
+		}
+		&:hover{
+			cursor:pointer;
 		}
 	}
 }
