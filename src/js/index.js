@@ -1,9 +1,9 @@
 module.exports = {
 	data() {
 		return {
-			items:[
-				{"id":1,"name":"hello11"},
-				{"id":2,"name":"hello22"}
+			musics:[
+				{"id":1,"name":"江南","desc":"林俊杰经典之作","href":"/music-detail/1"},
+				{"id":2,"name":"千里之外","desc":"周杰伦经典怀旧","href":"/music-detail/2"}
 			]
 		}
 	}
