@@ -39,7 +39,7 @@ export default {
 
         };
     }
-    methods(){
+    methods:{
         menuActive: function () {
             $("footer div").removeClass("active");
             $(this).addClass("active");
