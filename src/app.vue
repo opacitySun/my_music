@@ -38,12 +38,14 @@ export default {
         return {
 
         };
-    }
-    methods:{
-        menuActive: function () {
-            $("footer div").removeClass("active");
-            $(this).addClass("active");
-        }
+    },
+    methods(){
+        return {
+            menuActive: function () {
+                $("footer div").removeClass("active");
+                $(this).addClass("active");
+            }
+        };
     }
 }
 </script>
