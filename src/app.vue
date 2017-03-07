@@ -11,15 +11,15 @@
         </main>
         <footer>
         	<div class="col-xs-4 col-sm-4 col-md-4 active">
-        		<i class="fa fa-3x fa-music"></i>
+        		<i class="fa fa-2x fa-music"></i>
         		<p>发现音乐</p>
         	</div>
         	<div class="col-xs-4 col-sm-4 col-md-4">
-        		<i class="fa fa-3x fa-music"></i>
+        		<i class="fa fa-2x fa-music"></i>
         		<p>我的音乐</p>
         	</div>
         	<div class="col-xs-4 col-sm-4 col-md-4">
-        		<i class="fa fa-3x fa-user"></i>
+        		<i class="fa fa-2x fa-user"></i>
         		<p>帐号</p>
         	</div>
         </footer>
