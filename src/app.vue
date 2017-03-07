@@ -40,12 +40,10 @@ export default {
         };
     }
     methods(){
-        return {
-            menuActive: function () {
-                $("footer div").removeClass("active");
-                $(this).addClass("active");
-            }
-        };
+        menuActive: function () {
+            $("footer div").removeClass("active");
+            $(this).addClass("active");
+        }
     }
 }
 </script>
