@@ -11,7 +11,7 @@
         </main>
         <footer>
         	<div class="col-xs-4 col-sm-4 col-md-4 active">
-        		<i class="fa fa-2x fa-music"></i>
+        		<i class="fa fa-2x fa-podcast"></i>
         		<p>发现音乐</p>
         	</div>
         	<div class="col-xs-4 col-sm-4 col-md-4">
