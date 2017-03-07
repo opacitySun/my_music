@@ -9,7 +9,7 @@
         <main>
             <router-view></router-view>
         </main>
-        <footer id="footer">
+        <footer>
         	<div class="col-xs-4 col-sm-4 col-md-4 active" v-on:click="menuActive">
                 <router-link to="/">
             		<i class="fa fa-2x fa-podcast"></i>
@@ -34,15 +34,18 @@
 
 <script>
 export default {
-    el: '#footer',
-    data: {
-        
-    },
-    methods: {
-        menuActive: function () {
-            $("footer div").removeClass("active");
-            $(this).addClass("active");
-        }
+    data(){
+        return {
+
+        };
+    }
+    methods(){
+        return {
+            menuActive: function () {
+                $("footer div").removeClass("active");
+                $(this).addClass("active");
+            }
+        };
     }
 }
 </script>
