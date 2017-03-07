@@ -32,6 +32,7 @@
 
 <script>
     $("footer").on("click","div",function(){
+        console.log(111);
         $("footer div").removeClass("active");
         $(this).addClass("active");
     });
