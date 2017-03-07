@@ -1,7 +1,7 @@
 // ============================
 // P1. Dependencies Styles
 // ============================
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import "weui/dist/style/weui.min.css";
 import "font-awesome/css/font-awesome.min.css";
 
