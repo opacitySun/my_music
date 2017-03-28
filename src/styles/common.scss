@@ -28,6 +28,9 @@ footer{
 		text-align:center;
 		a{
 			text-decoration:none;
+			&:hover,&:active,&:focus{
+				text-decoration:none;
+			}
 		}
 		i{
 			color:$yellow;
