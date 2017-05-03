@@ -1,11 +1,13 @@
 <template>
-    <div id="musicPlayer">
-        <music-player></music-player>
-    </div>
+	<div>
+		<music-player></music-player>
+	</div>
 </template>
 
 <script>
-import MusicDetail from '../js/music-detail';
-
-export default MusicDetail;
+module.exports = {
+    components : {
+        'music-player' : require('../components/music-player')
+    }
+}
 </script>
