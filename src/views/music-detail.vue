@@ -5,9 +5,11 @@
 </template>
 
 <script>
+import MusicPlayer from '../components/music-player';
+
 module.exports = {
     components : {
-        'music-player' : require('../components/music-player')
+        'music-player' : MusicPlayer
     }
-}
+};
 </script>
