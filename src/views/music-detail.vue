@@ -1,13 +1,6 @@
 <template>
-    <div>
-        <h1>Music Detail</h1>
-		<hr/>
-
-		<p>Hello Detail page!</p>
-
-		<p>id:{{msg.id}}</p>
-		<p>name:{{msg.name}}</p>
-		<p>age:{{msg.age}}</p>
+    <div id="musicPlayer">
+        <music-player></music-player>
     </div>
 </template>
 
