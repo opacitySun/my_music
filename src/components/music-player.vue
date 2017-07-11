@@ -99,8 +99,7 @@ export default {
 			//console.log(this.$data);
 		});
 	},
-	style,
-	app
+	style
 }
 </script>
 
