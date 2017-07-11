@@ -4,13 +4,13 @@
 	    <div id="music-player">
 	        <audio id="player">
 	        </audio>
-	        <header>
+	        <div class="player_header">
 	            <div class="playing_info">
 	                <marquee scrollamount="1" behavior="alternate" direction= left width="100%" height="20px">
 	                    <span class="songName" id="music-title">HTML5</span>  <span class="singer" id="music-singer">music player</span>
 	                </marquee>
 	            </div>
-	        </header>
+	        </div>
 	        <div class="content">
 	            <div class="panelGroup">
 	                <div class="panel playlist">
@@ -33,7 +33,7 @@
 	                </div>
 	            </div>
 	        </div>
-	        <footer>
+	        <div class="player_footer">
 	            <audio id="player" preload="auto"></audio>
 	            <div id="playerProgress">
 	                <div class="time currentTime" id="current-time">00:00</div>
@@ -50,7 +50,7 @@
 	                <div id="music-next"><a class="button next"></a></div>
 	                <div><a class="button collect"></a></div>
 	            </div>
-	        </footer>
+	        </div>
 	    </div>
 
 	    <ul class="hidden" id="musics"></ul>
@@ -129,14 +129,14 @@ ul {
 input[type='file']{
   display:none;
 }
-header {
+.player_header {
   left: 0;
   top: 0;
   width: 100%;
   height: 45px;
   border-bottom: solid 1px rgba(207, 209, 215, 0.5);
 }
-footer {
+.player_footer {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -144,33 +144,33 @@ footer {
   height: 100px;
   min-width: 320px;
 }
-footer #playerProgress {
+.player_footer #playerProgress {
   display: -webkit-box;
 }
-footer #playerProgress > div {
+.player_footer #playerProgress > div {
   -webkit-box-flex: 1;
 }
-footer #playerProgress .time {
+.player_footer #playerProgress .time {
   width: 80px;
   max-width: 80px;
   min-width: 80px;
   color: #f9f5fa;
   text-align: center;
 }
-footer #playerProgress .progressbar {
+.player_footer #playerProgress .progressbar {
   -webkit-box-flex: 3;
   height: 3px;
   background-color: #cfcbd0;
   margin-top: 8px;
 }
-footer #playerProgress .progressbar .bar {
+.player_footer #playerProgress .progressbar .bar {
   display: block;
   width: 0;
   height: 100%;
   background: #52a9eb;
   position: relative;
 }
-footer #playerProgress .progressbar .bar:after {
+.player_footer #playerProgress .progressbar .bar:after {
   content: " ";
   position: absolute;
   width: 8px;
@@ -182,15 +182,15 @@ footer #playerProgress .progressbar .bar:after {
   top: -3px;
   -webkit-box-shadow: 0 0 1px 4px #52a9eb;
 }
-footer #playerCtrl {
+.player_footer #playerCtrl {
   display: -webkit-box;
   width: 100%;
   padding: 15px 0;
 }
-footer #playerCtrl > div {
+.player_footer #playerCtrl > div {
   -webkit-box-flex: 1;
 }
-footer #playerCtrl > div .button {
+.player_footer #playerCtrl > div .button {
   display: block;
   margin: auto;
   width: 58px;
@@ -200,31 +200,31 @@ footer #playerCtrl > div .button {
   border-radius: 30px;
   -webkit-border-radius: 30px;
 }
-footer #playerCtrl > div .button:active {
+.player_footer #playerCtrl > div .button:active {
   -webkit-box-shadow: 0 0 1px 2px #f9f5fa;
 }
-footer #playerCtrl > div .button.loop {
+.player_footer #playerCtrl > div .button.loop {
   background-image: url("../lib/HTML5MusicPlayer/images/pcrl/loop.png");
 }
-footer #playerCtrl > div .button.random {
+.player_footer #playerCtrl > div .button.random {
   background-image: url("../lib/HTML5MusicPlayer/images/pcrl/random.png");
 }
-footer #playerCtrl > div .button.prev {
+.player_footer #playerCtrl > div .button.prev {
   background-image: url("../lib/HTML5MusicPlayer/images/pcrl/prev.png");
 }
-footer #playerCtrl > div .button.play {
+.player_footer #playerCtrl > div .button.play {
   background-image: url("../lib/HTML5MusicPlayer/images/pcrl/play.png");
 }
-footer #playerCtrl > div .button.pause {
+.player_footer #playerCtrl > div .button.pause {
   background-image: url("../lib/HTML5MusicPlayer/images/pcrl/pause.png");
 }
-footer #playerCtrl > div .button.next {
+.player_footer #playerCtrl > div .button.next {
   background-image: url("../lib/HTML5MusicPlayer/images/pcrl/next.png");
 }
-footer #playerCtrl > div .button.collect {
+.player_footer #playerCtrl > div .button.collect {
   background-image: url("../lib/HTML5MusicPlayer/images/pcrl/collect.png");
 }
-header .playing_info {
+.player_header .playing_info {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -234,10 +234,10 @@ header .playing_info {
   padding: 10px;
   -webkit-box-sizing: border-box;
 }
-header .playing_info .songName {
+.player_header .playing_info .songName {
   font-weight: bold;
 }
-header .playing_info .singer {
+.player_header .playing_info .singer {
   font-size: 13px;
 }
 .content {
