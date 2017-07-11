@@ -69,7 +69,6 @@
 
 <script>
 import style from "../lib/HTML5MusicPlayer/style.css";
-import app from "../lib/HTML5MusicPlayer/app.js";
 
 export default {
 	data(){
