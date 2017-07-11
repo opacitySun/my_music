@@ -9,3 +9,4 @@ import "font-awesome/css/font-awesome.min.css";
 // P2. Style Guideline
 // ============================
 import {} from "./common.scss";
+import {} from "./musicplayer.scss";
