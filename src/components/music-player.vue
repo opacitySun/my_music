@@ -112,7 +112,7 @@ body {
 body {
   font-family: "宋体", "Arial", "sans-serif";
   font-size: 16px;
-  background: url("/lib/HTML5MusicPlayer/images/bg.png") no-repeat;
+  background: url("../lib/HTML5MusicPlayer/images/bg.png") no-repeat;
   background-size: cover;
   width: 100%;
   min-width: 320px;
@@ -204,25 +204,25 @@ footer #playerCtrl > div .button:active {
   -webkit-box-shadow: 0 0 1px 2px #f9f5fa;
 }
 footer #playerCtrl > div .button.loop {
-  background-image: url("/lib/HTML5MusicPlayer/images/pcrl/loop.png");
+  background-image: url("../lib/HTML5MusicPlayer/images/pcrl/loop.png");
 }
 footer #playerCtrl > div .button.random {
-  background-image: url("/lib/HTML5MusicPlayer/images/pcrl/random.png");
+  background-image: url("../lib/HTML5MusicPlayer/images/pcrl/random.png");
 }
 footer #playerCtrl > div .button.prev {
-  background-image: url("/lib/HTML5MusicPlayer/images/pcrl/prev.png");
+  background-image: url("../lib/HTML5MusicPlayer/images/pcrl/prev.png");
 }
 footer #playerCtrl > div .button.play {
-  background-image: url("/lib/HTML5MusicPlayer/images/pcrl/play.png");
+  background-image: url("../lib/HTML5MusicPlayer/images/pcrl/play.png");
 }
 footer #playerCtrl > div .button.pause {
-  background-image: url("/lib/HTML5MusicPlayer/images/pcrl/pause.png");
+  background-image: url("../lib/HTML5MusicPlayer/images/pcrl/pause.png");
 }
 footer #playerCtrl > div .button.next {
-  background-image: url("/lib/HTML5MusicPlayer/images/pcrl/next.png");
+  background-image: url("../lib/HTML5MusicPlayer/images/pcrl/next.png");
 }
 footer #playerCtrl > div .button.collect {
-  background-image: url("/lib/HTML5MusicPlayer/images/pcrl/collect.png");
+  background-image: url("../lib/HTML5MusicPlayer/images/pcrl/collect.png");
 }
 header .playing_info {
   width: 100%;
@@ -316,11 +316,11 @@ header .playing_info .singer {
   width: 50px;
   height: 50px;
   overflow: hidden;
-  background: url("/lib/HTML5MusicPlayer/images/playing.png") 0 -15px no-repeat;
+  background: url("../lib/HTML5MusicPlayer/images/playing.png") 0 -15px no-repeat;
   background-size: contain;
 }
 .panel.playlist .music_list li.selected.playing .right .stateIcon {
-  background-image: url("/lib/HTML5MusicPlayer/images/playing.gif");
+  background-image: url("../lib/HTML5MusicPlayer/images/playing.gif");
 }
 .panel.lyric {
   color: #ffffff;
@@ -351,7 +351,7 @@ header .playing_info .singer {
   height: 280px;
   border-radius: 140px;
   -webkit-border-radius: 140px;
-  background: url("/lib/HTML5MusicPlayer/images/bg-song-disc.png") no-repeat;
+  background: url("../lib/HTML5MusicPlayer/images/bg-song-disc.png") no-repeat;
   background-size: 280px;
   margin: 10px auto;
 }
