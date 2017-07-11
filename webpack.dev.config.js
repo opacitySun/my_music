@@ -29,10 +29,7 @@ config.plugins.push(
 config.module.loaders.push(
     {
         test: /\.(jpe?g|png(\*)?|gif)$/,
-        loaders: [
-            'file?name=images/[name].[ext]',
-            'url?limit=0'
-        ]
+        loaders: ['file?name=images/[name].[ext]']
     }
 );
 
