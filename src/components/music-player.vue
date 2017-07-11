@@ -98,3 +98,7 @@ export default {
 	}
 }
 </script>
+
+<style>
+	footer{display:none;}
+</style>
