@@ -100,5 +100,6 @@ export default {
 </script>
 
 <style>
+	main{height:100%;}
 	footer{display:none;}
 </style>
