@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="music_player">
 		<input type="file" id="file" accept="audio/mp3,audio/ogg" multiple>
 	    <div id="music-player">
 	        <audio id="player">
@@ -103,13 +103,11 @@ export default {
 * {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
-html,
-body {
+.music_player {
   padding: 0;
   margin: 0;
   height: 100%;
-}
-body {
+
   font-family: "宋体", "Arial", "sans-serif";
   font-size: 16px;
   background: url("../lib/HTML5MusicPlayer/images/bg.png") no-repeat;
@@ -118,15 +116,15 @@ body {
   min-width: 320px;
   overflow: hidden;
 }
-ul {
+.music_player ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.hidden{
+.music_player .hidden{
   display:none !important;
 }
-input[type='file']{
+.music_player input[type='file']{
   display:none;
 }
 .player_header {
@@ -240,7 +238,7 @@ input[type='file']{
 .player_header .playing_info .singer {
   font-size: 13px;
 }
-.content {
+.music_player .content {
   position: absolute;
   left: 0;
   bottom: 100px;
@@ -248,14 +246,14 @@ input[type='file']{
   width: 100%;
   overflow: hidden;
 }
-.content > .panelGroup {
+.music_player .content > .panelGroup {
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
   width: 300%;
 }
-.content > .panelGroup .panel {
+.music_player .content > .panelGroup .panel {
   position: absolute;
   left: 0;
   top: 0;
@@ -264,54 +262,54 @@ input[type='file']{
   overflow: hidden;
   -webkit-box-sizing: border-box;
 }
-.content > .panelGroup .panel:nth-child(2) {
+.music_player .content > .panelGroup .panel:nth-child(2) {
   left: 33.3333333333%;
 }
-.content > .panelGroup .panel:nth-child(3) {
+.music_player .content > .panelGroup .panel:nth-child(3) {
   left: 66.6666666666%;
 }
-.panel.playlist .music_list {
+.music_player .panel.playlist .music_list {
   color: #ffffff;
 }
-.panel.playlist .music_list li {
+.music_player .panel.playlist .music_list li {
   display: -webkit-box;
   height: 65px;
   -webkit-box-sizing: border-box;
   padding: 10px 20px;
   border-bottom: solid 1px rgba(249, 247, 248, 0.3);
 }
-.panel.playlist .music_list li:last-child {
+.music_player .panel.playlist .music_list li:last-child {
   border-bottom: none;
 }
-.panel.playlist .music_list li .left {
+.music_player .panel.playlist .music_list li .left {
   -webkit-box-flex: 5;
 }
-.panel.playlist .music_list li .left .songName {
+.music_player .panel.playlist .music_list li .left .songName {
   font-weight: bold;
   font-size: 17px;
   margin-bottom: 5px;
 }
-.panel.playlist .music_list li .left .singer {
+.music_player .panel.playlist .music_list li .left .singer {
   font-size: 13px;
   color: #EAE8E9;
 }
-.panel.playlist .music_list li .right {
+.music_player .panel.playlist .music_list li .right {
   -webkit-box-flex: 1;
   width: 50px;
   max-width: 50px;
 }
-.panel.playlist .music_list li .right .stateIcon {
+.music_player .panel.playlist .music_list li .right .stateIcon {
   width: 20px;
   height: 20px;
   background: #ffffff;
   display: none;
   margin-top: 10px;
 }
-.panel.playlist .music_list li.selected {
+.music_player .panel.playlist .music_list li.selected {
   background: rgba(254, 250, 255, 0.1);
   border-bottom: none;
 }
-.panel.playlist .music_list li.selected .right .stateIcon {
+.music_player .panel.playlist .music_list li.selected .right .stateIcon {
   display: block;
   width: 50px;
   height: 50px;
@@ -319,13 +317,13 @@ input[type='file']{
   background: url("../lib/HTML5MusicPlayer/images/playing.png") 0 -15px no-repeat;
   background-size: contain;
 }
-.panel.playlist .music_list li.selected.playing .right .stateIcon {
+.music_player .panel.playlist .music_list li.selected.playing .right .stateIcon {
   background-image: url("../lib/HTML5MusicPlayer/images/playing.gif");
 }
-.panel.lyric {
+.music_player .panel.lyric {
   color: #ffffff;
 }
-.panel.lyric .lyric_wrap {
+.music_player .panel.lyric .lyric_wrap {
   position: absolute;
   bottom: 15px;
   left: 0;
@@ -333,20 +331,20 @@ input[type='file']{
   top: 15px;
   overflow: hidden;
 }
-.panel.lyric .lyric_wrap #lyric {
+.music_player .panel.lyric .lyric_wrap #lyric {
   padding: 5px;
   -webkit-transition: 500ms ease-out;
 }
-.panel.lyric .lyric_wrap #lyric li {
+.music_player .panel.lyric .lyric_wrap #lyric li {
   text-align: center;
   font-size: 15px;
   padding: 5px 0;
 }
-.panel.lyric .lyric_wrap #lyric li.on {
+.music_player .panel.lyric .lyric_wrap #lyric li.on {
   font-weight: bold;
   color: #36a3e1;
 }
-.panel.album .album_art {
+.music_player .panel.album .album_art {
   width: 280px;
   height: 280px;
   border-radius: 140px;
@@ -355,26 +353,26 @@ input[type='file']{
   background-size: 280px;
   margin: 10px auto;
 }
-.panel.album .album_art .cover {
+.music_player .panel.album .album_art .cover {
   width: 140px;
   height: 140px;
   border-radius: 120px;
   margin: 71px;
 }
-.panel.album .album_art.active {
+.music_player .panel.album .album_art.active {
   -webkit-animation: rotation 10s;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
 }
-.panel.album .music_info ul {
+.music_player .panel.album .music_info ul {
   color: #ffffff;
   font-size: 14px;
 }
-.panel.album .music_info ul li {
+.music_player .panel.album .music_info ul li {
   padding: 8px 10px;
   text-align: center;
 }
-.panel.album .music_info ul li.title {
+.music_player .panel.album .music_info ul li.title {
   font-weight: bold;
   color: #429DD7;
 }
