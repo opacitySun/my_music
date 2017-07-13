@@ -59,12 +59,16 @@ module.exports = {
             },
             // 加载图片
             {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpg|gif)$/,
                 loader: 'url',
                 query: {
                     limit: 0,
                     name: '[name].[ext]?[hash:7]'
                 }
+            },
+            {
+                test: /\.(mp4|ogg|svg|mp3)$/,
+                loader: 'file'
             },
             {
                 test: /\.scss$/,

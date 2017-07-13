@@ -6,6 +6,7 @@
 	        </audio>
 	        <div class="player_header">
 	            <div class="playing_info">
+	            	<i class="fa chevron-left"></i>
 	                <marquee scrollamount="1" behavior="alternate" direction= left width="100%" height="20px">
 	                    <span class="songName" id="music-title">HTML5</span>  <span class="singer" id="music-singer">music player</span>
 	                </marquee>
@@ -90,14 +91,22 @@ export default {
 			this.msg = {"id":id,"name":"hello222","age":28};
 		}
 
-		$("main").css("height","100%");
-		$("footer").css("display","none");
+		$("main").addClass("h100");
+		$("footer").addClass("hidden");
 	},
 	mounted() {
 		this.$nextTick(function () {
 			// 代码保证 this.$el 在 document 中
 			//console.log(this.$data);
 		});
+	},
+	methods: {
+		//返回上一页
+		goback:function(){
+			$("main").removeClass("h100");
+			$("footer").removeClass("hidden");
+			this.$router.push({ path: '/' });
+		}
 	}
 }
 </script>

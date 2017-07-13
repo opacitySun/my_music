@@ -130,6 +130,10 @@
   padding: 10px;
   -webkit-box-sizing: border-box;
 }
+.player_header .playing_info i{
+  font-size:1rem;
+  margin-right:0.5rem;
+}
 .player_header .playing_info .songName {
   font-weight: bold;
 }

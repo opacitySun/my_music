@@ -1,5 +1,9 @@
 @import "variable";
 
+.hidden{
+	display:none;
+}
+
 body{
 	width:100%;
 	height: 100%;
@@ -14,6 +18,9 @@ main{
 	width:100%;
 	height:calc(100% - #{$footer-height + 1rem});
 	overflow:auto;
+}
+main.h100{
+	height:100%;
 }
 
 main > div{
