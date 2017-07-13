@@ -89,6 +89,9 @@ export default {
 		}else{
 			this.msg = {"id":id,"name":"hello222","age":28};
 		}
+
+		$("main").css("height","100%");
+		$("footer").css("display","none");
 	},
 	mounted() {
 		this.$nextTick(function () {
@@ -100,6 +103,5 @@ export default {
 </script>
 
 <style>
-	main{height:100%;}
-	footer{display:none;}
+
 </style>
