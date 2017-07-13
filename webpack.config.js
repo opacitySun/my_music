@@ -62,7 +62,6 @@ module.exports = {
                 test: /\.(png|jpg|gif)$/,
                 loader: 'url',
                 query: {
-                    limit: 0,
                     name: '[name].[ext]?[hash:7]'
                 }
             },
