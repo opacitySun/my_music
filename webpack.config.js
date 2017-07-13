@@ -68,7 +68,7 @@ module.exports = {
             },
             {
                 test: /\.(mp4|ogg|svg|mp3)$/,
-                loader: 'file'
+                loader: 'file?name=files/[name].[ext]'
             },
             {
                 test: /\.scss$/,
