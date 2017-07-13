@@ -6,7 +6,7 @@
 	        </audio>
 	        <div class="player_header">
 	            <div class="playing_info">
-	            	<i class="fa hand-o-left"></i>
+	            	<i class="fa fa-chevron-left"></i>
 	                <marquee scrollamount="1" behavior="alternate" direction= left width="100%" height="20px">
 	                    <span class="songName" id="music-title">HTML5</span>  <span class="singer" id="music-singer">music player</span>
 	                </marquee>

@@ -131,8 +131,8 @@
   -webkit-box-sizing: border-box;
 }
 .player_header .playing_info i{
-  font-size:1rem;
-  margin-right:0.5rem;
+  font-size:2rem;
+  margin-right:1rem;
 }
 .player_header .playing_info .songName {
   font-weight: bold;
@@ -163,6 +163,7 @@
   width: 33.3333333333%;
   overflow: hidden;
   -webkit-box-sizing: border-box;
+  background:transparent;
 }
 .music_player .content > .panelGroup .panel:nth-child(2) {
   left: 33.3333333333%;
