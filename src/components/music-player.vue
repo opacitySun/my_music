@@ -75,7 +75,7 @@ export default {
 			musicQueue:new this.MusicQueue(),
 			index:0,
 			timeId:function(){},
-			player:$("#player"),
+			player:document.getElementById("player"),
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
