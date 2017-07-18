@@ -2,8 +2,7 @@
     <div class="music_player">
 		<input type="file" id="file" accept="audio/mp3,audio/ogg" multiple>
 	    <div id="music-player">
-	        <audio id="player">
-	        </audio>
+	        <audio id="player"></audio>
 	        <div class="player_header">
 	            <div class="playing_info">
 	            	<i class="fa fa-chevron-left" v-on:click="goback()"></i>
@@ -72,7 +71,22 @@
 export default {
 	data(){
 		return {
-			msg:{}
+			msg:{},
+			musicQueue:new this.MusicQueue(),
+			index:0,
+			timeId:function(){},
+			player:$("#player"),
+			controlIcon:$("#control-icon"),
+			durationElement:$("#duration"),
+			currentTimeElement:$("#current-time"),
+			progressElement:$("#music-progress"),
+			progressBtnElement:$("#music-progress-btn"),
+			fileElement:$("#file"),
+			musicTitleElement:$("#music-title"),
+			albumPicElment:$("#picture"),
+			musicPlayer:$("#music-player"),
+			musicUL:$("#musics"),
+			liElementsCache:[]
 		};
 	},
 	created(){
@@ -106,6 +120,148 @@ export default {
 			$("main").removeClass("h100");
 			$("footer").removeClass("hidden");
 			this.$router.push({ path: '/' });
+		},
+		MusicQueue:function(){
+			var musics = [];
+			var index = -1;
+			var loop = true;
+
+			this.setLoop = function() {
+				loop = true;
+			};
+
+			this.setRandom = function() {
+				loop = false;
+			};
+
+			this.addMusic = function(music) {
+				musics.push(music);
+			};
+
+			this.addList = function(list) {
+				var length = list.length;
+
+				for(var i = 0; i < length; i++) {
+					this.addMusic(list[i]);
+				}
+			};
+
+			this.getMusic = function() {
+				if(loop === true) {
+					if(index >= musics.length - 1) {
+						index = -1;
+					}
+					index += 1;
+					return musics[index];
+				} else {
+					index = Math.floor(Math.random() * musics.length);
+					return musics[index];
+				}
+			};
+
+			this.getPreMusic = function() {
+				if(loop) {
+					if(index === 0) {
+						return musics[0];
+					} else {
+						index -= 1;
+						return musics[index];
+					}
+				} else {
+					return this.getMusic();
+				}
+			};
+
+			this.getMusicByName = function(name) {
+				index = this.getIndexByName(name);
+				return musics[index];
+			};
+
+			this.getIndexByName = function(name) {
+				for(var i = 0; i < musics.length; i++) {
+					if(musics[i].name === name) {
+						return i;
+					}
+				}
+			}
+
+			this.getAllMusic = function() {
+				return musics;
+			};
+
+			this.pushMusics = function(ms) {
+				musics = ms;
+			};
+		},
+		init:function(){
+			var music = new Music("风筝误", "../files/fly.ogg");
+			this.musicQueue.addMusic(music);
+			this.musicTitleElement.innerHTML = music.name;
+			this.player.src = music.src;
+			setTimeout(this.setDuration, 500);
+			this.appendMusicToDOM("风筝误");
+			this.setSelected(this.index);
+		},
+		musicControl:function(){
+			if (this.player.paused) {
+				this.player.play();
+				this.playerStart();
+				this.timeId = setTimeout(this.change(), 500);
+			} else {
+				this.player.pause();
+				this.playerPause();
+				clearTimeout(this.timeId);
+			}
+		},
+		playerStart:function(){
+			this.controlIcon.removeClass("play");
+			this.controlIcon.addClass("pause");
+			this.setDuration();
+		},
+		playerPause:function(){
+			this.controlIcon.removeClass("pause");
+			this.controlIcon.addClass("play");
+		},
+		playerChange:function(){
+			this.setCurrentTime();
+			var currentTime = this.player.currentTime,
+				duration = this.player.duration;
+
+			var progress = (currentTime / duration).toFixed(2) * 100;
+			progress = progress <= 100 ? progress : 100;
+			this.progressBtnElement.style.width = progress+"%";
+
+			this.timeId = setTimeout(this.playerChange(), 500);
+		},
+		setDuration:function(){
+			var total = this.player.duration;
+			total = total ? total : 0;
+			this.durationElement.html(this.timeFormat(total));
+		},
+		timeFormat:function(total){
+			var minute = parseInt(total / 60),
+				second = parseInt(total - minute * 60),
+				result;
+
+			second = (second >= 10) ? second : '0' + second;
+			result = minute + ":" + second;
+			return result;
+		},
+		setCurrentTime:function(){
+			var total = this.player.currentTime;
+			this.currentTimeElement.html(this.timeFormat(total));
+		},
+		appendMusicToDOM:function(name){
+			var li = '<li>'+name+'</li>';
+			this.liElementsCache.push(li);
+			this.musicUL.append(li);
+		},
+		setSelected:function(index){
+			this.liElementsCache[index].addClass("selected");
+			this.liElementsCache[index].scrollIntoView(false);
+		},
+		removeSelected:function(index){
+			this.liElementsCache[index].removeClass("selected");
 		}
 	}
 }
