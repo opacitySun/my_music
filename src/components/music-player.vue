@@ -46,7 +46,7 @@
 	                    <a class="button random hidden" id="play-style-random" title="随机播放"></a>
 	                </div>
 	                <div id="music-pre"><a class="button prev"></a></div>
-	                <div id="music-stop"><a class="button play" id="control-icon"></a></div>
+	                <div v-on:click="musicControl()"><a class="button play" id="control-icon"></a></div>
 	                <div id="music-next"><a class="button next"></a></div>
 	                <div><a class="button collect"></a></div>
 	            </div>
