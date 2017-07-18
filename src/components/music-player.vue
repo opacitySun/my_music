@@ -197,20 +197,20 @@ export default {
 			var music = new Music("风筝误", "../files/fly.ogg");
 			this.musicQueue.addMusic(music);
 			this.musicTitleElement.innerHTML = music.name;
-			this.player.src = music.src;
+			this.$data.player.src = music.src;
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
 			this.setSelected(this.index);
 		},
 		musicControl:function(){
-			if (this.player.paused) {
-				this.player.play();
-				this.playerStart();
-				this.timeId = setTimeout(this.change(), 500);
+			if (this.$data.player.paused) {
+				this.$data.player.play();
+				this.$data.playerStart();
+				this.$data.timeId = setTimeout(this.change(), 500);
 			} else {
-				this.player.pause();
-				this.playerPause();
-				clearTimeout(this.timeId);
+				this.$data.player.pause();
+				this.$data.playerPause();
+				clearTimeout(this.$data.timeId);
 			}
 		},
 		playerStart:function(){
