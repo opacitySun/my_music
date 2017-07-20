@@ -71,7 +71,6 @@
 export default {
 	data:{
 		msg:{},
-		musicQueue:new this.MusicQueue(),
 		index:0,
 		timeId:function(){},
 		player:document.getElementById("player"),
@@ -192,8 +191,9 @@ export default {
 			};
 		},
 		init:function(){
+			var musicQueue = new this.musicQueue();
 			var music = new Music("风筝误", "../files/fly.ogg");
-			this.musicQueue.addMusic(music);
+			musicQueue.addMusic(music);
 			this.musicTitleElement.innerHTML = music.name;
 			this.player.src = music.src;
 			setTimeout(this.setDuration, 500);
