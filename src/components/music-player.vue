@@ -196,7 +196,7 @@ export default {
 		},
 		init:function(){
 			var musicQueue = new this.MusicQueue();
-			var music = new Music("风筝误", "../files/fly.ogg");
+			var music = new this.Music("风筝误", "../files/fly.ogg");
 			musicQueue.addMusic(music);
 			this.musicTitleElement.innerHTML = music.name;
 			this.player.src = music.src;
