@@ -93,6 +93,8 @@ export default {
 		var id = this.$route.params.id;
 		id = Number(id);
 
+		this.init();
+
 		//根据获取的参数ID，返回不同的data对象（真实业务中，这里应该是Ajax获取数据）
 		if(id === 1){
 			this.msg = {
