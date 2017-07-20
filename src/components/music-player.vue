@@ -2,7 +2,7 @@
     <div class="music_player">
 		<input type="file" id="file" accept="audio/mp3,audio/ogg" multiple>
 	    <div id="music-player">
-	        <audio id="player"></audio>
+	        <audio id="player" src="/src/files/fly.ogg"></audio>
 	        <div class="player_header">
 	            <div class="playing_info">
 	            	<i class="fa fa-chevron-left" v-on:click="goback()"></i>
