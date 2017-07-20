@@ -13,11 +13,11 @@ var historyMiddleware = history({
 });
 app.use(historyMiddleware);
 
-// 监听8080端口，开启服务器
-app.listen(8080, function (err) {
+// 监听8383端口，开启服务器
+app.listen(8383, function (err) {
     if (err) {
         console.log(err);
         return;
     }
-    console.log('Listening at http://localhost:8080');
+    console.log('Listening at http://localhost:8383');
 });
