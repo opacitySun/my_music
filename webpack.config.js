@@ -63,7 +63,7 @@ module.exports = {
                 loader: 'file?name=images/[name].[ext]?[hash:7]'
             },
             {
-                test: /\.(mp4|ogg|mp3)(\?.*)?$/,
+                test: /\.mp3(\?.*)?$/,
                 loader: 'file?name=files/[name].[ext]',
                 include: path.resolve(__dirname, 'src/files')
             },
