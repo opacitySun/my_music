@@ -69,22 +69,24 @@
 
 <script>
 export default {
-	data:{
-		msg:{},
-		index:0,
-		timeId:function(){},
-		player:document.getElementById("player"),
-		controlIcon:$("#control-icon"),
-		durationElement:$("#duration"),
-		currentTimeElement:$("#current-time"),
-		progressElement:$("#music-progress"),
-		progressBtnElement:$("#music-progress-btn"),
-		fileElement:$("#file"),
-		musicTitleElement:$("#music-title"),
-		albumPicElment:$("#picture"),
-		musicPlayer:$("#music-player"),
-		musicUL:$("#musics"),
-		liElementsCache:[]
+	data(){
+		return {
+			msg:{},
+			index:0,
+			timeId:function(){},
+			player:document.getElementById("player"),
+			controlIcon:$("#control-icon"),
+			durationElement:$("#duration"),
+			currentTimeElement:$("#current-time"),
+			progressElement:$("#music-progress"),
+			progressBtnElement:$("#music-progress-btn"),
+			fileElement:$("#file"),
+			musicTitleElement:$("#music-title"),
+			albumPicElment:$("#picture"),
+			musicPlayer:$("#music-player"),
+			musicUL:$("#musics"),
+			liElementsCache:[]
+		}
 	},
 	created(){
 		//获取params的参数ID
