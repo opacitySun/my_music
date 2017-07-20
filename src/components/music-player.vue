@@ -127,7 +127,7 @@ export default {
 			var index = -1;
 			var loop = true;
 
-			var setLoop = fucntion(){
+			var setLoop = function(){
 				loop = true;
 			};
 
