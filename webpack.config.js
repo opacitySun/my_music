@@ -64,8 +64,8 @@ module.exports = {
             },
             {
                 test: /\.(mp4|ogg|mp3)$/,
-                loader: 'file',
-                include: path.resolve(__dirname, 'src/files')
+                loader: 'file?name=files/[name].[ext]',
+                include: SRC
             },
             {
                 test: /\.scss$/,
