@@ -42,14 +42,14 @@ config.plugins.push(
     })
 );
 
-config.module.loaders.push(
-    {
-        test: /\.(jpe?g|png(\*)?|gif)$/,
-        loaders: [
-            'file?hash=sha512&digest=hex&name=images/[hash].[ext]',
-            'image-webpack?bypassOnDebug=true&optimizationLevel=7&interlaced=false'
-        ]
-    }
-);
+// config.module.loaders.push(
+//     {
+//         test: /\.(jpe?g|png(\*)?|gif)$/,
+//         loaders: [
+//             'file?hash=sha512&digest=hex&name=images/[hash].[ext]',
+//             'image-webpack?bypassOnDebug=true&optimizationLevel=7&interlaced=false'
+//         ]
+//     }
+// );
 
 module.exports = config;
