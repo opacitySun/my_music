@@ -60,7 +60,7 @@ module.exports = {
             // 加载图片
             {
                 test: /\.(jpe?g|png(\*)?|gif)$/,
-                loader: 'file?[name].[ext]?[hash:7]'
+                loader: 'file?name=images/[name].[ext]?[hash:7]'
             },
             {
                 test: /\.(mp4|ogg|svg|mp3)$/,
