@@ -69,25 +69,23 @@
 
 <script>
 export default {
-	data(){
-		return {
-			msg:{},
-			musicQueue:new this.MusicQueue(),
-			index:0,
-			timeId:function(){},
-			player:document.getElementById("player"),
-			controlIcon:$("#control-icon"),
-			durationElement:$("#duration"),
-			currentTimeElement:$("#current-time"),
-			progressElement:$("#music-progress"),
-			progressBtnElement:$("#music-progress-btn"),
-			fileElement:$("#file"),
-			musicTitleElement:$("#music-title"),
-			albumPicElment:$("#picture"),
-			musicPlayer:$("#music-player"),
-			musicUL:$("#musics"),
-			liElementsCache:[]
-		};
+	data:{
+		msg:{},
+		musicQueue:new this.MusicQueue(),
+		index:0,
+		timeId:function(){},
+		player:document.getElementById("player"),
+		controlIcon:$("#control-icon"),
+		durationElement:$("#duration"),
+		currentTimeElement:$("#current-time"),
+		progressElement:$("#music-progress"),
+		progressBtnElement:$("#music-progress-btn"),
+		fileElement:$("#file"),
+		musicTitleElement:$("#music-title"),
+		albumPicElment:$("#picture"),
+		musicPlayer:$("#music-player"),
+		musicUL:$("#musics"),
+		liElementsCache:[]
 	},
 	created(){
 		//获取params的参数ID
@@ -197,20 +195,20 @@ export default {
 			var music = new Music("风筝误", "../files/fly.ogg");
 			this.musicQueue.addMusic(music);
 			this.musicTitleElement.innerHTML = music.name;
-			this.$data.player.src = music.src;
+			this.player.src = music.src;
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
 			this.setSelected(this.index);
 		},
 		musicControl:function(){
-			if (this.$data.player.paused) {
-				this.$data.player.play();
-				this.$data.playerStart();
-				this.$data.timeId = setTimeout(this.change(), 500);
+			if (this.player.paused) {
+				this.player.play();
+				this.playerStart();
+				this.timeId = setTimeout(this.change(), 500);
 			} else {
-				this.$data.player.pause();
-				this.$data.playerPause();
-				clearTimeout(this.$data.timeId);
+				this.player.pause();
+				this.playerPause();
+				clearTimeout(this.timeId);
 			}
 		},
 		playerStart:function(){
