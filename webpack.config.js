@@ -59,11 +59,8 @@ module.exports = {
             },
             // 加载图片
             {
-                test: /\.(png|jpg|gif)$/,
-                loader: 'url',
-                query: {
-                    name: '[name].[ext]?[hash:7]'
-                }
+                test: /\.(jpe?g|png(\*)?|gif)$/,
+                loader: 'file?[name].[ext]?[hash:7]'
             },
             {
                 test: /\.(mp4|ogg|svg|mp3)$/,
