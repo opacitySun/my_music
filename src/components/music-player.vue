@@ -264,6 +264,12 @@ export default {
 		},
 		removeSelected:function(index){
 			this.liElementsCache[index].removeClass("selected");
+		},
+		Music:function(name, src){
+			return {
+				"name":name,
+				"src":src
+			};
 		}
 	}
 }
