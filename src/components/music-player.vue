@@ -127,27 +127,27 @@ export default {
 			var index = -1;
 			var loop = true;
 
-			this.setLoop = function() {
+			var setLoop = fucntion(){
 				loop = true;
 			};
 
-			this.setRandom = function() {
+			var setRandom = function(){
 				loop = false;
 			};
 
-			this.addMusic = function(music) {
+			var addMusic = function(music){
 				musics.push(music);
 			};
 
-			this.addList = function(list) {
+			var addList = function(list){
 				var length = list.length;
 
 				for(var i = 0; i < length; i++) {
-					this.addMusic(list[i]);
+					addMusic(list[i]);
 				}
 			};
 
-			this.getMusic = function() {
+			var getMusic = function(){
 				if(loop === true) {
 					if(index >= musics.length - 1) {
 						index = -1;
@@ -160,7 +160,7 @@ export default {
 				}
 			};
 
-			this.getPreMusic = function() {
+			var getPreMusic = function(){
 				if(loop) {
 					if(index === 0) {
 						return musics[0];
@@ -173,25 +173,38 @@ export default {
 				}
 			};
 
-			this.getMusicByName = function(name) {
+			var getMusicByName = function(name) {
 				index = this.getIndexByName(name);
 				return musics[index];
 			};
 
-			this.getIndexByName = function(name) {
+			var getIndexByName = function(name) {
 				for(var i = 0; i < musics.length; i++) {
 					if(musics[i].name === name) {
 						return i;
 					}
 				}
-			}
+			};
 
-			this.getAllMusic = function() {
+			var getAllMusic = function() {
 				return musics;
 			};
 
-			this.pushMusics = function(ms) {
+			var pushMusics = function(ms) {
 				musics = ms;
+			};
+
+			return {
+				setLoop:setLoop,
+				setRandom:setRandom,
+				addMusic:addMusic,
+				addList:addList,
+				getMusic:getMusic,
+				getPreMusic:getPreMusic,
+				getMusicByName:getMusicByName,
+				getIndexByName:getIndexByName,
+				getAllMusic:getAllMusic,
+				pushMusics:pushMusics
 			};
 		},
 		init:function(){
