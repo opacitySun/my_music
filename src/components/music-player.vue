@@ -73,7 +73,8 @@ export default {
 			msg:{},
 			index:0,
 			timeId:function(){},
-			player:document.getElementById("player"),
+			isPlaying:false,
+			player:$('#player'),
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
@@ -211,7 +212,8 @@ export default {
 			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
 			this.musicTitleElement.text(music.name);
-			this.player.src = music.src;
+			var source = '<source src="'+music.src+'" type="audio/ogg" />';
+			this.player.append(source);
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
 			this.setSelected(this.index);
