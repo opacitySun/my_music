@@ -208,11 +208,12 @@ export default {
 			};
 		},
 		init:function(){
+			var player = document.getElementById("player");
 			var musicQueue = new this.MusicQueue();
 			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
 			this.musicTitleElement.innerHTML = music.name;
-			this.player.src = music.src;
+			player.src = music.src;
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
 			this.setSelected(this.index);
