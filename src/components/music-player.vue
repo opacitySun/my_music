@@ -2,7 +2,6 @@
     <div class="music_player">
 		<input type="file" id="file" accept="audio/mp3,audio/ogg" multiple>
 	    <div id="music-player">
-	        <audio id="audio"></audio>
 	        <div class="player_header">
 	            <div class="playing_info">
 	            	<i class="fa fa-chevron-left" v-on:click="goback()"></i>
@@ -74,7 +73,7 @@ export default {
 			msg:{},
 			index:0,
 			timeId:function(){},
-			audio:$("#audio")[0],
+			player:document.getElementById("player"),
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
@@ -212,18 +211,18 @@ export default {
 			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
 			this.musicTitleElement.text(music.name);
-			this.audio.attr("src",music.src);
+			this.player.src = music.src;
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
 			this.setSelected(this.index);
 		},
 		musicControl:function(){
-			if (this.audio.paused) {
-				this.audio.play();
+			if (this.player.paused) {
+				this.player.play();
 				this.playerStart();
 				this.timeId = setTimeout(this.change(), 500);
 			} else {
-				this.audio.pause();
+				this.player.pause();
 				this.playerPause();
 				clearTimeout(this.timeId);
 			}
