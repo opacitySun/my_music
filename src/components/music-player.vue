@@ -74,7 +74,7 @@ export default {
 			index:0,
 			timeId:function(){},
 			isPlaying:false,
-			player:document.getElementById("player"),
+			player:document.querySelector('#player'),
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
