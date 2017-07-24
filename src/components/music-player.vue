@@ -268,7 +268,9 @@ export default {
 			this.currentTimeElement.html(this.timeFormat(total));
 		},
 		appendMusicToDOM:function(name){
-			var li = '<li>'+name+'</li>';
+			var li = document.createElement("li");
+			var text = document.createTextNode(name);
+			li.appendChild(text);
 			this.liElementsCache.push(li);
 			this.musicUL.append(li);
 		},
