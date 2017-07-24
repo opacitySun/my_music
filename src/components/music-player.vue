@@ -74,7 +74,7 @@ export default {
 			index:0,
 			timeId:function(){},
 			isPlaying:false,
-			player:document.getElementById("player"),
+			player:{},
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
@@ -208,6 +208,7 @@ export default {
 			};
 		},
 		init:function(){
+			this.player = document.getElementById("player");
 			var musicQueue = new this.MusicQueue();
 			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
