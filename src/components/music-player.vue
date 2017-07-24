@@ -91,9 +91,7 @@ export default {
 	created(){
 		//获取params的参数ID
 		var id = this.$route.params.id;
-		id = Number(id);
-
-		
+		id = Number(id);		
 
 		//根据获取的参数ID，返回不同的data对象（真实业务中，这里应该是Ajax获取数据）
 		if(id === 1){
