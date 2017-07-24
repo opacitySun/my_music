@@ -275,7 +275,7 @@ export default {
 			this.musicUL.append(li);
 		},
 		setSelected:function(index){
-			this.liElementsCache[index].addClass("selected");
+			this.liElementsCache[index].classList.add("selected");
 			this.liElementsCache[index].scrollIntoView(false);
 		},
 		removeSelected:function(index){
