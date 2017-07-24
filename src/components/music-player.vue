@@ -209,11 +209,7 @@ export default {
 			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
 			this.musicTitleElement.text(music.name);
-			var source = document.createElement("source");
-			source.type = "audio/ogg";
-			source.src = music.src;
-			//var source = '<source src="'+music.src+'" type="audio/ogg" />';
-			this.player.appendChild(source);
+			this.player.src = music.src;
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
 			this.setSelected(this.index);
