@@ -74,7 +74,7 @@ export default {
 			index:0,
 			timeId:function(){},
 			isPlaying:false,
-			player:document.querySelector('#player'),
+			player:{},
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
@@ -206,14 +206,17 @@ export default {
 			};
 		},
 		init:function(){
-			var musicQueue = new this.MusicQueue();
-			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
-			musicQueue.addMusic(music);
-			this.musicTitleElement.text(music.name);
-			this.player.src = music.src;
-			setTimeout(this.setDuration, 500);
-			this.appendMusicToDOM("风筝误");
-			this.setSelected(this.index);
+			window.onload = function(){
+				this.player = document.querySelector('#player');
+				var musicQueue = new this.MusicQueue();
+				var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
+				musicQueue.addMusic(music);
+				this.musicTitleElement.text(music.name);
+				this.player.src = music.src;
+				setTimeout(this.setDuration, 500);
+				this.appendMusicToDOM("风筝误");
+				this.setSelected(this.index);
+			}
 		},
 		musicControl:function(){
 			if (this.player.paused) {
