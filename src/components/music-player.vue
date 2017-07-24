@@ -74,7 +74,7 @@ export default {
 			index:0,
 			timeId:function(){},
 			isPlaying:false,
-			player:{},
+			player:document.getElementById("player"),
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
@@ -93,7 +93,7 @@ export default {
 		var id = this.$route.params.id;
 		id = Number(id);
 
-		this.init();
+		
 
 		//根据获取的参数ID，返回不同的data对象（真实业务中，这里应该是Ajax获取数据）
 		if(id === 1){
@@ -109,11 +109,8 @@ export default {
 		$("main").addClass("h100");
 		$("footer").addClass("hidden");
 	},
-	mounted() {
-		this.$nextTick(function () {
-			// 代码保证 this.$el 在 document 中
-			//console.log(this.$data);
-		});
+	ready() {
+		this.init();
 	},
 	methods: {
 		//返回上一页
@@ -208,7 +205,6 @@ export default {
 			};
 		},
 		init:function(){
-			this.player = document.getElementById("player");
 			var musicQueue = new this.MusicQueue();
 			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
