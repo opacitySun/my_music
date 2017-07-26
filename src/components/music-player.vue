@@ -150,13 +150,8 @@ export default {
 						return musics[index];
 					}
 				} else {
-					return this.getMusic();
+					return getMusic();
 				}
-			};
-
-			var getMusicByName = function(name) {
-				index = this.getIndexByName(name);
-				return musics[index];
 			};
 
 			var getIndexByName = function(name) {
@@ -165,6 +160,11 @@ export default {
 						return i;
 					}
 				}
+			};
+
+			var getMusicByName = function(name) {
+				index = getIndexByName(name);
+				return musics[index];
 			};
 
 			var getAllMusic = function() {
@@ -195,7 +195,7 @@ export default {
 			this.musicTitle = music.name;
 			this.musicAuthor = music.author;
 			this.player.src = music.src;
-			setTimeout(this.setDuration(), 500);
+			setInterval(this.setDuration(), 500);
 			this.appendMusicToDOM(music.name);
 			this.setSelected(this.index);
 			this.playerStart();
@@ -210,14 +210,14 @@ export default {
 		playerStart:function(){
 			this.player.play();
 			this.isPlaying = true;
-			this.timeId = setTimeout(this.playerChange(), 500);
+			this.timeId = setInterval(this.playerChange(), 500);
 			this.playerIcon = "button pause";
 			this.setDuration();
 		},
 		playerPause:function(){
 			this.player.pause();
 			this.isPlaying = false;
-			clearTimeout(this.timeId);
+			clearInterval(this.timeId);
 			this.playerIcon = "button play";
 		},
 		playerChange:function(){
@@ -228,8 +228,6 @@ export default {
 			var progress = (currentTime / duration).toFixed(2) * 100;
 			progress = progress <= 100 ? progress : 100;
 			this.progressBtnStyle = "width:"+progress+"%";
-
-			//this.timeId = setTimeout(this.playerChange(), 500);
 		},
 		setDuration:function(){
 			var total = this.player.duration;
@@ -302,9 +300,9 @@ export default {
 			this.setCurrentTime();
 
 			this.player.play();
-			setTimeout(this.setDuration(), 500);
-			clearTimeout(this.timeId);
-			this.timeId = setTimeout(this.playerChange(), 500);
+			setInterval(this.setDuration(), 500);
+			clearInterval(this.timeId);
+			this.timeId = setInterval(this.playerChange(), 500);
 
 			this.removeSelected(this.index);
 			var musicQueue = new this.MusicQueue();
