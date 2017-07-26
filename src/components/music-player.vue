@@ -3,9 +3,9 @@
 		<input type="file" id="file" accept="audio/mp3,audio/ogg" multiple>
 	    <div id="music-player">
 	        <div class="player_header">
-	            <div class="playing_info">
+	            <div class="playing_info div-box">
 	            	<i class="fa fa-chevron-left" v-on:click="goback()"></i>
-	                <marquee scrollamount="1" behavior="alternate" direction= left width="100%" height="20px">
+	                <marquee scrollamount="1" behavior="alternate" direction="left" class="div-box-flex1">
 	                    <span class="songName">{{musicTitle}}</span>  <span class="singer" id="music-singer">作者：{{musicAuthor}}</span>
 	                </marquee>
 	            </div>

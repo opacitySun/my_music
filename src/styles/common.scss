@@ -1,5 +1,14 @@
 @import "variable";
 
+/*公用标签
+-----------------------------------------*/
+.img-center{-webkit-background-size:contain;background-size:contain;background-repeat:no-repeat;background-position:center;}
+.div-center{-webkit-box-align:center;box-align:center;-webkit-box-pack:center;box-pack:center;}
+.div-hidden{display:none;}
+.div-box{display:-moz-box;display:-webkit-box;display:box;}
+.div-box-flex1{box-flex:1;-webkit-box-flex:1;-moz-box-flex:1;}
+.text-ellipsis{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.word-break{word-break:break-all;word-wrap:break-word;}
 .hidden{
 	display:none;
 }
