@@ -276,21 +276,21 @@ export default {
 		playerLoop:function(event){
 			this.player.loop = false;
 			var musicQueue = new this.MusicQueue();
-			var _this = event.target;
 			musicQueue.setRandom();
+			var _this = event.target;
 			$(_this).addClass("hidden");
 			$(_this).parent().find("a.random").removeClass("hidden");
 		},
 		playerRandom:function(event){
-			this.player.loop = false;
-			var musicQueue = new this.MusicQueue();
+			this.player.loop = true;
 			var _this = event.target;
-			musicQueue.setLoop();
 			$(_this).addClass("hidden");
 			$(_this).parent().find("a.single").removeClass("hidden");
 		},
 		playerSingle:function(event){
-			this.player.loop = true;
+			this.player.loop = false;
+			var musicQueue = new this.MusicQueue();
+			musicQueue.setLoop();
 			var _this = event.target;
 			$(_this).addClass("hidden");
 			$(_this).parent().find("a.loop").removeClass("hidden");
