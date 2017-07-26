@@ -73,7 +73,7 @@ export default {
 			msg:{},
 			index:0,
 			timeId:function(){},
-			isPlaying:false,
+			isPlaying:true,
 			playSrc:"",
 			player:{},
 			playerIcon:"button pause",
