@@ -75,7 +75,7 @@ export default {
 			timeId:function(){},
 			isPlaying:false,
 			playSrc:"",
-			player:this.$el.getElementById("player"),
+			player:{},
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
@@ -111,6 +111,7 @@ export default {
 	mounted() {
 		this.$nextTick(function () {
 			// 代码保证 this.$el 在 document 中
+			this.player = this.$el.getElementById("player");
 			this.init();
 		});
 	},
