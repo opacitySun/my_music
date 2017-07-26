@@ -26,13 +26,6 @@ config.plugins.push(
     })
 );
 
-config.module.loaders.push(
-    {
-        test: /\.(jpe?g|png(\*)?|gif)$/,
-        loaders: ['file?name=images/[name].[ext]']
-    }
-);
-
 // 动态向入口配置中注入 webpack-hot-middleware/client
 var devClient = './dev/dev-client';
 Object.keys(config.entry).forEach(function (name, i) {
