@@ -45,7 +45,7 @@
 	                    <a class="button random hidden" id="play-style-random" title="随机播放"></a>
 	                </div>
 	                <div id="music-pre"><a class="button prev"></a></div>
-	                <div v-on:click="musicControl()"><a class="button {{playerIcon}}"></a></div>
+	                <div v-on:click="musicControl()"><a v-bind:class="playerIcon"></a></div>
 	                <div id="music-next"><a class="button next"></a></div>
 	                <div><a class="button collect"></a></div>
 	            </div>
@@ -76,7 +76,7 @@ export default {
 			isPlaying:false,
 			playSrc:"",
 			player:{},
-			playerIcon:"pause",
+			playerIcon:"button pause",
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
 			progressElement:$("#music-progress"),
@@ -229,7 +229,7 @@ export default {
 			this.player.play();
 			this.isPlaying = true;
 			this.timeId = setTimeout(this.playerChange(), 500);
-			this.playerIcon = "pause";
+			this.playerIcon = "button pause";
 			this.setDuration();
 
 		},
@@ -237,7 +237,7 @@ export default {
 			this.player.pause();
 			this.isPlaying = false;
 			clearTimeout(this.timeId);
-			this.playerIcon = "play";
+			this.playerIcon = "button play";
 		},
 		playerChange:function(){
 			this.setCurrentTime();
