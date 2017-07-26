@@ -227,7 +227,7 @@ export default {
 				this.player.play();
 				this.playerStart();
 				this.isPlaying = true;
-				this.timeId = setTimeout(this.change(), 500);
+				this.timeId = setTimeout(this.playerChange(), 500);
 			}
 		},
 		playerStart:function(){
