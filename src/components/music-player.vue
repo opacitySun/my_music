@@ -33,7 +33,7 @@
 	            </div>
 	        </div>
 	        <div class="player_footer">
-	            <audio v-bind:src="playSrc"></audio>
+	            <audio></audio>
 	            <div id="playerProgress">
 	                <div class="time currentTime" id="current-time">00:00</div>
 	                <div class="progressbar" id="music-progress"><span class="bar" id="music-progress-btn"></span></div>
@@ -74,7 +74,6 @@ export default {
 			index:0,
 			timeId:function(){},
 			isPlaying:true,
-			playSrc:"",
 			player:{},
 			playerIcon:"button pause",
 			durationElement:$("#duration"),
@@ -213,7 +212,7 @@ export default {
 			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
 			this.musicTitle = music.name;
-			this.playSrc = music.src;
+			this.player.src = music.src;
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
 			this.setSelected(this.index);
