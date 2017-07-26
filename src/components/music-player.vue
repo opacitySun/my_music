@@ -111,7 +111,7 @@ export default {
 	mounted() {
 		this.$nextTick(function () {
 			// 代码保证 this.$el 在 document 中
-			this.player = this.$el.getElementById("player");
+			this.player = this.$el.getElementsByTagName('audio')[0];
 			this.init();
 		});
 	},
