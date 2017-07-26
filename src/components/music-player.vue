@@ -33,7 +33,7 @@
 	            </div>
 	        </div>
 	        <div class="player_footer">
-	            <audio id="player" preload="auto"></audio>
+	            <audio id="player" preload="auto" v-model:src="playSrc"></audio>
 	            <div id="playerProgress">
 	                <div class="time currentTime" id="current-time">00:00</div>
 	                <div class="progressbar" id="music-progress"><span class="bar" id="music-progress-btn"></span></div>
@@ -74,7 +74,8 @@ export default {
 			index:0,
 			timeId:function(){},
 			isPlaying:false,
-			player:{},
+			playSrc:"",
+			player:$('#player')[0],
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
@@ -206,27 +207,24 @@ export default {
 			};
 		},
 		init:function(){
-			window.onload = function(){
-				this.player = document.querySelector('#player');
-				var musicQueue = new this.MusicQueue();
-				var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
-				musicQueue.addMusic(music);
-				this.musicTitleElement.text(music.name);
-				this.player.src = music.src;
-				setTimeout(this.setDuration, 500);
-				this.appendMusicToDOM("风筝误");
-				this.setSelected(this.index);
-			}
+			var musicQueue = new this.MusicQueue();
+			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
+			musicQueue.addMusic(music);
+			this.musicTitleElement.text(music.name);
+			this.playSrc = music.src;
+			setTimeout(this.setDuration, 500);
+			this.appendMusicToDOM("风筝误");
+			this.setSelected(this.index);
 		},
 		musicControl:function(){
-			if (this.player.paused) {
-				this.player.play();
-				this.playerStart();
-				this.timeId = setTimeout(this.change(), 500);
-			} else {
+			if (this.isPlaying) {
 				this.player.pause();
 				this.playerPause();
 				clearTimeout(this.timeId);
+			} else {
+				this.player.play();
+				this.playerStart();
+				this.timeId = setTimeout(this.change(), 500);
 			}
 		},
 		playerStart:function(){
