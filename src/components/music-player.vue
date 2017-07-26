@@ -54,6 +54,7 @@ export default {
 			msg:{},
 			index:0,
 			timeId:function(){},
+			timeDuration:function(){},
 			isPlaying:true,
 			player:{},
 			playerIcon:"button pause",
@@ -101,6 +102,8 @@ export default {
 		goback:function(){
 			$("main").removeClass("h100");
 			$("footer").removeClass("hidden");
+			clearInterval(this.timeId);
+			clearInterval(this.timeDuration);
 			this.$router.push({ path: '/' });
 		},
 		MusicQueue:function(){
@@ -195,7 +198,7 @@ export default {
 			this.musicTitle = music.name;
 			this.musicAuthor = music.author;
 			this.player.src = music.src;
-			setInterval(this.setDuration(), 500);
+			this.timeDuration = setInterval(this.setDuration(), 500);
 			this.appendMusicToDOM(music.name);
 			this.setSelected(this.index);
 			this.playerStart();
@@ -210,6 +213,7 @@ export default {
 		playerStart:function(){
 			this.player.play();
 			this.isPlaying = true;
+			clearInterval(this.timeId);
 			this.timeId = setInterval(this.playerChange(), 500);
 			this.playerIcon = "button pause";
 			this.setDuration();
