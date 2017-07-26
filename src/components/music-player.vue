@@ -14,7 +14,7 @@
 	            
 	        </div>
 	        <div class="player_footer">
-	            <audio></audio>
+	            <audio loop="loop"></audio>
 	            <div id="playerProgress">
 	                <div class="time currentTime" id="current-time">{{currentTime}}</div>
 	                <div class="progressbar" v-on:click="progressClick($event)"><span class="bar" v-bind:style="progressBtnStyle"></span></div>
