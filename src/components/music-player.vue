@@ -59,6 +59,7 @@ export default {
 			isPlaying:true,
 			player:{},
 			playerIcon:"button pause",
+			loopStatus:"loop",
 			musicTitle:"",
 			musicAuthor:"",
 			playerPicSrc:"",
@@ -103,7 +104,7 @@ export default {
 		goback:function(){
 			$("main").removeClass("h100");
 			$("footer").removeClass("hidden");
-			clearInterval(this.timeId);
+			//clearInterval(this.timeId);
 			clearInterval(this.timeDuration);
 			this.$router.push({ path: '/' });
 		},
@@ -275,6 +276,7 @@ export default {
 		},
 		playerLoop:function(event){
 			this.player.loop = false;
+			this.loopStatus = "random";
 			var musicQueue = new this.MusicQueue();
 			musicQueue.setRandom();
 			var _this = event.target;
@@ -283,12 +285,14 @@ export default {
 		},
 		playerRandom:function(event){
 			this.player.loop = true;
+			this.loopStatus = "single";
 			var _this = event.target;
 			$(_this).addClass("hidden");
 			$(_this).parent().find("a.single").removeClass("hidden");
 		},
 		playerSingle:function(event){
 			this.player.loop = false;
+			this.loopStatus = "loop";
 			var musicQueue = new this.MusicQueue();
 			musicQueue.setLoop();
 			var _this = event.target;
