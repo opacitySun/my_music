@@ -217,6 +217,7 @@ export default {
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
 			this.setSelected(this.index);
+			this.playerStart();
 		},
 		musicControl:function(){
 			if (this.isPlaying) {
@@ -231,7 +232,6 @@ export default {
 			this.timeId = setTimeout(this.playerChange(), 500);
 			this.playerIcon = "button pause";
 			this.setDuration();
-
 		},
 		playerPause:function(){
 			this.player.pause();
