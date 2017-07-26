@@ -248,7 +248,7 @@ export default {
 			progress = progress <= 100 ? progress : 100;
 			this.progressBtnElement.css("width",progress+"%");
 
-			this.timeId = setTimeout(this.playerChange(), 500);
+			//this.timeId = setTimeout(this.playerChange(), 500);
 		},
 		setDuration:function(){
 			var total = this.player.duration;
