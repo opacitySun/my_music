@@ -6,7 +6,7 @@
 	            <div class="playing_info">
 	            	<i class="fa fa-chevron-left" v-on:click="goback()"></i>
 	                <marquee scrollamount="1" behavior="alternate" direction= left width="100%" height="20px">
-	                    <span class="songName" id="music-title">HTML5</span>  <span class="singer" id="music-singer">music player</span>
+	                    <span class="songName">{{musicTitle}}</span>  <span class="singer" id="music-singer">music player</span>
 	                </marquee>
 	            </div>
 	        </div>
@@ -82,7 +82,7 @@ export default {
 			progressElement:$("#music-progress"),
 			progressBtnElement:$("#music-progress-btn"),
 			fileElement:$("#file"),
-			musicTitleElement:$("#music-title"),
+			musicTitle:"",
 			albumPicElment:$("#picture"),
 			musicPlayer:$("#music-player"),
 			musicUL:$("#musics"),
@@ -211,7 +211,7 @@ export default {
 			var musicQueue = new this.MusicQueue();
 			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
-			this.musicTitleElement.text(music.name);
+			this.musicTitle = music.name;
 			this.playSrc = music.src;
 			setTimeout(this.setDuration, 500);
 			this.appendMusicToDOM("风筝误");
