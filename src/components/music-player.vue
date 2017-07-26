@@ -6,7 +6,7 @@
 	            <div class="playing_info">
 	            	<i class="fa fa-chevron-left" v-on:click="goback()"></i>
 	                <marquee scrollamount="1" behavior="alternate" direction= left width="100%" height="20px">
-	                    <span class="songName">{{musicTitle}}</span>  <span class="singer" id="music-singer">{{musicAuthor}}</span>
+	                    <span class="songName">{{musicTitle}}</span>  <span class="singer" id="music-singer">作者：{{musicAuthor}}</span>
 	                </marquee>
 	            </div>
 	        </div>
@@ -209,12 +209,13 @@ export default {
 		},
 		init:function(){
 			var musicQueue = new this.MusicQueue();
-			var music = new this.Music("风筝误", "http://www.sunbowei.com:3111/files/fly.ogg");
+			var music = new this.Music("风筝误", "未知","http://www.sunbowei.com:3111/files/fly.ogg");
 			musicQueue.addMusic(music);
 			this.musicTitle = music.name;
+			this.musicAuthor = music.author;
 			this.player.src = music.src;
 			setTimeout(this.setDuration, 500);
-			this.appendMusicToDOM("风筝误");
+			this.appendMusicToDOM(music.name);
 			this.setSelected(this.index);
 			this.playerStart();
 		},
@@ -281,9 +282,10 @@ export default {
 		removeSelected:function(index){
 			this.liElementsCache[index].removeClass("selected");
 		},
-		Music:function(name, src){
+		Music:function(name,author,src){
 			return {
 				"name":name,
+				"author":author,
 				"src":src
 			};
 		}
