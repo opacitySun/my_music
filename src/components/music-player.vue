@@ -10,34 +10,15 @@
 	                </marquee>
 	            </div>
 	        </div>
-	        <div class="content">
-	            <div class="panelGroup">
-	                <div class="panel playlist">
-	                    <ul class="music_list" id="music_list">
-	                        <li style="text-align: center;display: block;">加载音乐列表...</li>
-	                    </ul>
-	                </div>
-	                <div class="panel lyric">
-	                    <div class="lyric_wrap">
-	                        <ul id="lyric">
-	                            <li>HTML5 music player</li>
-	                        </ul>
-	                    </div>
-	                </div>
-	                <div class="panel album">
-	                    <div class="album_art">
-	                        <img class="cover"/>
-	                    </div>
-	                    <div class="music_info"></div>
-	                </div>
-	            </div>
+	        <div class="player_content">
+	            
 	        </div>
 	        <div class="player_footer">
 	            <audio></audio>
 	            <div id="playerProgress">
-	                <div class="time currentTime" id="current-time">00:00</div>
-	                <div class="progressbar" id="music-progress"><span class="bar" id="music-progress-btn"></span></div>
-	                <div class="time totalTime" id="duration">00:00</div>
+	                <div class="time currentTime" id="current-time">{{currentTime}}</div>
+	                <div class="progressbar" v-on:click="progressClick($event)"><span class="bar" v-bind:style="progressBtnStyle"></span></div>
+	                <div class="time totalTime" id="duration">{{duration}}</div>
 	            </div>
 	            <div id="playerCtrl">
 	                <div>
@@ -79,10 +60,9 @@ export default {
 			musicTitle:"",
 			musicAuthor:"",
 			playerPicSrc:"",
-			durationElement:$("#duration"),
-			currentTimeElement:$("#current-time"),
-			progressElement:$("#music-progress"),
-			progressBtnElement:$("#music-progress-btn"),
+			duration:"00:00",
+			currentTime:"00:00",
+			progressBtnStyle:"width:0%",
 			fileElement:$("#file"),
 			albumPicElment:$("#picture"),
 			musicPlayer:$("#music-player"),
@@ -247,14 +227,14 @@ export default {
 
 			var progress = (currentTime / duration).toFixed(2) * 100;
 			progress = progress <= 100 ? progress : 100;
-			this.progressBtnElement.css("width",progress+"%");
+			this.progressBtnStyle = "width:"+progress+"%";
 
 			//this.timeId = setTimeout(this.playerChange(), 500);
 		},
 		setDuration:function(){
 			var total = this.player.duration;
 			total = total ? total : 0;
-			this.durationElement.html(this.timeFormat(total));
+			this.duration = this.timeFormat(total);
 		},
 		timeFormat:function(total){
 			var minute = parseInt(total / 60),
@@ -267,7 +247,7 @@ export default {
 		},
 		setCurrentTime:function(){
 			var total = this.player.currentTime;
-			this.currentTimeElement.html(this.timeFormat(total));
+			this.currentTime = this.timeFormat(total);
 		},
 		appendMusicToDOM:function(name){
 			var li = document.createElement("li");
@@ -338,6 +318,14 @@ export default {
 			num = (num > 0) ? num : num + 1;
 			src = "raw/" + num + ".jpg";
 			this.playerPicSrc = src;
+		},
+		progressClick:function(event){
+			var screenWidth = $(window).width();
+			var screenWidthprocess = screenWidth * 0.56;
+			var t = (event.offsetX / screenWidthprocess).toFixed(2);
+			var currentTime = this.player.duration * t;
+			this.player.currentTime = currentTime;
+			this.playerChange();
 		}
 	}
 }
