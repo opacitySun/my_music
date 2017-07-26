@@ -24,6 +24,7 @@
 	                <div>
 	                    <a class="button loop" v-on:click="playerLoop($event)" title="顺序播放"></a>
 	                    <a class="button random hidden" v-on:click="playerRandom($event)" title="随机播放"></a>
+	                    <a class="button single hidden" v-on:click="playerSingle($event)" title="单曲循环"></a>
 	                </div>
 	                <div v-on:click="playerPre()"><a class="button prev"></a></div>
 	                <div v-on:click="musicControl()"><a v-bind:class="playerIcon"></a></div>
@@ -273,6 +274,7 @@ export default {
 			};
 		},
 		playerLoop:function(event){
+			this.player.loop = false;
 			var musicQueue = new this.MusicQueue();
 			var _this = event.target;
 			musicQueue.setRandom();
@@ -280,9 +282,16 @@ export default {
 			$(_this).parent().find("a.random").removeClass("hidden");
 		},
 		playerRandom:function(event){
+			this.player.loop = false;
 			var musicQueue = new this.MusicQueue();
 			var _this = event.target;
 			musicQueue.setLoop();
+			$(_this).addClass("hidden");
+			$(_this).parent().find("a.single").removeClass("hidden");
+		},
+		playerSingle:function(event){
+			this.player.loop = true;
+			var _this = event.target;
 			$(_this).addClass("hidden");
 			$(_this).parent().find("a.loop").removeClass("hidden");
 		},
