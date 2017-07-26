@@ -41,12 +41,12 @@
 	            </div>
 	            <div id="playerCtrl">
 	                <div>
-	                    <a class="button loop" id="play-style-loop" title="顺序播放"></a>
-	                    <a class="button random hidden" id="play-style-random" title="随机播放"></a>
+	                    <a class="button loop" v-on:click="playerLoop($event)" title="顺序播放"></a>
+	                    <a class="button random hidden" v-on:click="playerRandom($event)" title="随机播放"></a>
 	                </div>
-	                <div id="music-pre"><a class="button prev"></a></div>
+	                <div v-on:click="playerPre()"><a class="button prev"></a></div>
 	                <div v-on:click="musicControl()"><a v-bind:class="playerIcon"></a></div>
-	                <div id="music-next"><a class="button next"></a></div>
+	                <div v-on:click="playerNext()"><a class="button next"></a></div>
 	                <div><a class="button collect"></a></div>
 	            </div>
 	        </div>
@@ -76,13 +76,14 @@ export default {
 			isPlaying:true,
 			player:{},
 			playerIcon:"button pause",
+			musicTitle:"",
+			musicAuthor:"",
+			playerPicSrc:"",
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
 			progressElement:$("#music-progress"),
 			progressBtnElement:$("#music-progress-btn"),
 			fileElement:$("#file"),
-			musicTitle:"",
-			musicAuthor:"",
 			albumPicElment:$("#picture"),
 			musicPlayer:$("#music-player"),
 			musicUL:$("#musics"),
@@ -214,7 +215,7 @@ export default {
 			this.musicTitle = music.name;
 			this.musicAuthor = music.author;
 			this.player.src = music.src;
-			setTimeout(this.setDuration, 500);
+			setTimeout(this.setDuration(), 500);
 			this.appendMusicToDOM(music.name);
 			this.setSelected(this.index);
 			this.playerStart();
@@ -288,6 +289,55 @@ export default {
 				"author":author,
 				"src":src
 			};
+		},
+		playerLoop:function(event){
+			var musicQueue = new this.MusicQueue();
+			var _this = event.target;
+			musicQueue.setRandom();
+			$(_this).addClass("hidden");
+			$(_this).parent().find("a.random").removeClass("hidden");
+		},
+		playerRandom:function(event){
+			var musicQueue = new this.MusicQueue();
+			var _this = event.target;
+			musicQueue.setLoop();
+			$(_this).addClass("hidden");
+			$(_this).parent().find("a.loop").removeClass("hidden");
+		},
+		playerNext:function(){
+			var musicQueue = new this.MusicQueue();
+			this.preparePlay(musicQueue.getMusic());
+		},
+		playerPre:function(){
+			var musicQueue = new this.MusicQueue();
+			this.preparePlay(musicQueue.getPreMusic());
+		},
+		preparePlay:function(music){
+			this.musicTitle = music.name;
+			this.musicAuthor = music.author;
+			this.player.src = music.src;
+
+			this.playerStart();
+			// this.changeImage();
+			this.setCurrentTime();
+
+			this.player.play();
+			setTimeout(this.setDuration(), 500);
+			clearTimeout(this.timeId);
+			this.timeId = setTimeout(this.playerChange(), 500);
+
+			this.removeSelected(this.index);
+			var musicQueue = new this.MusicQueue();
+			this.index = musicQueue.getIndexByName(music.name);
+			this.setSelected(this.index);
+		},
+		changeImage:function(){
+			var num = parseInt(Math.random() * 16),
+				src;
+
+			num = (num > 0) ? num : num + 1;
+			src = "raw/" + num + ".jpg";
+			this.playerPicSrc = src;
 		}
 	}
 }

@@ -33,7 +33,7 @@
   border-bottom: solid 1px rgba(207, 209, 215, 0.5);
   marquee{
     display:block;
-    height:1.6rem;
+    height:2rem;
   }
 }
 .player_footer {
@@ -133,17 +133,21 @@
   text-align: center;
   padding: 10px;
   -webkit-box-sizing: border-box;
-}
-.player_header .playing_info i{
-  font-size:2rem;
-  margin-right:1rem;
-  display:block;
-}
-.player_header .playing_info .songName {
-  font-weight: bold;
-}
-.player_header .playing_info .singer {
-  font-size: 13px;
+
+  i{
+    font-size:2rem;
+    margin-right:1rem;
+    display:block;
+    line-height:2rem;
+  }
+
+  .songName{
+    font-weight: bold;
+  }
+
+  .singer{
+    font-size: 13px;
+  }
 }
 .music_player .content {
   position: absolute;
