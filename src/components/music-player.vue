@@ -33,7 +33,7 @@
 	            </div>
 	        </div>
 	        <div class="player_footer">
-	            <audio id="player" preload="auto" v-model:src="playSrc"></audio>
+	            <audio id="player" preload="auto" v-bind:src="playSrc"></audio>
 	            <div id="playerProgress">
 	                <div class="time currentTime" id="current-time">00:00</div>
 	                <div class="progressbar" id="music-progress"><span class="bar" id="music-progress-btn"></span></div>
