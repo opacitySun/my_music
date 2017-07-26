@@ -198,7 +198,7 @@ export default {
 			this.musicTitle = music.name;
 			this.musicAuthor = music.author;
 			this.player.src = music.src;
-			this.timeDuration = setInterval(this.setDuration(), 500);
+			this.timeDuration = setInterval(this.setDuration, 500);
 			this.appendMusicToDOM(music.name);
 			this.setSelected(this.index);
 			this.playerStart();
@@ -214,7 +214,7 @@ export default {
 			this.player.play();
 			this.isPlaying = true;
 			clearInterval(this.timeId);
-			this.timeId = setInterval(this.playerChange(), 500);
+			this.timeId = setInterval(this.playerChange, 500);
 			this.playerIcon = "button pause";
 			this.setDuration();
 		},
@@ -304,9 +304,9 @@ export default {
 			this.setCurrentTime();
 
 			this.player.play();
-			setInterval(this.setDuration(), 500);
+			setInterval(this.setDuration, 500);
 			clearInterval(this.timeId);
-			this.timeId = setInterval(this.playerChange(), 500);
+			this.timeId = setInterval(this.playerChange, 500);
 
 			this.removeSelected(this.index);
 			var musicQueue = new this.MusicQueue();
