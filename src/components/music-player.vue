@@ -75,7 +75,7 @@ export default {
 			timeId:function(){},
 			isPlaying:false,
 			playSrc:"",
-			player:$('#player')[0],
+			player:this.$el.getElementById("player"),
 			controlIcon:$("#control-icon"),
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
@@ -220,10 +220,12 @@ export default {
 			if (this.isPlaying) {
 				this.player.pause();
 				this.playerPause();
+				this.isPlaying = false;
 				clearTimeout(this.timeId);
 			} else {
 				this.player.play();
 				this.playerStart();
+				this.isPlaying = true;
 				this.timeId = setTimeout(this.change(), 500);
 			}
 		},
