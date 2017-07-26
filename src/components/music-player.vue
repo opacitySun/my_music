@@ -6,7 +6,7 @@
 	            <div class="playing_info">
 	            	<i class="fa fa-chevron-left" v-on:click="goback()"></i>
 	                <marquee scrollamount="1" behavior="alternate" direction= left width="100%" height="20px">
-	                    <span class="songName">{{musicTitle}}</span>  <span class="singer" id="music-singer">music player</span>
+	                    <span class="songName">{{musicTitle}}</span>  <span class="singer" id="music-singer">{{musicAuthor}}</span>
 	                </marquee>
 	            </div>
 	        </div>
@@ -33,7 +33,7 @@
 	            </div>
 	        </div>
 	        <div class="player_footer">
-	            <audio id="player" preload="auto" v-bind:src="playSrc"></audio>
+	            <audio v-bind:src="playSrc"></audio>
 	            <div id="playerProgress">
 	                <div class="time currentTime" id="current-time">00:00</div>
 	                <div class="progressbar" id="music-progress"><span class="bar" id="music-progress-btn"></span></div>
@@ -45,7 +45,7 @@
 	                    <a class="button random hidden" id="play-style-random" title="随机播放"></a>
 	                </div>
 	                <div id="music-pre"><a class="button prev"></a></div>
-	                <div v-on:click="musicControl()"><a class="button play" id="control-icon"></a></div>
+	                <div v-on:click="musicControl()"><a class="button {{playerIcon}}"></a></div>
 	                <div id="music-next"><a class="button next"></a></div>
 	                <div><a class="button collect"></a></div>
 	            </div>
@@ -76,13 +76,14 @@ export default {
 			isPlaying:false,
 			playSrc:"",
 			player:{},
-			controlIcon:$("#control-icon"),
+			playerIcon:"pause",
 			durationElement:$("#duration"),
 			currentTimeElement:$("#current-time"),
 			progressElement:$("#music-progress"),
 			progressBtnElement:$("#music-progress-btn"),
 			fileElement:$("#file"),
 			musicTitle:"",
+			musicAuthor:"",
 			albumPicElment:$("#picture"),
 			musicPlayer:$("#music-player"),
 			musicUL:$("#musics"),
@@ -219,25 +220,24 @@ export default {
 		},
 		musicControl:function(){
 			if (this.isPlaying) {
-				this.player.pause();
 				this.playerPause();
-				this.isPlaying = false;
-				clearTimeout(this.timeId);
 			} else {
-				this.player.play();
 				this.playerStart();
-				this.isPlaying = true;
-				this.timeId = setTimeout(this.playerChange(), 500);
 			}
 		},
 		playerStart:function(){
-			this.controlIcon.removeClass("play");
-			this.controlIcon.addClass("pause");
+			this.player.play();
+			this.isPlaying = true;
+			this.timeId = setTimeout(this.playerChange(), 500);
+			this.playerIcon = "pause";
 			this.setDuration();
+
 		},
 		playerPause:function(){
-			this.controlIcon.removeClass("pause");
-			this.controlIcon.addClass("play");
+			this.player.pause();
+			this.isPlaying = false;
+			clearTimeout(this.timeId);
+			this.playerIcon = "play";
 		},
 		playerChange:function(){
 			this.setCurrentTime();
