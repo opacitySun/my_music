@@ -6,7 +6,7 @@ module.exports = {
 	},
 	created(){
 		var jsonStr = {};
-		jsonStr = stringify(jsonStr);
+		jsonStr = JSON.stringify(jsonStr);
 		this.$http.jsonp(ResourcePath+'/getMusicList',{
 			params:jsonStr,
 			jsonp:"_callback"
