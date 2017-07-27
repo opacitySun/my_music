@@ -189,8 +189,9 @@
       height:$CD-size;
       top:50%;
       left:50%;
-      margin-top:calc(0 - ((100vw - 2rem) / 2));
-      margin-left:calc(0 - ((100vw - 2rem) / 2));
+      overflow:hidden;
+      margin-top:calc(0px - ((100vw - 5rem) / 2));
+      margin-left:calc(0px - ((100vw - 5rem) / 2));
       border-radius:$CD-size-half;
       -webkit-border-radius:$CD-size-half;
       -moz-border-radius:$CD-size-half;
