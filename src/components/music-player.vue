@@ -35,7 +35,10 @@
 	                <div v-on:click="playerPre()"><a class="button prev"></a></div>
 	                <div v-on:click="musicControl()"><a v-bind:class="playerIcon"></a></div>
 	                <div v-on:click="playerNext()"><a class="button next"></a></div>
-	                <div><a class="button collect"></a></div>
+	                <div>
+	                	<a class="button collect" v-on:click="addLikeMusic($event)" title="添加喜欢"></a>
+	                	<a class="button collected hidden" v-on:click="cancelLikeMusic($event)" title="取消喜欢"></a>
+	                </div>
 	            </div>
 	        </div>
 	    </div>
@@ -370,6 +373,18 @@ export default {
 	            deg=360-cc||360-dd;
 	        }
 	        return deg>=360?0:deg;
+		},
+		//添加喜欢
+		addLikeMusic:function(event){
+			var _this = event.target;
+			$(_this).addClass("hidden");
+			$(_this).parent().find("a.collected").removeClass("hidden");
+		},
+		//取消喜欢
+		cancelLikeMusic:function(event){
+			var _this = event.target;
+			$(_this).addClass("hidden");
+			$(_this).parent().find("a.collect").removeClass("hidden");
 		}
 	}
 }
