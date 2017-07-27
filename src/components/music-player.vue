@@ -204,8 +204,10 @@ export default {
 			id = Number(id);
 			var jsonStr = {'id':id};
 			jsonStr = JSON.stringify(jsonStr);
-			this.$http.jsonp(ResourcePath+'/getMusicList').then(function(res){
-				res = res.body.result[0];
+			this.$http.jsonp(ResourcePath+'/getMusicList',{
+				params:jsonStr
+			}).then(function(res){
+				res = res.body.result;
 				var musicQueue = new this.MusicQueue();
 				var music = new this.Music(res.name,res.author,res.url);
 				musicQueue.addMusic(music);
