@@ -248,6 +248,15 @@ export default {
 			var currentTime = this.player.currentTime,
 				duration = this.player.duration;
 
+			if(currentTime == duration){
+				var style = $("style");
+				style.html('@-webkit-keyframes rotation {from {-webkit-transform: rotate(0deg);}to {-webkit-transform: rotate(360deg);}}');
+				if(this.loopStatus == 'loop' || this.loopStatus == 'random'){
+					var musicQueue = new this.MusicQueue();
+					this.preparePlay(musicQueue.getMusic());
+				}
+			}
+
 			var progress = (currentTime / duration).toFixed(2) * 100;
 			progress = progress <= 100 ? progress : 100;
 			this.progressBtnStyle = "width:"+progress+"%";
