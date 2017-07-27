@@ -183,8 +183,8 @@
       height:$CD-size;
       top:50%;
       left:50%;
-      margin-top:calc(-(100vw - 2rem)/2);
-      margin-left:calc(-(100vw - 2rem)/2);
+      margin-top:calc(-((100vw - 2rem)/2));
+      margin-left:calc(-((100vw - 2rem)/2));
       -webkit-animation: rotation 10s;
       -webkit-animation-timing-function: linear;
       -webkit-animation-iteration-count: infinite;
