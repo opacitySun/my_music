@@ -10,7 +10,7 @@ module.exports = {
 		this.$http.jsonp(ResourcePath+'/getMusicList').then(function(res){
 			$.each(res.body.result,function(key,obj){
 				obj["href"] = "/music-detail/"+obj.id;
-				this.musics.push(obj);
+				this.$data.musics.push(obj);
 			});
 		},function(err){
 			console.log(err);
