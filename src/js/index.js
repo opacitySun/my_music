@@ -8,8 +8,7 @@ module.exports = {
 		var jsonStr = {};
 		jsonStr = JSON.stringify(jsonStr);
 		this.$http.jsonp(ResourcePath+'/getMusicList',{
-			params:jsonStr,
-			jsonp:"_callback"
+			params:jsonStr
 		}).then(function(res){
 			$.each(res,function(key,obj){
 				obj["href"] = "/music-detail/"+obj.id;
