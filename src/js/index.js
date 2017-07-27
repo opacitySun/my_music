@@ -6,7 +6,7 @@ module.exports = {
 	},
 	created(){
 		$.ajax({
-			type:'post',
+			type:'get',
 			url:ResourcePath+'/getMusicList',
 			data:{},
 			dataType:'json',
