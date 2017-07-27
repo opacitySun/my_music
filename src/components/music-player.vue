@@ -204,8 +204,6 @@ export default {
 			this.musicAuthor = music.author;
 			this.player.src = music.src;
 			this.timeDuration = setInterval(this.setDuration, 500);
-			this.appendMusicToDOM(music.name);
-			this.setSelected(this.index);
 			this.playerStart();
 		},
 		musicControl:function(){
@@ -275,11 +273,6 @@ export default {
 			var total = this.player.currentTime;
 			this.currentTime = this.timeFormat(total);
 		},
-		appendMusicToDOM:function(name){
-			var li = document.createElement("li");
-			var text = document.createTextNode(name);
-			li.appendChild(text);
-		},
 		Music:function(name,author,src){
 			return {
 				"name":name,
@@ -334,10 +327,8 @@ export default {
 			clearInterval(this.timeId);
 			this.timeId = setInterval(this.playerChange, 500);
 
-			this.removeSelected(this.index);
 			var musicQueue = new this.MusicQueue();
 			this.index = musicQueue.getIndexByName(music.name);
-			this.setSelected(this.index);
 		},
 		changeImage:function(){
 			var num = parseInt(Math.random() * 16),
