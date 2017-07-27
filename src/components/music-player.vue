@@ -65,7 +65,7 @@ export default {
 			isPlaying:true,
 			player:{},
 			playerIcon:"button pause",
-			rotationCdClass:"",
+			rotationCdClass:"cd_this",
 			loopStatus:"loop",
 			musicTitle:"",
 			musicAuthor:"",
@@ -226,14 +226,14 @@ export default {
 			this.timeId = setInterval(this.playerChange, 500);
 			this.playerIcon = "button pause";
 			this.setDuration();
-			this.rotationCdClass = "rotation";
+			this.rotationCdClass = "cd_this rotation";
 		},
 		playerPause:function(){
 			this.player.pause();
 			this.isPlaying = false;
 			clearInterval(this.timeId);
 			this.playerIcon = "button play";
-			this.rotationCdClass = "";
+			this.rotationCdClass = "cd_this";
 		},
 		playerChange:function(){
 			this.setCurrentTime();
