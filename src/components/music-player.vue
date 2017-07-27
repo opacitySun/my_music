@@ -233,7 +233,7 @@ export default {
 			clearInterval(this.timeId);
 			this.playerIcon = "button play";
 			
-			var deg = eval('this.get'+cdThis.css('transform'));//构造getmatrix函数,返回上次旋转度数
+			var deg = eval('this.get'+$("#cd-this").css('transform'));//构造getmatrix函数,返回上次旋转度数
 			$("#cd-this").css("-webkit-transform","rotate("+deg+"deg)");
 			$("#cd-this").removeClass("rotation");
 		},
