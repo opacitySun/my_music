@@ -7,9 +7,7 @@ module.exports = {
 	created(){
 		var jsonStr = {};
 		jsonStr = JSON.stringify(jsonStr);
-		this.$http.jsonp(ResourcePath+'/getMusicList',{
-			params:jsonStr
-		}).then(function(res){
+		this.$http.jsonp(ResourcePath+'/getMusicList').then(function(res){
 			$.each(res,function(key,obj){
 				obj["href"] = "/music-detail/"+obj.id;
 				this.musics.push(obj);
