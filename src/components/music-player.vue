@@ -40,9 +40,6 @@
 	        </div>
 	    </div>
 
-	    <ul class="hidden" id="musics"></ul>
-
-
         <!-- <h1>Music Detail</h1>
 		<hr/>
 
@@ -59,7 +56,9 @@ export default {
 	data(){
 		return {
 			msg:{},
-			index:0,
+			index:-1,
+			musics:[],
+			loop:true,
 			timeId:function(){},
 			timeDuration:function(){},
 			isPlaying:true,
@@ -74,9 +73,7 @@ export default {
 			progressBtnStyle:"width:0%",
 			fileElement:$("#file"),
 			albumPicElment:$("#picture"),
-			musicPlayer:$("#music-player"),
-			musicUL:$("#musics"),
-			liElementsCache:[]
+			musicPlayer:$("#music-player")
 		}
 	},
 	created(){
@@ -115,20 +112,16 @@ export default {
 			this.$router.push({ path: '/' });
 		},
 		MusicQueue:function(){
-			var musics = [];
-			var index = -1;
-			var loop = true;
-
 			var setLoop = function(){
-				loop = true;
+				this.loop = true;
 			};
 
 			var setRandom = function(){
-				loop = false;
+				this.loop = false;
 			};
 
 			var addMusic = function(music){
-				musics.push(music);
+				this.musics.push(music);
 			};
 
 			var addList = function(list){
@@ -140,25 +133,25 @@ export default {
 			};
 
 			var getMusic = function(){
-				if(loop === true) {
-					if(index >= musics.length - 1) {
-						index = -1;
+				if(this.loop === true) {
+					if(this.index >= musics.length - 1) {
+						this.index = -1;
 					}
-					index += 1;
-					return musics[index];
+					this.index += 1;
+					return this.musics[this.index];
 				} else {
-					index = Math.floor(Math.random() * musics.length);
-					return musics[index];
+					this.index = Math.floor(Math.random() * this.musics.length);
+					return this.musics[this.index];
 				}
 			};
 
 			var getPreMusic = function(){
-				if(loop) {
-					if(index === 0) {
-						return musics[0];
+				if(this.loop) {
+					if(this.index === 0) {
+						return this.musics[0];
 					} else {
-						index -= 1;
-						return musics[index];
+						this.index -= 1;
+						return this.musics[this.index];
 					}
 				} else {
 					return getMusic();
@@ -166,24 +159,24 @@ export default {
 			};
 
 			var getIndexByName = function(name) {
-				for(var i = 0; i < musics.length; i++) {
-					if(musics[i].name === name) {
+				for(var i = 0; i < this.musics.length; i++) {
+					if(this.musics[i].name === name) {
 						return i;
 					}
 				}
 			};
 
 			var getMusicByName = function(name) {
-				index = getIndexByName(name);
-				return musics[index];
+				this.index = getIndexByName(name);
+				return this.musics[this.index];
 			};
 
 			var getAllMusic = function() {
-				return musics;
+				return this.musics;
 			};
 
 			var pushMusics = function(ms) {
-				musics = ms;
+				this.musics = ms;
 			};
 
 			return {
@@ -247,6 +240,9 @@ export default {
 			this.setCurrentTime();
 			var currentTime = this.player.currentTime,
 				duration = this.player.duration;
+			var progress = (currentTime / duration).toFixed(2) * 100;
+			progress = progress <= 100 ? progress : 100;
+			this.progressBtnStyle = "width:"+progress+"%";
 
 			if(currentTime == duration){
 				var style = $("style");
@@ -256,10 +252,6 @@ export default {
 					this.preparePlay(musicQueue.getMusic());
 				}
 			}
-
-			var progress = (currentTime / duration).toFixed(2) * 100;
-			progress = progress <= 100 ? progress : 100;
-			this.progressBtnStyle = "width:"+progress+"%";
 		},
 		setDuration:function(){
 			var total = this.player.duration;
@@ -283,15 +275,6 @@ export default {
 			var li = document.createElement("li");
 			var text = document.createTextNode(name);
 			li.appendChild(text);
-			this.liElementsCache.push(li);
-			this.musicUL.append(li);
-		},
-		setSelected:function(index){
-			this.liElementsCache[index].classList.add("selected");
-			this.liElementsCache[index].scrollIntoView(false);
-		},
-		removeSelected:function(index){
-			this.liElementsCache[index].removeClass("selected");
 		},
 		Music:function(name,author,src){
 			return {
