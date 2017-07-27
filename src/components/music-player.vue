@@ -12,7 +12,7 @@
 	        </div>
 	        <div class="player_content">
 	            <div class="panel cd">
-	            	<div class="cd_this">
+	            	<div class="cd_this rotation">
 	            		<img src="http://www.sunbowei.com:3111/files/fengzhengwu.jpg" />
 	            	</div>
 	            	<div class="cd_img"></div>

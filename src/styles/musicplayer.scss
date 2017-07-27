@@ -26,6 +26,12 @@
   input[type='file']{
     display:none;
   }
+
+  .rotation{
+    -webkit-animation: rotation 20s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+  }
 }
 
 .player_header {
@@ -183,15 +189,12 @@
       height:$CD-size;
       top:50%;
       left:50%;
-      margin-top:calc(-((100vw - 2rem)/2));
-      margin-left:calc(-((100vw - 2rem)/2));
-      -webkit-animation: rotation 10s;
-      -webkit-animation-timing-function: linear;
-      -webkit-animation-iteration-count: infinite;
-      radius:$CD-size-half;
-      -webkit-radius:$CD-size-half;
-      -moz-radius:$CD-size-half;
-      -o-radius:$CD-size-half;
+      margin-top:calc(0 - ((100vw - 2rem) / 2));
+      margin-left:calc(0 - ((100vw - 2rem) / 2));
+      border-radius:$CD-size-half;
+      -webkit-border-radius:$CD-size-half;
+      -moz-border-radius:$CD-size-half;
+      -o-border-radius:$CD-size-half;
       img{
         display:block;
         width:100%;
