@@ -202,11 +202,7 @@ export default {
 		init:function(){
 			var id = this.$route.params.id;
 			id = Number(id);
-			var jsonStr = {'id':id};
-			jsonStr = JSON.stringify(jsonStr);
-			this.$http.jsonp(ResourcePath+'/getMusicList',{
-				params:jsonStr
-			}).then(function(res){
+			this.$http.jsonp(ResourcePath+'/getMusicList?id='+id).then(function(res){
 				res = res.body.result;
 				var musicQueue = new this.MusicQueue();
 				var music = new this.Music(res.name,res.author,res.url);

@@ -5,8 +5,6 @@ module.exports = {
 		}
 	},
 	created(){
-		var jsonStr = {};
-		jsonStr = JSON.stringify(jsonStr);
 		this.$http.jsonp(ResourcePath+'/getMusicList').then(function(res){
 			res = res.body.result;
 			for(var k in res){
