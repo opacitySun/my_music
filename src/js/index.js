@@ -5,7 +5,7 @@ module.exports = {
 		}
 	},
 	created(){
-		this.$http.post({
+		this.$http({
 			method:'POST',
             url:ResourcePath+'/getMusicList',
             data:{},
