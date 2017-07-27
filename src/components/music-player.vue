@@ -32,9 +32,9 @@
 	                    <a class="button random hidden" v-on:click="playerRandom($event)" title="随机播放"></a>
 	                    <a class="button single hidden" v-on:click="playerSingle($event)" title="单曲循环"></a>
 	                </div>
-	                <div v-on:click="playerPre()"><a class="button prev"></a></div>
-	                <div v-on:click="musicControl()"><a v-bind:class="playerIcon"></a></div>
-	                <div v-on:click="playerNext()"><a class="button next"></a></div>
+	                <div><a class="button prev" v-on:click="playerPre()"></a></div>
+	                <div><a v-bind:class="playerIcon" v-on:click="musicControl()"></a></div>
+	                <div><a class="button next" v-on:click="playerNext()"></a></div>
 	                <div>
 	                	<a class="button collect" v-on:click="addLikeMusic($event)" title="添加喜欢"></a>
 	                	<a class="button collected hidden" v-on:click="cancelLikeMusic($event)" title="取消喜欢"></a>
@@ -201,7 +201,7 @@ export default {
 		},
 		init:function(){
 			var musicQueue = new this.MusicQueue();
-			var music = new this.Music("风筝误", "未知","http://www.sunbowei.com:3111/files/fly.ogg");
+			var music = new this.Music("风筝误", "未知",ResourcePath+"/files/fly.ogg");
 			musicQueue.addMusic(music);
 			this.musicTitle = music.name;
 			this.musicAuthor = music.author;
