@@ -203,7 +203,7 @@ export default {
 			var id = this.$route.params.id;
 			id = Number(id);
 			this.$http.jsonp(ResourcePath+'/getMusicList?id='+id).then(function(res){
-				res = res.body.result;
+				res = res.body.result[0];
 				var musicQueue = new this.MusicQueue();
 				var music = new this.Music(res.name,res.author,res.url);
 				musicQueue.addMusic(music);
