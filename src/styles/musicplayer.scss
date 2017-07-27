@@ -178,19 +178,19 @@
     .cd_this{
       position:absolute;
       z-index:10;
-      width:calc(100% - 2rem);
-      height:calc(100% - 2rem);
+      width:$CD-size;
+      height:$CD-size;
       top:50%;
       left:50%;
-      margin-top:-(calc(100% - 2rem)/2);
-      margin-left:-(calc(100% - 2rem)/2);
+      margin-top:-($CD-size/2);
+      margin-left:-($CD-size/2);
       -webkit-animation: rotation 10s;
       -webkit-animation-timing-function: linear;
       -webkit-animation-iteration-count: infinite;
-      radius:(calc(100% - 2rem)/2);
-      -webkit-radius:(calc(100% - 2rem)/2);
-      -moz-radius:(calc(100% - 2rem)/2);
-      -o-radius:(calc(100% - 2rem)/2);
+      radius:($CD-size/2);
+      -webkit-radius:($CD-size/2);
+      -moz-radius:($CD-size/2);
+      -o-radius:($CD-size/2);
       img{
         display:block;
         width:100%;
