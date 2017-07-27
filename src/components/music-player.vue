@@ -12,7 +12,7 @@
 	        </div>
 	        <div class="player_content">
 	            <div class="panel cd">
-	            	<div class="cd_this rotation">
+	            	<div v-bind:class="'cd_this' rotationClass">
 	            		<img src="http://www.sunbowei.com:3111/files/fengzhengwu.jpg" />
 	            	</div>
 	            	<div class="cd_img"></div>
@@ -65,6 +65,7 @@ export default {
 			isPlaying:true,
 			player:{},
 			playerIcon:"button pause",
+			rotationClass:"",
 			loopStatus:"loop",
 			musicTitle:"",
 			musicAuthor:"",
@@ -225,12 +226,14 @@ export default {
 			this.timeId = setInterval(this.playerChange, 500);
 			this.playerIcon = "button pause";
 			this.setDuration();
+			this.rotationClass = "rotation";
 		},
 		playerPause:function(){
 			this.player.pause();
 			this.isPlaying = false;
 			clearInterval(this.timeId);
 			this.playerIcon = "button play";
+			this.rotationClass = "";
 		},
 		playerChange:function(){
 			this.setCurrentTime();
