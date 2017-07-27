@@ -11,7 +11,13 @@
 	            </div>
 	        </div>
 	        <div class="player_content">
-	            
+	            <div class="panel cd">
+	            	<div class="cd_this">
+	            		<img src="http://www.sunbowei.com:3111/files/fengzhengwu.jpg" />
+	            	</div>
+	            	<div class="cd_img"></div>
+	            </div>
+	            <div class="panel lyric hidden"></div>
 	        </div>
 	        <div class="player_footer">
 	            <audio></audio>
