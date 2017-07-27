@@ -112,16 +112,20 @@ export default {
 			this.$router.push({ path: '/' });
 		},
 		MusicQueue:function(){
+			var musics = this.$data.musics;
+			var index = this.$data.index;
+			var loop = this.$data.loop;
+
 			var setLoop = function(){
-				this.loop = true;
+				loop = true;
 			};
 
 			var setRandom = function(){
-				this.loop = false;
+				loop = false;
 			};
 
 			var addMusic = function(music){
-				this.musics.push(music);
+				musics.push(music);
 			};
 
 			var addList = function(list){
@@ -133,25 +137,25 @@ export default {
 			};
 
 			var getMusic = function(){
-				if(this.loop === true) {
-					if(this.index >= musics.length - 1) {
-						this.index = -1;
+				if(loop === true) {
+					if(index >= musics.length - 1) {
+						index = -1;
 					}
-					this.index += 1;
-					return this.musics[this.index];
+					index += 1;
+					return musics[index];
 				} else {
-					this.index = Math.floor(Math.random() * this.musics.length);
-					return this.musics[this.index];
+					index = Math.floor(Math.random() * musics.length);
+					return musics[index];
 				}
 			};
 
 			var getPreMusic = function(){
-				if(this.loop) {
-					if(this.index === 0) {
-						return this.musics[0];
+				if(loop) {
+					if(index === 0) {
+						return musics[0];
 					} else {
-						this.index -= 1;
-						return this.musics[this.index];
+						index -= 1;
+						return musics[index];
 					}
 				} else {
 					return getMusic();
@@ -159,24 +163,24 @@ export default {
 			};
 
 			var getIndexByName = function(name) {
-				for(var i = 0; i < this.musics.length; i++) {
-					if(this.musics[i].name === name) {
+				for(var i = 0; i < musics.length; i++) {
+					if(musics[i].name === name) {
 						return i;
 					}
 				}
 			};
 
 			var getMusicByName = function(name) {
-				this.index = getIndexByName(name);
-				return this.musics[this.index];
+				index = getIndexByName(name);
+				return musics[index];
 			};
 
 			var getAllMusic = function() {
-				return this.musics;
+				return musics;
 			};
 
 			var pushMusics = function(ms) {
-				this.musics = ms;
+				musics = ms;
 			};
 
 			return {
