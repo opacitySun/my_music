@@ -5,7 +5,12 @@ module.exports = {
 		}
 	},
 	created(){
-		this.$http.post(ResourcePath+'/getMusicList').then(function(res){
+		this.$http.post({
+			method:'POST',
+            url:ResourcePath+'/getMusicList',
+            data:{},
+            headers: {"Content-Type":"application/json;charset=UTF-8"}
+		}).then(function(res){
 			$.each(res,function(key,obj){
 				obj["href"] = "/music-detail/"+obj.id;
 				this.musics.push(obj);

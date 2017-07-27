@@ -200,7 +200,14 @@ export default {
 			};
 		},
 		init:function(){
-			this.$http.post(ResourcePath+'/getMusicList',{'id':id}).then(function(res){
+			var id = this.$route.params.id;
+			id = Number(id);
+			this.$http({
+				method:'POST',
+	            url:ResourcePath+'/getMusicList',
+	            data:{'id':id},
+	            headers: {"Content-Type":"application/json;charset=UTF-8"}
+			}).then(function(res){
 				var musicQueue = new this.MusicQueue();
 				var music = new this.Music(res.name,res.author,res.url);
 				musicQueue.addMusic(music);
