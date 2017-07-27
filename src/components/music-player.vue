@@ -12,7 +12,7 @@
 	        </div>
 	        <div class="player_content">
 	            <div class="panel cd">
-	            	<div v-bind:class="rotationCdClass">
+	            	<div class="cd_this rotation" id="cd-this">
 	            		<img src="http://www.sunbowei.com:3111/files/fengzhengwu.jpg" />
 	            	</div>
 	            	<div class="cd_img"></div>
@@ -65,7 +65,6 @@ export default {
 			isPlaying:true,
 			player:{},
 			playerIcon:"button pause",
-			rotationCdClass:"cd_this",
 			loopStatus:"loop",
 			musicTitle:"",
 			musicAuthor:"",
@@ -226,14 +225,17 @@ export default {
 			this.timeId = setInterval(this.playerChange, 500);
 			this.playerIcon = "button pause";
 			this.setDuration();
-			this.rotationCdClass = "cd_this rotation";
+			$("#cd-this").addClass("rotation");
 		},
 		playerPause:function(){
 			this.player.pause();
 			this.isPlaying = false;
 			clearInterval(this.timeId);
 			this.playerIcon = "button play";
-			this.rotationCdClass = "cd_this";
+			
+			var deg = eval('this.get'+cdThis.css('transform'));//构造getmatrix函数,返回上次旋转度数
+			$("#cd-this").css("-webkit-transform","rotate("+deg+"deg)");
+			$("#cd-this").removeClass("rotation");
 		},
 		playerChange:function(){
 			this.setCurrentTime();
@@ -350,6 +352,31 @@ export default {
 			var currentTime = this.player.duration * t;
 			this.player.currentTime = currentTime;
 			this.playerChange();
+		},
+		/* 
+	     * 解析matrix矩阵，0°-360°，返回旋转角度 
+	     * 当a=b||-a=b,0<=deg<=180 
+	     * 当-a+b=180,180<=deg<=270 
+	     * 当a+b=180,270<=deg<=360 
+	     * 
+	     * 当0<=deg<=180,deg=d; 
+	     * 当180<deg<=270,deg=180+c; 
+	     * 当270<deg<=360,deg=360-(c||d); 
+	     * */
+		getmatrix:function(a,b,c,d,e,f){
+			var aa=Math.round(180*Math.asin(a)/ Math.PI);
+	        var bb=Math.round(180*Math.acos(b)/ Math.PI);
+	        var cc=Math.round(180*Math.asin(c)/ Math.PI);
+	        var dd=Math.round(180*Math.acos(d)/ Math.PI);
+	        var deg=0;
+	        if(aa==bb||-aa==bb){
+	            deg=dd;
+	        }else if(-aa+bb==180){
+	            deg=180+cc;
+	        }else if(aa+bb==180){
+	            deg=360-cc||360-dd;
+	        }
+	        return deg>=360?0:deg;
 		}
 	}
 }
