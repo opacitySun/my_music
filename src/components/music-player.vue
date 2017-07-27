@@ -229,15 +229,7 @@ export default {
 			var cdThis = $("#cd-this");
 			var deg = eval('this.get'+cdThis.css('transform'));//构造getmatrix函数,返回上次旋转度数
 			var style = $("style");
-			style.html(
-			'@-webkit-keyframes rotation {
-			  from {
-			    -webkit-transform: rotate('+deg+'deg);
-			  }
-			  to {
-			    -webkit-transform: rotate(360deg);
-			  }
-			}');
+			style.html('@-webkit-keyframes rotation {from {-webkit-transform: rotate('+deg+'deg);}to {-webkit-transform: rotate(360deg);}}');
 			cdThis.addClass("rotation");
 		},
 		playerPause:function(){
