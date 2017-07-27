@@ -5,30 +5,18 @@ module.exports = {
 		}
 	},
 	created(){
-		$.ajax({
-			type:'get',
-			url:ResourcePath+'/getMusicList',
-			data:{},
-			dataType:'json',
-			success:function(res){
-				$.each(res,function(key,obj){
-					obj["href"] = "/music-detail/"+obj.id;
-					this.musics.push(obj);
-				});
-			}
+		var jsonStr = {};
+		jsonStr = stringify(jsonStr);
+		this.$http.jsonp(ResourcePath+'/getMusicList',{
+			params:jsonStr,
+			jsonp:"_callback"
+		}).then(function(res){
+			$.each(res,function(key,obj){
+				obj["href"] = "/music-detail/"+obj.id;
+				this.musics.push(obj);
+			});
+		},function(err){
+			console.log(err);
 		});
-		// this.$http({
-		// 	method:'POST',
-  //           url:ResourcePath+'/getMusicList',
-  //           data:{},
-  //           headers: {"Content-Type":"application/json;charset=UTF-8"}
-		// }).then(function(res){
-		// 	$.each(res,function(key,obj){
-		// 		obj["href"] = "/music-detail/"+obj.id;
-		// 		this.musics.push(obj);
-		// 	});
-		// },function(err){
-		// 	console.log(err);
-		// });
 	}
 };
