@@ -13,7 +13,7 @@
 	        <div class="player_content">
 	            <div class="panel cd">
 	            	<div class="cd_this rotation" id="cd-this">
-	            		<img src="http://www.sunbowei.com:3111/files/fengzhengwu.jpg" />
+	            		<img src="" />
 	            	</div>
 	            	<div class="cd_img"></div>
 	            </div>
@@ -200,14 +200,19 @@ export default {
 			};
 		},
 		init:function(){
-			var musicQueue = new this.MusicQueue();
-			var music = new this.Music("风筝误", "未知",ResourcePath+"/files/fly.ogg");
-			musicQueue.addMusic(music);
-			this.musicTitle = music.name;
-			this.musicAuthor = music.author;
-			this.player.src = music.src;
-			this.timeDuration = setInterval(this.setDuration, 500);
-			this.playerStart();
+			this.$http.post(ResourcePath+'/getMusicList',{'id':id}).then(function(res){
+				var musicQueue = new this.MusicQueue();
+				var music = new this.Music(res.name,res.author,res.url);
+				musicQueue.addMusic(music);
+				this.musicTitle = music.name;
+				this.musicAuthor = music.author;
+				this.player.src = music.src;
+				$("#cd-this").find("img").attr("src",res.img);
+				this.timeDuration = setInterval(this.setDuration, 500);
+				this.playerStart();
+			},function(err){
+				console.log(err);
+			});
 		},
 		musicControl:function(){
 			if (this.isPlaying) {

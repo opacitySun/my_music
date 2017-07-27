@@ -1,17 +1,17 @@
 module.exports = {
 	data() {
 		return {
-			musics:[
-				{"id":1,"name":"江南","desc":"林俊杰经典之作","href":"/music-detail/1"},
-				{"id":2,"name":"千里之外","desc":"周杰伦经典怀旧","href":"/music-detail/2"}
-			]
+			musics:[]
 		}
 	},
 	created(){
-		// this.$http.get('').then(function(res){
-			
-		// },function(err){
-
-		// });
+		this.$http.post(ResourcePath+'/getMusicList').then(function(res){
+			$.each(res,function(key,obj){
+				obj["href"] = "/music-detail/"+obj.id;
+				this.musics.push(obj);
+			});
+		},function(err){
+			console.log(err);
+		});
 	}
 };
