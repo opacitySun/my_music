@@ -225,7 +225,20 @@ export default {
 			this.timeId = setInterval(this.playerChange, 500);
 			this.playerIcon = "button pause";
 			this.setDuration();
-			$("#cd-this").addClass("rotation");
+
+			var cdThis = $("#cd-this");
+			var deg = eval('this.get'+cdThis.css('transform'));//构造getmatrix函数,返回上次旋转度数
+			var style = $("style");
+			style.html(
+			'@-webkit-keyframes rotation {
+			  from {
+			    -webkit-transform: rotate('+deg+'deg);
+			  }
+			  to {
+			    -webkit-transform: rotate(360deg);
+			  }
+			}');
+			cdThis.addClass("rotation");
 		},
 		playerPause:function(){
 			this.player.pause();
@@ -233,9 +246,10 @@ export default {
 			clearInterval(this.timeId);
 			this.playerIcon = "button play";
 			
-			var deg = eval('this.get'+$("#cd-this").css('transform'));//构造getmatrix函数,返回上次旋转度数
-			$("#cd-this").css("-webkit-transform","rotate("+deg+"deg)");
-			$("#cd-this").removeClass("rotation");
+			var cdThis = $("#cd-this");
+			var deg = eval('this.get'+cdThis.css('transform'));//构造getmatrix函数,返回上次旋转度数
+			cdThis.css("-webkit-transform","rotate("+deg+"deg)");
+			cdThis.removeClass("rotation");
 		},
 		playerChange:function(){
 			this.setCurrentTime();
