@@ -8,7 +8,7 @@
                 <div class="weui-cell__bd">
                     <p style="margin:0;">{{item.name}}</p>
                 </div>
-                <div class="weui-cell__ft">{{item.desc}}</div>
+                <div class="weui-cell__ft text-ellipsis">{{item.desc}}</div>
         	</router-link>
         </div>
     </div>
