@@ -240,13 +240,7 @@ export default {
 					this.lyricNode = parseInt(key);
 					var li = '<li>'+this.lyric[key]+'</li>';
 					$("#cd-lyric").append(li);
-					var lyric_h = $("#cd-lyric").parent().height(),
-						ul_h = $("#cd-lyric").height();
-					if(ul_h > lyric_h){
-						var ul_scrollTop = $("#cd-lyric").parent().scrollTop();
-						var this_scrollTop = ul_scrollTop + 30;
-						$("#cd-lyric").parent().animate({scrollTop:this_scrollTop+'px'},1000);
-					}
+					$("#cd-lyric").animate({top:-2rem},2000);
 				}
 			}
 
