@@ -235,7 +235,7 @@ export default {
 			this.progressBtnStyle = "width:"+progress+"%";
 
 			for(var key in this.lyric){
-				if(currentTime == key){
+				if(parseInt(currentTime) == parseInt(key)){
 					var li = '<li>'+this.lyric[key]+'</li>';
 					$("#cd-lyric").append(li);
 					var lyric_h = $("#cd-lyric").parent().height(),
@@ -413,6 +413,7 @@ export default {
 		showCD:function(event){
 			var _this = event.target;
 			$(_this).addClass("hidden");
+			$("#cd-this").removeClass("hidden");
 			$(_this).parent().children("div.cd").removeClass("hidden");
 		}
 	}
