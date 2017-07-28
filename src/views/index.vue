@@ -19,3 +19,10 @@ import Index from '../js/index';
 
 export default Index;
 </script>
+
+<style>
+    .weui-cells__title{
+        padding-top: .77em;
+        margin-top:0;
+    }
+</style>
