@@ -13,7 +13,7 @@
 	        <div class="player_content">
 	            <div class="panel cd" id="panel-cd" v-on:click.self="showLyric()">
 	            	<div class="cd_this rotation" id="cd-this" v-on:click.self="showLyric()">
-	            		<img src="" />
+	            		<img src="" v-on:click.self="showLyric()" />
 	            	</div>
 	            	<div class="cd_img" v-on:click.self="showLyric()"></div>
 	            </div>
