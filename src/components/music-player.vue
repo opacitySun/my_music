@@ -240,9 +240,9 @@ export default {
 					this.lyricNode = parseInt(key);
 					var li = '<li>'+this.lyric[key]+'</li>';
 					$("#cd-lyric").append(li);
-					var this_top = $("#cd-lyric").position().top;
-					this_top = this_top - 30;
-					$("#cd-lyric").animate({top:this_top+'px'},3000);
+					var thisTop = $("#cd-lyric").position().top;
+					thisTop = thisTop - 30;
+					$("#cd-lyric").animate({top:thisTop+'px'},3000);
 					var cdThis = $("#cd-this");
 					var deg = eval('this.get'+cdThis.css('transform'));//构造getmatrix函数,返回上次旋转度数
 					var style = $("style");
