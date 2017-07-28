@@ -11,13 +11,13 @@
 	            </div>
 	        </div>
 	        <div class="player_content">
-	            <div class="panel cd">
+	            <div class="panel cd" v-on:click="showLyric($event)">
 	            	<div class="cd_this rotation" id="cd-this">
 	            		<img src="" />
 	            	</div>
 	            	<div class="cd_img"></div>
 	            </div>
-	            <div class="panel lyric hidden">
+	            <div class="panel lyric hidden" v-on:click="showCD($event)">
 	            	<ul id="cd-lyric"></ul>
 	            </div>
 	        </div>
@@ -404,6 +404,16 @@ export default {
 		        }
 		    }
 		    return lrcObj;
+		},
+		showLyric:function(event){
+			var _this = event.target;
+			$(_this).addClass("hidden");
+			$(_this).parent().find("a.lyric").removeClass("hidden");
+		},
+		showCD:function(event){
+			var _this = event.target;
+			$(_this).addClass("hidden");
+			$(_this).parent().find("a.cd").removeClass("hidden");
 		}
 	}
 }
