@@ -235,7 +235,7 @@ export default {
 			this.progressBtnStyle = "width:"+progress+"%";
 
 			for(var key in this.lyric){
-				if(parseInt(currentTime) == parseInt(key)){
+				if(currentTime == parseInt(key)){
 					var li = '<li>'+this.lyric[key]+'</li>';
 					$("#cd-lyric").append(li);
 					var lyric_h = $("#cd-lyric").parent().height(),
@@ -408,12 +408,14 @@ export default {
 		showLyric:function(event){
 			var _this = event.target;
 			$(_this).addClass("hidden");
-			$(_this).parent().find(".panel")[1].removeClass("hidden");
+			$(_this).parent().find(".lyric").removeClass("hidden");
 		},
 		showCD:function(event){
 			var _this = event.target;
 			$(_this).addClass("hidden");
-			$(_this).parent().find(".panel")[2].removeClass("hidden");
+			$(_this).parent().find(".cd").find(".cd_this").removeClass("hidden");
+			$(_this).parent().find(".cd").find(".cd_this").find("img").removeClass("hidden");
+			$(_this).parent().find(".cd").removeClass("hidden");
 		}
 	}
 }
