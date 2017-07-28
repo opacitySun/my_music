@@ -408,12 +408,12 @@ export default {
 		showLyric:function(event){
 			var _this = event.target;
 			$(_this).addClass("hidden");
-			$(_this).parent().find("a.lyric").removeClass("hidden");
+			$(_this).parent().find(".lyric").removeClass("hidden");
 		},
 		showCD:function(event){
 			var _this = event.target;
 			$(_this).addClass("hidden");
-			$(_this).parent().find("a.cd").removeClass("hidden");
+			$(_this).parent().find(".cd").removeClass("hidden");
 		}
 	}
 }
