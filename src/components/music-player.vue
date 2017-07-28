@@ -235,7 +235,16 @@ export default {
 			progress = progress <= 100 ? progress : 100;
 			this.progressBtnStyle = "width:"+progress+"%";
 
-
+			for(var key in this.lyric){
+				if(parseInt(currentTime) == parseInt(key) && parseInt(currentTime) != this.lyricNode){
+					this.lyricNode = parseInt(key);
+					var li = '<li>'+this.lyric[key]+'</li>';
+					$("#cd-lyric").append(li);
+					var this_top = $("#cd-lyric").position().top;
+					this_top = this_top - 30;
+					//$("#cd-lyric").animate({top:this_top+'px'},3000);
+				}
+			}
 
 			if(currentTime == duration){
 				$("#cd-lyric").empty();
