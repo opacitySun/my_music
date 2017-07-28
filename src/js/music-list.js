@@ -3,13 +3,19 @@
 module.exports = {
 	data(){
 		return {
-			items:[
-				{"id":3,"name":"musiclist11"},
-				{"id":4,"name":"musiclist22"}
-			]
+			myMusics:[]
 		};
 	},
-	ready(){
-		
+	created(){
+		var userId = this.$route.params.id;
+		this.$http.jsonp(ResourcePath+'/getMyMusicList').then(function(res){
+			res = res.body.result;
+			for(var k in res){
+				res[k]["href"] = "/music-detail/"+res[k].id;
+				this.musics.push(res[k]);
+			}
+		},function(err){
+			console.log(err);
+		});
 	}
 };

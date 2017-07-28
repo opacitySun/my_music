@@ -1,13 +1,15 @@
 <template>
     <div>
-        <h1>List</h1>
-		<hr/>
-		<p>Hello List Page!</p>
-		<ul>
-		    <li v-for="(item,index) in items">
-		         {{item.id}} : {{item.name}}
-		    </li>
-		</ul>
+		<div class="weui-cells__title" style="padding-top: .77em;margin-top:0;">我的歌单</div>
+        <div class="weui-cells">
+        	<router-link :to="item.href" v-for="(item,index) in musics" class="weui-cell weui-cell_access">
+				<div class="weui-cell__hd">
+                	<img src="item.img" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p style="margin:0;">{{item.name}}</p>
+                </div>
+        	</router-link>
+        </div>
     </div>
 </template>
 
