@@ -11,13 +11,13 @@
 	            </div>
 	        </div>
 	        <div class="player_content">
-	            <div class="panel cd" v-on:click="showLyric($event)">
+	            <div class="panel cd" v-on:click.self="showLyric($event)">
 	            	<div class="cd_this rotation" id="cd-this">
 	            		<img src="" />
 	            	</div>
 	            	<div class="cd_img"></div>
 	            </div>
-	            <div class="panel lyric hidden" v-on:click="showCD($event)">
+	            <div class="panel lyric hidden" v-on:click.self="showCD($event)">
 	            	<ul id="cd-lyric"></ul>
 	            </div>
 	        </div>
@@ -235,7 +235,9 @@ export default {
 			this.progressBtnStyle = "width:"+progress+"%";
 
 			for(var key in this.lyric){
-				if(currentTime == parseInt(key)){
+				var k;
+				if(parseInt(currentTime) == parseInt(key) && parseInt(currentTime) != k){
+					k = parseInt(key);
 					var li = '<li>'+this.lyric[key]+'</li>';
 					$("#cd-lyric").append(li);
 					var lyric_h = $("#cd-lyric").parent().height(),
@@ -413,8 +415,6 @@ export default {
 		showCD:function(event){
 			var _this = event.target;
 			$(_this).addClass("hidden");
-			$(_this).parent().find(".cd").find(".cd_this").removeClass("hidden");
-			$(_this).parent().find(".cd").find(".cd_this").find("img").removeClass("hidden");
 			$(_this).parent().find(".cd").removeClass("hidden");
 		}
 	}
