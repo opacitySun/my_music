@@ -4,7 +4,7 @@
         <div class="weui-cells">
         	<router-link :to="item.href" v-for="(item,index) in musics" class="weui-cell weui-cell_access">
 				<div class="weui-cell__hd">
-                	<img src="{{item.img}}" style="width:20px;margin-right:5px;display:block"></div>
+                	<img :src="item.img" style="width:20px;margin-right:5px;display:block"></div>
                 <div class="weui-cell__bd">
                     <p style="margin:0;">{{item.name}}</p>
                 </div>
