@@ -1,6 +1,6 @@
 <template>
     <div>
-		<div class="weui-cells__title">推荐歌单</div>
+		<div class="weui-cells__title" style="padding-top: .77em;margin-top:0;">推荐歌单</div>
         <div class="weui-cells">
         	<router-link :to="item.href" v-for="(item,index) in musics" class="weui-cell weui-cell_access">
 				<div class="weui-cell__hd">
@@ -19,10 +19,3 @@ import Index from '../js/index';
 
 export default Index;
 </script>
-
-<style>
-    .weui-cells__title{
-        padding-top: .77em;
-        margin-top:0;
-    }
-</style>
