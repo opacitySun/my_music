@@ -247,6 +247,7 @@ export default {
 			}
 
 			if(currentTime == duration){
+				$("#cd-lyric").empty();
 				$("#cd-lyric").css("top","80%");
 				var style = $("style");
 				style.html('@-webkit-keyframes rotation {from {-webkit-transform: rotate(0deg);}to {-webkit-transform: rotate(360deg);}}');
