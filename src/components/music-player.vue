@@ -187,6 +187,10 @@ export default {
 				this.player.src = music.src;
 				$("#cd-this").find("img").attr("src",res.img);
 				this.timeDuration = setInterval(this.setDuration, 500);
+
+				var lyricfile = window.location.href = res.lyric;
+				var lyric = parseLyric(lyricfile);
+				console.log(lyric);
 				this.playerStart();
 			},function(err){
 				console.log(err);
