@@ -218,6 +218,22 @@
       background-size:cover;
     }
   }
+
+  .lyric{
+    width:80%;
+    height:80%;
+    overflow:auto;
+    ul{
+      width:100%;
+      li{
+        float:left;
+        width:100%;
+        line-height:2rem;
+        font-size:1.2rem;
+        color:#ffffff;
+      }
+    }
+  }
 }
 
 @-webkit-keyframes rotation {

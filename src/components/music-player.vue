@@ -17,7 +17,9 @@
 	            	</div>
 	            	<div class="cd_img"></div>
 	            </div>
-	            <div class="panel lyric hidden"></div>
+	            <div class="panel lyric hidden">
+	            	<ul id="cd-lyric"></ul>
+	            </div>
 	        </div>
 	        <div class="player_footer">
 	            <audio></audio>
@@ -64,9 +66,7 @@ export default {
 			duration:"00:00",
 			currentTime:"00:00",
 			progressBtnStyle:"width:0%",
-			fileElement:$("#file"),
-			albumPicElment:$("#picture"),
-			musicPlayer:$("#music-player")
+			lyric:{}
 		}
 	},
 	created(){
@@ -179,6 +179,8 @@ export default {
 			id = Number(id);
 			this.$http.jsonp(ResourcePath+'/getMusicList?id='+id).then(function(res){
 				res = res.body.result[0];
+				var lyric = this.parseLyric(res.lyric);
+				this.lyric = lyric;
 				var musicQueue = new this.MusicQueue();
 				var music = new this.Music(res.name,res.author,res.url);
 				musicQueue.addMusic(music);
@@ -187,9 +189,6 @@ export default {
 				this.player.src = music.src;
 				$("#cd-this").find("img").attr("src",res.img);
 				this.timeDuration = setInterval(this.setDuration, 500);
-
-				var lyric = this.parseLyric(res.lyric);
-				console.log(lyric);
 				this.playerStart();
 			},function(err){
 				console.log(err);
@@ -234,6 +233,20 @@ export default {
 			var progress = (currentTime / duration).toFixed(2) * 100;
 			progress = progress <= 100 ? progress : 100;
 			this.progressBtnStyle = "width:"+progress+"%";
+
+			for(var key in this.lyric){
+				if(currentTime == key){
+					var li = '<li>'+this.lyric[key]+'</li>';
+					$("#cd-lyric").append(li);
+					var lyric_h = $("#cd-lyric").parent().height(),
+						ul_h = $("#cd-lyric").height();
+					if(ul_h > lyric_h){
+						var ul_scrollTop = $("#cd-lyric").parent().scrollTop();
+						var this_scrollTop = ul_scrollTop + 30;
+						$("#cd-lyric").parent().animate({scrollTop:this_scrollTop+'px'},1000);
+					}
+				}
+			}
 
 			if(currentTime == duration){
 				var style = $("style");
