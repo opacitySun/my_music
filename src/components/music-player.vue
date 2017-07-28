@@ -242,7 +242,7 @@ export default {
 					$("#cd-lyric").append(li);
 					var this_top = $("#cd-lyric").position().top;
 					this_top = this_top - 30;
-					$("#cd-lyric").animate({top:this_top+'px'},3000);
+					$("#cd-lyric").animate({top:this_top+'px'},4000);
 				}
 			}
 
