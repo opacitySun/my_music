@@ -240,7 +240,9 @@ export default {
 					this.lyricNode = parseInt(key);
 					var li = '<li>'+this.lyric[key]+'</li>';
 					$("#cd-lyric").append(li);
-					$("#cd-lyric").animate({top:'-2rem'},2000);
+					var this_top = $("#cd-lyric").position().top;
+					this_top = this_top - 30;
+					$("#cd-lyric").animate({top:this_top+'px'},3000);
 				}
 			}
 
