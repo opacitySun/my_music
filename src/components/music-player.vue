@@ -243,10 +243,8 @@ export default {
 					var thisTop = $("#cd-lyric").position().top;
 					thisTop = thisTop - 30;
 					$("#cd-lyric").animate({top:thisTop+'px'},3000);
-					var cdThis = $("#cd-this");
-					var deg = eval('this.get'+cdThis.css('transform'));//构造getmatrix函数,返回上次旋转度数
 					var style = $("style");
-					style.html('@-webkit-keyframes rotation {from {-webkit-transform: rotate('+deg+'deg);}to {-webkit-transform: rotate('+parseInt(deg+360)+'deg);}}');
+					style.html('@-webkit-keyframes rotation {from {-webkit-transform: rotate(0deg);}to {-webkit-transform: rotate(360deg);}}');
 				}
 			}
 
