@@ -11,14 +11,14 @@
 	            </div>
 	        </div>
 	        <div class="player_content">
-	            <div class="panel cd" v-on:click.self="showLyric($event)">
-	            	<div class="cd_this rotation" id="cd-this">
+	            <div class="panel cd" id="panel-cd" v-on:click.self="showLyric()">
+	            	<div class="cd_this rotation" id="cd-this" v-on:click.self="showLyric()">
 	            		<img src="" />
 	            	</div>
-	            	<div class="cd_img"></div>
+	            	<div class="cd_img" v-on:click.self="showLyric()"></div>
 	            </div>
-	            <div class="panel lyric hidden" v-on:click.self="showCD($event)">
-	            	<ul id="cd-lyric"></ul>
+	            <div class="panel lyric hidden" id="panel-lyric" v-on:click.self="showCD()">
+	            	<ul id="cd-lyric" v-on:click.self="showCD()"></ul>
 	            </div>
 	        </div>
 	        <div class="player_footer">
@@ -66,7 +66,8 @@ export default {
 			duration:"00:00",
 			currentTime:"00:00",
 			progressBtnStyle:"width:0%",
-			lyric:{}
+			lyric:{},
+			lyricNode:-1
 		}
 	},
 	created(){
@@ -235,9 +236,8 @@ export default {
 			this.progressBtnStyle = "width:"+progress+"%";
 
 			for(var key in this.lyric){
-				var k;
-				if(parseInt(currentTime) == parseInt(key) && parseInt(currentTime) != k){
-					k = parseInt(key);
+				if(parseInt(currentTime) == parseInt(key) && parseInt(currentTime) != this.lyricNode){
+					this.lyricNode = parseInt(key);
 					var li = '<li>'+this.lyric[key]+'</li>';
 					$("#cd-lyric").append(li);
 					var lyric_h = $("#cd-lyric").parent().height(),
@@ -407,15 +407,13 @@ export default {
 		    }
 		    return lrcObj;
 		},
-		showLyric:function(event){
-			var _this = event.target;
-			$(_this).addClass("hidden");
-			$(_this).parent().find(".lyric").removeClass("hidden");
+		showLyric:function(){
+			$("#panel-cd").addClass("hidden");
+			$("#panel-lyric").removeClass("hidden");
 		},
-		showCD:function(event){
-			var _this = event.target;
-			$(_this).addClass("hidden");
-			$(_this).parent().find(".cd").removeClass("hidden");
+		showCD:function(){
+			$("#panel-lyric").addClass("hidden");
+			$("#panel-cd").removeClass("hidden");
 		}
 	}
 }
