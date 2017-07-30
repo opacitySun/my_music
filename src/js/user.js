@@ -9,7 +9,8 @@ module.exports = {
 		}
 	},
 	created(){
-		var userUuid = window.localStorage.getItem("userUuid");
+		// var userUuid = window.localStorage.getItem("userUuid");
+		var userUuid = 'caaafcd9-736d-11e7-a4b9-00163e0007a6';
 		if(userUuid){
 			this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUuid).then(function(res){
 				res = res.body.result;
