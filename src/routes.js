@@ -32,7 +32,7 @@ const Routes = {
 		{
 			path: '/user',
 			name: 'user',
-			component: MusicList
+			component: User
 		},
 		{
 			path: '*',
