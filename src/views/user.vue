@@ -6,7 +6,7 @@
 		    		<img :src="user.img" />
 		    	</div>
 		    	<p>积分：{{user.points}}</p>
-		    	<em>{{user.name}}</em>
+		    	<em v-html="user.name">{{user.name}}</em>
 		    </div>
 		    <div class="weui-grids">
 		        <a href="javascript:;" class="weui-grid">
