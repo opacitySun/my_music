@@ -7,6 +7,7 @@
 import Index from './views/index';
 import MusicList from './views/music-list';
 import MusicDetail from './views/music-detail';
+import User from './views/user';
 import NotFound from './components/not-found';
 
 const Routes = {
@@ -27,6 +28,11 @@ const Routes = {
 			path: '/music-detail/:id',
 			name: 'music-detail',
 			component: MusicDetail
+		},
+		{
+			path: '/user',
+			name: 'user',
+			component: MusicList
 		},
 		{
 			path: '*',
