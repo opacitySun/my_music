@@ -5,7 +5,7 @@
 		    	<div class="user_icon">
 		    		<img :src="user.img" />
 		    	</div>
-		    	<p>积分:{{user.points}}</p>
+		    	<p>积分: {{user.points}}</p>
 		    	<em v-html="user.name">{{user.name}}</em>
 		    </div>
 		    <div class="weui-grids">
