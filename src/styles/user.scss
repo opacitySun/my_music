@@ -6,20 +6,20 @@
 	background-size:100% 100%;
 	.user_icon{
 		width:100%;
-		height:6rem;
+		height:7rem;
 		position:relative;
 		img{
 			position:absolute;
 			top:0;
 			left:50%;
-			margin-left:-3rem;
-			width:4rem;
-			height:4rem;
-			border:1rem solid #FFF;
-			border-radius:2rem;
-			-webkit-border-radius:2rem;
-			-moz-border-radius:2rem;
-			-o-border-radius:2rem;
+			margin-left:-3.5rem;
+			width:6rem;
+			height:6rem;
+			border:0.5rem solid #FFF;
+			border-radius:3rem;
+			-webkit-border-radius:3rem;
+			-moz-border-radius:3rem;
+			-o-border-radius:3rem;
 		}
 	}
 	p{
@@ -33,5 +33,6 @@
 		width:100%;
 		text-align:center;
 		color:#000;
+		display:block;
 	}
 }
