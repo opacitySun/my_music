@@ -1,17 +1,14 @@
 <template>
     <div>
 		<div class="page grid js_show">
-		    <div class="page__hd">
-		        <h1 class="page__title">个人中心</h1>
-		        <p class="page__desc">{{user.name}}</p>
+		    <div class="user_index_top">
+		    	<div class="user_icon">
+		    		<img src="{{user.img}}" />
+		    	</div>
+		    	<p>积分：{{user.points}}</p>
+		    	<em>{{user.name}}</em>
 		    </div>
 		    <div class="weui-grids">
-		        <a href="javascript:void(0);" class="weui-grid" v-on:click="goLogin()">
-		            <div class="weui-grid__icon">
-		                <img src="../images/user_login.png" alt="登录">
-		            </div>
-		            <p class="weui-grid__label">登录</p>
-		        </a>
 		        <a href="javascript:;" class="weui-grid">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_reg.png" alt="注册">
@@ -20,7 +17,7 @@
 		        </a>
 		        <a href="javascript:;" class="weui-grid">
 		            <div class="weui-grid__icon">
-		                <img src="../images/user_reg.png" alt="密码修改">
+		                <img src="../images/user_edit.png" alt="密码修改">
 		            </div>
 		            <p class="weui-grid__label">密码修改</p>
 		        </a>
