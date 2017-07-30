@@ -3,7 +3,7 @@
 		<div class="page grid js_show">
 		    <div class="user_index_top">
 		    	<div class="user_icon">
-		    		<img src="{{user.img}}" />
+		    		<img :src="user.img" />
 		    	</div>
 		    	<p>积分：{{user.points}}</p>
 		    	<em>{{user.name}}</em>

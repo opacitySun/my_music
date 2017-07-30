@@ -11,7 +11,7 @@ module.exports = {
 	created(){
 		var userUuid = window.localStorage.getItem("userUuid");
 		if(userUuid){
-			this.$http.jsonp(ResourcePath+'/getUserInfoAction').then(function(res){
+			this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUuid).then(function(res){
 				res = res.body.result;
 				this.user.name = res.name;
 				this.user.img = ResourcePath + res.img;
