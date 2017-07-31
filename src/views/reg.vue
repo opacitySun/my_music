@@ -30,11 +30,11 @@
 					<img class="weui-vcode-img" src="">
 				</div>
 			</div>
-			<div class="weui-cells__tips"></div>
-		    <div class="weui-btn-area">
-		        <a href="javascript:void(0)" class="weui-btn weui-btn_plain-primary">注册</a>
-		    </div>
 		</div>
+		<div class="weui-cells__tips"></div>
+	    <div class="weui-btn-area">
+	        <a href="javascript:void(0)" class="weui-btn weui-btn_plain-primary">注册</a>
+	    </div>
     </div>
 </template>
 
