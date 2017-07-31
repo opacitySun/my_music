@@ -31,7 +31,6 @@ module.exports = {
 	methods:{
 		//登录
 		goLogin:function(){
-			alert(111);
 			console.log("登录");
 		}
 	}
