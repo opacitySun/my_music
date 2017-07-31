@@ -17,7 +17,7 @@ module.exports = {
 				this.user.name = res.name;
 				this.user.img = ResourcePath + res.img;
 				this.user.points = res.points;
-				this.loginBtnClass = "";
+				this.loginBtnClass = "hidden";
 			},function(err){
 				console.log(err);
 			});
@@ -25,7 +25,7 @@ module.exports = {
 			this.user.name = '未知';
 			this.user.img = ResourcePath + "/files/default.png";
 			this.user.points = 0;
-			this.loginBtnClass = "hidden";
+			this.loginBtnClass = "";
 		}
 	},
 	methods:{
