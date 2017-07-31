@@ -31,7 +31,7 @@ module.exports = {
 	methods:{
 		//登录
 		goLogin:function(){
-			console.log("登录");
+			this.$router.push({ path: '/login' });
 		}
 	}
 };
