@@ -15,7 +15,7 @@
 	        <div class="weui-cell weui-cell_vcode">
 	            <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
 	            <div class="weui-cell__bd weui-cell_primary"><input type="number" class="weui-input"></div>
-	            <div class="weui-cell__ft"></div>
+	            <div class="weui-cell__ft"><img src="" /></div>
 	        </div>
 	    </div>
 	    <div class="weui-cells__tips"></div>
@@ -33,12 +33,17 @@ export default Login;
 </script>
 
 <style>
-	h2{margin:2rem 15%;}
-	
+	h2.weui-page__title{margin:2rem 15%;}
+
 	.weui-btn-noborder{
 		font-size:1.6rem;
 		display:block;
 		text-align:center;
 		margin:1rem 0;
+	}
+
+	.weui-cell__ft img{
+		width:8rem;
+		height:4rem;
 	}
 </style>
