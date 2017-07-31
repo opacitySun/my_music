@@ -1,5 +1,5 @@
 <template>
-    <div class="user_login">
+    <div>
     	<div class="weui-cells__title">
     		<h2 class="weui-page__title">登录</h2>
     	</div>
@@ -22,7 +22,7 @@
 	    <div class="weui-btn-area">
 	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary">登录</a>
 	    </div>
-	    <a href="javascript:void(0)">没账户，去注册</a>
+	    <a href="javascript:void(0)" class="weui-btn-noborder">没账户，去注册</a>
     </div>
 </template>
 
@@ -31,3 +31,14 @@ import Login from '../js/login';
 
 export default Login;
 </script>
+
+<style>
+	h2{margin:2rem 15%;}
+	
+	.weui-btn-noborder{
+		font-size:1.6rem;
+		display:block;
+		text-align:center;
+		margin:1rem 0;
+	}
+</style>
