@@ -8,6 +8,7 @@ import Index from './views/index';
 import MusicList from './views/music-list';
 import MusicDetail from './views/music-detail';
 import User from './views/user';
+import Login from './views/login';
 import NotFound from './components/not-found';
 
 const Routes = {
@@ -33,6 +34,11 @@ const Routes = {
 			path: '/user',
 			name: 'user',
 			component: User
+		},
+		{
+			path: '/login',
+			name: 'login',
+			component: Login
 		},
 		{
 			path: '*',
