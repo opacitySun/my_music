@@ -7,8 +7,7 @@
 		    	</div>
 		    	<p>积分: {{user.points}}</p>
 		    	<em>
-		    		{{user.name}}
-		    		<a href="javascript:void(0);" :class="loginBtnClass" v-on:click="goLogin()"></a>
+		    		{{user.name}} <a href="javascript:void(0);" :class="loginBtnClass" v-on:click="goLogin()"></a>
 		    	</em>
 		    </div>
 		    <div class="weui-grids">

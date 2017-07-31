@@ -22,7 +22,7 @@ module.exports = {
 				console.log(err);
 			});
 		}else{
-			this.user.name = '未知 <a href="javascript:void(0)" v-on:click="goLogin()">登录</a>';
+			this.user.name = '未知';
 			this.user.img = ResourcePath + "/files/default.png";
 			this.user.points = 0;
 			this.loginBtnClass = "hidden";
