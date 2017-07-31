@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div class="user_login">
+    	<div class="weui-cells__title">
+    		<h1 class="page_title">登录</h1>
+    	</div>
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
 	            <div class="weui-cell__hd"><label class="weui-label">账户</label></div>
@@ -17,9 +20,9 @@
 	    </div>
 	    <div class="weui-cells__tips"></div>
 	    <div class="weui-btn-area">
-	        <a href="" class="weui-btn weui-btn_primary">登录</a>
+	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary">登录</a>
 	    </div>
-	    <a href="/register" class="important-tips">没账户，去注册</a>
+	    <a href="javascript:void(0)" class="important-tips">没账户，去注册</a>
     </div>
 </template>
 
