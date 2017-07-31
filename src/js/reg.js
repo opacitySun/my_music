@@ -24,6 +24,7 @@ module.exports = {
 				clearInterval(this.timeId);
 				$("#sendCodeBtn").removeClass("hidden");
 				$("#sendCodeSpaceBtn").addClass("hidden");
+				this.sendCodeSpaceTime = 60;
 			}else{
 				$("#sendCodeSpaceBtn").text(this.sendCodeSpaceTime+"s");
 			}
