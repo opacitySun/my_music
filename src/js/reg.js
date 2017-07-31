@@ -25,7 +25,7 @@ module.exports = {
 				$("#sendCodeBtn").removeClass("hidden");
 				$("#sendCodeSpaceBtn").addClass("hidden");
 			}else{
-				$("#sendCodeSpaceBtn").text(sendCodeSpaceTime+"s");
+				$("#sendCodeSpaceBtn").text(this.sendCodeSpaceTime+"s");
 			}
 		}
 	}
