@@ -15,14 +15,14 @@
 	        <div class="weui-cell weui-cell_vcode">
 	            <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
 	            <div class="weui-cell__bd weui-cell_primary"><input type="number" class="weui-input"></div>
-	            <div class="weui-cell__ft"><img src="" /></div>
+	            <div class="weui-cell__ft"><img class="weui-vcode-img" src="" /></div>
 	        </div>
 	    </div>
 	    <div class="weui-cells__tips"></div>
 	    <div class="weui-btn-area">
-	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary" v-on:click="goRegister()">登录</a>
+	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary">登录</a>
 	    </div>
-	    <a href="javascript:void(0)" class="weui-btn-noborder">没账户，去注册</a>
+	    <a href="javascript:void(0)" class="weui-btn-noborder" v-on:click="goRegister()">没账户，去注册</a>
     </div>
 </template>
 
@@ -40,10 +40,5 @@ export default Login;
 		display:block;
 		text-align:center;
 		margin:1rem 0;
-	}
-
-	.weui-cell__ft img{
-		width:8rem;
-		height:4rem;
 	}
 </style>
