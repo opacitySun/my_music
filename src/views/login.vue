@@ -1,8 +1,6 @@
 <template>
     <div>
-    	<div class="weui-cells__title">
-    		<h2 class="weui-page__title">登录</h2>
-    	</div>
+    	<h2 class="weui-page__title">登录</h2>
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
 	            <div class="weui-cell__hd"><label class="weui-label">账户</label></div>

@@ -1,5 +1,6 @@
 <template>
     <div>
+    	<h2 class="weui-page__title">注册</h2>
     	<div class="weui-cells weui-cells_form">
 			<div class="weui-cell weui-cell_vcode">
 				<div class="weui-cell__hd">
@@ -42,3 +43,7 @@ import Reg from '../js/reg';
 
 export default Reg;
 </script>
+
+<style>
+	h2.weui-page__title{margin:2rem 15%;}
+</style>
