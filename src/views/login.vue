@@ -31,7 +31,7 @@ export default Login;
 </script>
 
 <style>
-	h2.weui-page__title{margin:2rem 15%;}
+	h2.weui-page__title{padding:2rem 0;}
 
 	.weui-btn-noborder{
 		font-size:1.6rem;

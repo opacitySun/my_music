@@ -45,5 +45,5 @@ export default Reg;
 </script>
 
 <style>
-	h2.weui-page__title{margin:2rem 15%;}
+	h2.weui-page__title{padding:2rem 0;}
 </style>
