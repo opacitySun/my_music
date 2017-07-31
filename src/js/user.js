@@ -5,7 +5,8 @@ module.exports = {
 				"name":'未知 <a href="javascript:void(0)" v-on:click="goLogin()">登录</a>',
 				"img":ResourcePath + "/files/default.png",
 				"points":0
-			}
+			},
+			loginBtnClass:""
 		}
 	},
 	created(){
@@ -16,6 +17,7 @@ module.exports = {
 				this.user.name = res.name;
 				this.user.img = ResourcePath + res.img;
 				this.user.points = res.points;
+				this.loginBtnClass = "";
 			},function(err){
 				console.log(err);
 			});
@@ -23,6 +25,7 @@ module.exports = {
 			this.user.name = '未知 <a href="javascript:void(0)" v-on:click="goLogin()">登录</a>';
 			this.user.img = ResourcePath + "/files/default.png";
 			this.user.points = 0;
+			this.loginBtnClass = "hidden";
 		}
 	},
 	methods:{

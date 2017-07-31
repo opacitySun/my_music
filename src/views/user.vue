@@ -6,10 +6,13 @@
 		    		<img :src="user.img" />
 		    	</div>
 		    	<p>积分: {{user.points}}</p>
-		    	<em v-html="user.name">{{user.name}}</em>
+		    	<em>
+		    		{{user.name}}
+		    		<a href="javascript:void(0);" :class="loginBtnClass" v-on:click="goLogin()"></a>
+		    	</em>
 		    </div>
 		    <div class="weui-grids">
-		        <a href="javascript:;" class="weui-grid" v-on:click="goLogin()">
+		        <a href="javascript:;" class="weui-grid">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_reg.png" alt="注册">
 		            </div>
