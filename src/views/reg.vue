@@ -7,10 +7,11 @@
 					<label class="weui-label">手机号</label>
 				</div>
 				<div class="weui-cell__bd">
-					<input class="weui-input" type="tel" placeholder="请输入手机号">
+					<input class="weui-input" type="tel" id="user-mobile" placeholder="请输入手机号">
 				</div>
 				<div class="weui-cell__ft">
-					<button class="weui-vcode-btn">获取验证码</button>
+					<button class="weui-vcode-btn" id="sendCodeBtn" v-on:click="sendCode()">获取验证码</button>
+					<button class="weui-btn weui-btn_disabled weui-btn_default hidden" id="sendCodeSpaceBtn">60s</button>
 				</div>
 			</div>
 			<div class="weui-cell">
