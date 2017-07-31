@@ -1,7 +1,7 @@
 <template>
     <div class="user_login">
     	<div class="weui-cells__title">
-    		<h1 class="page_title">登录</h1>
+    		<h2 class="weui-page__title">登录</h2>
     	</div>
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
@@ -22,7 +22,7 @@
 	    <div class="weui-btn-area">
 	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary">登录</a>
 	    </div>
-	    <a href="javascript:void(0)" class="important-tips">没账户，去注册</a>
+	    <a href="javascript:void(0)">没账户，去注册</a>
     </div>
 </template>
 
