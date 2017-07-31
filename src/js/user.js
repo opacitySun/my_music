@@ -32,6 +32,10 @@ module.exports = {
 		//登录
 		goLogin:function(){
 			this.$router.push({ path: '/login' });
+		},
+		//注册
+		goRegister:function(){
+			this.$router.push({ path: '/reg' });
 		}
 	}
 };

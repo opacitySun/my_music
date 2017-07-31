@@ -9,6 +9,7 @@ import MusicList from './views/music-list';
 import MusicDetail from './views/music-detail';
 import User from './views/user';
 import Login from './views/login';
+import Reg from './views/reg';
 import NotFound from './components/not-found';
 
 const Routes = {
@@ -39,6 +40,11 @@ const Routes = {
 			path: '/login',
 			name: 'login',
 			component: Login
+		},
+		{
+			path: '/reg',
+			name: 'reg',
+			component: Reg
 		},
 		{
 			path: '*',

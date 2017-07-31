@@ -6,5 +6,11 @@ module.exports = {
 	},
 	created(){
 		
+	},
+	methods:{
+		//注册
+		goRegister:function(){
+			this.$router.push({ path: '/reg' });
+		}
 	}
 };

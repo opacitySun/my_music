@@ -11,7 +11,7 @@
 		    	</em>
 		    </div>
 		    <div class="weui-grids">
-		        <a href="javascript:;" class="weui-grid">
+		        <a href="javascript:;" class="weui-grid" v-on:click="goRegister()">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_reg.png" alt="注册">
 		            </div>
