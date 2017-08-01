@@ -12,7 +12,7 @@
 	        </div>
 	        <div class="weui-cell weui-cell_vcode">
 	            <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
-	            <div class="weui-cell__bd weui-cell_primary"><input type="number" class="weui-input"></div>
+	            <div class="weui-cell__bd weui-cell_primary"><input type="text" class="weui-input"></div>
 	            <div class="weui-cell__ft" v-html="codeImg" v-on:click="getCodeFn()">{{codeImg}}</div>
 	        </div>
 	    </div>
