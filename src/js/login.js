@@ -22,7 +22,8 @@ module.exports = {
 		},
 		//登录
 		loginFn:function(){
-			this.$http.jsonp(ResourcePath+'/loginAction').then(function(res){
+			var name = $("#login-name"),pwd = $("#login-pwd");
+			this.$http.jsonp(ResourcePath+'/loginAction?name='+name+'&pwd='+pwd).then(function(res){
 				var success = res.body.success;
 				if(success == 1){
 					var result = res.body.result;

@@ -4,11 +4,11 @@
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
 	            <div class="weui-cell__hd"><label class="weui-label">账户</label></div>
-	            <div class="weui-cell__bd weui-cell_primary"><input type="tel" class="weui-input" placeholder="手机号码"/></div>
+	            <div class="weui-cell__bd weui-cell_primary"><input type="tel" id="login-name" class="weui-input" placeholder="手机号码"/></div>
 	        </div>
 	        <div class="weui-cell">
 	            <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
-	            <div class="weui-cell__bd weui-cell_primary"><input type="password" class="weui-input" placeholder="不少于6位"/></div>
+	            <div class="weui-cell__bd weui-cell_primary"><input type="password" id="login-pwd" class="weui-input" placeholder="不少于6位"/></div>
 	        </div>
 	        <div class="weui-cell weui-cell_vcode">
 	            <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
