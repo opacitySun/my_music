@@ -1,7 +1,7 @@
 module.exports = {
 	data() {
 		return {
-			codeImg:""
+			codeImg:'<img class="weui-vcode-img" src="">'
 		}
 	},
 	created(){
