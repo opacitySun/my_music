@@ -28,7 +28,7 @@ module.exports = {
 			this.$http.jsonp(ResourcePath+'/loginAction?name='+name+'&pwd='+pwd+'&vcode='+vcode).then(function(res){
 				var success = res.body.success;
 				if(success == 1){
-					var result = res.body.result;
+					var result = res.body.result[0];
 					window.localStorage.setItem("userUuid",result.uuid);
 					this.$router.push({ path: '/user' });
 				}else{
