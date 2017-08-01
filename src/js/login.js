@@ -1,7 +1,8 @@
 module.exports = {
 	data() {
 		return {
-			codeImg:'<img class="weui-vcode-img" src="">'
+			codeImg:'<img class="weui-vcode-img" src="">',
+			vcode:''
 		}
 	},
 	created(){
@@ -16,14 +17,15 @@ module.exports = {
 		getCodeFn:function(){
 			this.$http.jsonp(ResourcePath+'/getVerificationCodeAction').then(function(res){
 				this.codeImg = res.body.imghtml;
+				this.vcode = res.body.vcode;
 			},function(err){
 				console.log(err);
 			});
 		},
 		//登录
 		loginFn:function(){
-			var name = $("#login-name"),pwd = $("#login-pwd");
-			this.$http.jsonp(ResourcePath+'/loginAction?name='+name+'&pwd='+pwd).then(function(res){
+			var name = $("#login-name"),pwd = $("#login-pwd"),vcode = this.vcode;
+			this.$http.jsonp(ResourcePath+'/loginAction?name='+name+'&pwd='+pwd+'&vcode='+vcode).then(function(res){
 				var success = res.body.success;
 				if(success == 1){
 					var result = res.body.result;
