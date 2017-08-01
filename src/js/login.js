@@ -1,7 +1,7 @@
 module.exports = {
 	data() {
 		return {
-			
+			codeImg:""
 		}
 	},
 	created(){

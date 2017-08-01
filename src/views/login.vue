@@ -13,7 +13,7 @@
 	        <div class="weui-cell weui-cell_vcode">
 	            <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
 	            <div class="weui-cell__bd weui-cell_primary"><input type="number" class="weui-input"></div>
-	            <div class="weui-cell__ft"><img class="weui-vcode-img" src="" /></div>
+	            <div class="weui-cell__ft" v-html="codeImg">{{codeImg}}</div>
 	        </div>
 	    </div>
 	    <div class="weui-cells__tips"></div>
