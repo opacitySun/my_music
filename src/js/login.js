@@ -30,7 +30,9 @@ module.exports = {
 					window.localStorage.setItem("userUuid",result.uuid);
 					this.$router.push({ path: '/user' });
 				}else{
-					$.alert(res.body.flag);
+					$.alert(res.body.flag,function(){
+						$.closeModal();
+					});
 				}
 			},function(err){
 				console.log(err);
