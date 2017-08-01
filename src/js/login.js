@@ -15,6 +15,7 @@ module.exports = {
 		//获取验证码
 		getCodeFn:function(){
 			this.$http.jsonp(ResourcePath+'/getVerificationCodeAction').then(function(res){
+				console.log(res);
 				res = res.body.result;
 				
 			},function(err){
