@@ -19,6 +19,21 @@ module.exports = {
 			},function(err){
 				console.log(err);
 			});
+		},
+		//登录
+		loginFn:function(){
+			this.$http.jsonp(ResourcePath+'/loginAction').then(function(res){
+				var success = res.body.success;
+				if(success == 1){
+					var result = res.body.result;
+					window.localStorage.setItem("userUuid",result.uuid);
+					this.$router.push({ path: '/user' });
+				}else{
+					$.alert(res.body.flag);
+				}
+			},function(err){
+				console.log(err);
+			});
 		}
 	}
 };

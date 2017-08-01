@@ -3,6 +3,7 @@
 // ============================
 import "bootstrap/dist/css/bootstrap.min.css";
 import "weui/dist/style/weui.min.css";
+import "jquery-weui/dist/css/jquery-weui.min.css";
 import "font-awesome/css/font-awesome.min.css";
 
 // ============================
