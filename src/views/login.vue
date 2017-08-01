@@ -18,7 +18,7 @@
 	    </div>
 	    <div class="weui-cells__tips"></div>
 	    <div class="weui-btn-area">
-	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary">登录</a>
+	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary" v-on:click="loginFn()">登录</a>
 	    </div>
 	    <a href="javascript:void(0)" class="weui-btn-noborder" v-on:click="goRegister()">没账户，去注册</a>
     </div>

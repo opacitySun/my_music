@@ -13,6 +13,7 @@ module.exports = {
 		sendCode:function(){
 			var mobile = $("#user-mobile").val();
 			if(mobile == '' || mobile.length < 11){
+				console.log($.modal.prototype.defaults);
 				$.alert("您填写的手机号不合法");
 				return false;
 			}
