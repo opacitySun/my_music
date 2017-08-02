@@ -5,7 +5,7 @@
             <router-view></router-view>
         </main>
         <footer>
-        	<div class="col-xs-4 col-sm-4 col-md-4" ref="firstBtn">
+        	<div class="col-xs-4 col-sm-4 col-md-4" ref="firstBtn" autofocus>
                 <router-link to="/">
             		<i class="fa fa-2x fa-podcast"></i>
             		<p>发现音乐</p>
