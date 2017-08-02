@@ -40,8 +40,8 @@ export default {
     methods: {
         footerBtnClickFn:function(event){
             var _this = event.target;
+            $(_this).children().removeClass("active");
             $(_this).addClass("active");
-            $(_this).siblings().removeClass("active");
         }
     }
 }
