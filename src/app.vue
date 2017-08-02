@@ -5,7 +5,7 @@
             <router-view></router-view>
         </main>
         <footer>
-        	<div class="col-xs-4 col-sm-4 col-md-4">
+        	<div id="footerFirstBtn" class="col-xs-4 col-sm-4 col-md-4">
                 <router-link to="/">
             		<i class="fa fa-2x fa-podcast"></i>
             		<p>发现音乐</p>
@@ -28,6 +28,5 @@
 </template>
 
 <script>
-    var firstDiv = $("footer").children("div").get(0);
-    console.log(firstDiv);
+    $("#footerFirstBtn")[0].focus();
 </script>
