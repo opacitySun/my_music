@@ -28,5 +28,7 @@
 </template>
 
 <script>
+$(function(){
     $("#footerFirstBtn")[0].focus();
+});
 </script>
