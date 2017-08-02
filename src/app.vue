@@ -35,7 +35,12 @@ export default {
         }
     },
     created(){
-        this.$refs.firstBtn.focus();
+        
+    },
+    mounted() {
+        this.$nextTick(function () {
+            this.$refs.firstBtn.focus();
+        });
     },
     methods: {
         
