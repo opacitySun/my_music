@@ -65,7 +65,7 @@ footer{
 			font-size: 12px;
 			margin:0;
 		}
-		.router-link-active{
+		&:hover,&:active,&:focus{
 			i,p{
 				color:$white;
 			}

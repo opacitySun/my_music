@@ -26,3 +26,7 @@
         </footer>
     </div>
 </template>
+
+<script>
+    $("footer").find("div")[0].focus();
+</script>
