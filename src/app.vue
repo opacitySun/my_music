@@ -28,5 +28,6 @@
 </template>
 
 <script>
-    $("footer").find("div")[0].focus();
+    var firstDiv = $("footer").children("div").get(0);
+    console.log(firstDiv);
 </script>
