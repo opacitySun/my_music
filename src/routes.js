@@ -14,7 +14,7 @@ import NotFound from './components/not-found';
 
 const Routes = {
 	//配置路由模式
-	mode: 'history', //"hash" | "history" | "abstract"
+	mode: 'hash', //"hash" | "history" | "abstract"
 	//base: __dirname, //应用的基路径
 	routes: [
 		{
