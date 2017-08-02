@@ -39,10 +39,7 @@ module.exports = {
 		//退出登录
 		outLogin:function(){
 			window.localStorage.removeItem("userUuid");
-			this.$router.go({
-				path: '/user',
-				force: true
-			});
+			this.$router.go(-1);
 		},
 		//注册
 		goRegister:function(){
