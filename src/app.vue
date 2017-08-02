@@ -5,7 +5,7 @@
             <router-view></router-view>
         </main>
         <footer>
-        	<div id="footerFirstBtn" class="col-xs-4 col-sm-4 col-md-4">
+        	<div class="col-xs-4 col-sm-4 col-md-4" ref="firstBtn">
                 <router-link to="/">
             		<i class="fa fa-2x fa-podcast"></i>
             		<p>发现音乐</p>
@@ -28,7 +28,17 @@
 </template>
 
 <script>
-$(function(){
-    $("#footerFirstBtn")[0].focus();
-});
+export default {
+    data(){
+        return {
+
+        }
+    },
+    created(){
+        this.$refs.firstBtn.focus();
+    },
+    methods: {
+        
+    }
+}
 </script>
