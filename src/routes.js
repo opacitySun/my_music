@@ -5,11 +5,11 @@
  */
 
 import Index from './views/index';
-// import MusicList from './views/music-list';
-// import MusicDetail from './views/music-detail';
-// import User from './views/user';
-// import Login from './views/login';
-// import Reg from './views/reg';
+import MusicList from 'bundle?lazy!./views/music-list';
+import MusicDetail from 'bundle?lazy!./views/music-detail';
+import User from 'bundle?lazy!./views/user';
+import Login from 'bundle?lazy!./views/login';
+import Reg from 'bundle?lazy!./views/reg';
 import NotFound from './components/not-found';
 
 const Routes = {
@@ -24,37 +24,27 @@ const Routes = {
 		{
 			path: '/music-list',
 			name: 'music-list',
-			component: function(resolve){
-				require('./views/music-list',resolve);
-			}
+			component: MusicList
 		},
 		{
 			path: '/music-detail/:id',
 			name: 'music-detail',
-			component: function(resolve){
-				require('./views/music-detail',resolve);
-			}
+			component: MusicDetail
 		},
 		{
 			path: '/user',
 			name: 'user',
-			component: function(resolve){
-				require('./views/user',resolve);
-			}
+			component: User
 		},
 		{
 			path: '/login',
 			name: 'login',
-			component: function(resolve){
-				require('./views/login',resolve);
-			}
+			component: Login
 		},
 		{
 			path: '/reg',
 			name: 'reg',
-			component: function(resolve){
-				require('./views/reg',resolve);
-			}
+			component: NotFound
 		},
 		{
 			path: '*',
