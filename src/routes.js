@@ -33,7 +33,11 @@ const Routes = {
 		{
 			path: '/music-detail/:id',
 			name: 'music-detail',
-			component: MusicDetail
+			component: resolve => {
+				setTimeout(() => {
+	                resolve(MusicDetail)
+	            }, 0);
+			}
 		},
 		{
 			path: '/user',
@@ -47,12 +51,20 @@ const Routes = {
 		{
 			path: '/login',
 			name: 'login',
-			component: Login
+			component: resolve => {
+				setTimeout(() => {
+	                resolve(Login)
+	            }, 0);
+			}
 		},
 		{
 			path: '/reg',
 			name: 'reg',
-			component: Reg
+			component: resolve => {
+				setTimeout(() => {
+	                resolve(Reg)
+	            }, 0);
+			}
 		},
 		{
 			path: '*',
