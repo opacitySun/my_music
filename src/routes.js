@@ -24,27 +24,37 @@ const Routes = {
 		{
 			path: '/music-list',
 			name: 'music-list',
-			component: (resolve) => {require('@/views/music-list',resolve)}
+			component: function(resolve){
+				require('./views/music-list',resolve);
+			}
 		},
 		{
 			path: '/music-detail/:id',
 			name: 'music-detail',
-			component: (resolve) => {require('@/views/music-detail',resolve)}
+			component: function(resolve){
+				require('./views/music-detail',resolve);
+			}
 		},
 		{
 			path: '/user',
 			name: 'user',
-			component: (resolve) => {require('@/views/user',resolve)}
+			component: function(resolve){
+				require('./views/user',resolve);
+			}
 		},
 		{
 			path: '/login',
 			name: 'login',
-			component: (resolve) => {require('@/views/login',resolve)}
+			component: function(resolve){
+				require('./views/login',resolve);
+			}
 		},
 		{
 			path: '/reg',
 			name: 'reg',
-			component: (resolve) => {require('@/views/reg',resolve)}
+			component: function(resolve){
+				require('./views/reg',resolve);
+			}
 		},
 		{
 			path: '*',
