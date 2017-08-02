@@ -20,7 +20,7 @@ module.exports = {
 		},
 		//退出登录
 		outLogin:function(){
-			var getPageInfoAsUuid = new this.getPageInfoAsUuid();
+			var getPageInfoAsUuid = this.getPageInfoAsUuid();
 			$.confirm("您确定退出登录吗？", function() {
 				//点击确认后的回调函数
 				window.localStorage.removeItem("userUuid");
