@@ -52,9 +52,15 @@ footer{
 		vertical-align:middle;
 		text-align:center;
 		a{
+			display:block;
+			width:100%;
+			height:100%;
 			text-decoration:none;
 			&:hover,&:active,&:focus{
 				text-decoration:none;
+				i,p{
+					color:$white;
+				}
 			}
 		}
 		i{
@@ -64,11 +70,6 @@ footer{
 			color:$yellow;
 			font-size: 12px;
 			margin:0;
-		}
-		&:hover,&:active,&:focus{
-			i,p{
-				color:$white;
-			}
 		}
 		&:hover{
 			cursor:pointer;
