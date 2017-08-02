@@ -5,21 +5,6 @@
  */
 
 import Index from './views/index';
-const MusicList = (resolve) => {
-	require('./views/music-list',resolve);
-};
-const MusicDetail = (resolve) => {
-	require('./views/music-detail',resolve);
-};
-const User = (resolve) => {
-	require('./views/user',resolve);
-};
-const Login = (resolve) => {
-	require('./views/login',resolve);
-};
-const Reg = (resolve) => {
-	require('./views/reg',resolve);
-};
 // import MusicList from './views/music-list';
 // import MusicDetail from './views/music-detail';
 // import User from './views/user';
@@ -39,27 +24,27 @@ const Routes = {
 		{
 			path: '/music-list',
 			name: 'music-list',
-			component: MusicList
+			component: resolve => require('./views/music-list',resolve)
 		},
 		{
 			path: '/music-detail/:id',
 			name: 'music-detail',
-			component: MusicDetail
+			component: resolve => require('./views/music-detail',resolve)
 		},
 		{
 			path: '/user',
 			name: 'user',
-			component: User
+			component: resolve => require('./views/user',resolve)
 		},
 		{
 			path: '/login',
 			name: 'login',
-			component: Login
+			component: resolve => require('./views/login',resolve)
 		},
 		{
 			path: '/reg',
 			name: 'reg',
-			component: Reg
+			component: resolve => require('./views/reg',resolve)
 		},
 		{
 			path: '*',
