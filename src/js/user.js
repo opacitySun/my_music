@@ -20,8 +20,14 @@ module.exports = {
 		},
 		//退出登录
 		outLogin:function(){
-			window.localStorage.removeItem("userUuid");
-			this.getPageInfoAsUuid();
+			$.confirm("您确定退出登录吗？", function() {
+				//点击确认后的回调函数
+				window.localStorage.removeItem("userUuid");
+				this.getPageInfoAsUuid();
+			}, function() {
+				//点击取消后的回调函数
+				$.closeModal();
+			});
 		},
 		//注册
 		goRegister:function(){
