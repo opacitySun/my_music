@@ -6,29 +6,19 @@
 
 import Index from './views/index';
 const MusicList = (resolve) => {
-	import('./views/music-list').then((module) => {
-		resolve(module);
-	})
+	require('./views/music-list',resolve);
 };
 const MusicDetail = (resolve) => {
-	import('./views/music-detail').then((module) => {
-		resolve(module);
-	})
+	require('./views/music-detail',resolve);
 };
 const User = (resolve) => {
-	import('./views/user').then((module) => {
-		resolve(module);
-	})
+	require('./views/user',resolve);
 };
 const Login = (resolve) => {
-	import('./views/login').then((module) => {
-		resolve(module);
-	})
+	require('./views/login',resolve);
 };
 const Reg = (resolve) => {
-	import('./views/reg').then((module) => {
-		resolve(module);
-	})
+	require('./views/reg',resolve);
 };
 // import MusicList from './views/music-list';
 // import MusicDetail from './views/music-detail';
