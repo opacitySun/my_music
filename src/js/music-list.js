@@ -7,7 +7,7 @@ module.exports = {
 		};
 	},
 	created(){
-		
+		this.getListAsUuid();
 	},
 	methods:{
 		//根据uuid获取列表数据
