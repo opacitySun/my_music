@@ -5,11 +5,36 @@
  */
 
 import Index from './views/index';
-import MusicList from './views/music-list';
-import MusicDetail from './views/music-detail';
-import User from './views/user';
-import Login from './views/login';
-import Reg from './views/reg';
+const MusicList = (resolve) => {
+	import('./views/music-list').then((module) => {
+		resolve(module);
+	})
+};
+const MusicDetail = (resolve) => {
+	import('./views/music-detail').then((module) => {
+		resolve(module);
+	})
+};
+const User = (resolve) => {
+	import('./views/user').then((module) => {
+		resolve(module);
+	})
+};
+const Login = (resolve) => {
+	import('./views/login').then((module) => {
+		resolve(module);
+	})
+};
+const Reg = (resolve) => {
+	import('./views/reg').then((module) => {
+		resolve(module);
+	})
+};
+// import MusicList from './views/music-list';
+// import MusicDetail from './views/music-detail';
+// import User from './views/user';
+// import Login from './views/login';
+// import Reg from './views/reg';
 import NotFound from './components/not-found';
 
 const Routes = {
@@ -24,47 +49,27 @@ const Routes = {
 		{
 			path: '/music-list',
 			name: 'music-list',
-			component: resolve => {
-				setTimeout(() => {
-	                resolve(MusicList)
-	            }, 0);
-			}
+			component: MusicList
 		},
 		{
 			path: '/music-detail/:id',
 			name: 'music-detail',
-			component: resolve => {
-				setTimeout(() => {
-	                resolve(MusicDetail)
-	            }, 0);
-			}
+			component: MusicDetail
 		},
 		{
 			path: '/user',
 			name: 'user',
-			component: resolve => {
-				setTimeout(() => {
-	                resolve(User)
-	            }, 0);
-			}
+			component: User
 		},
 		{
 			path: '/login',
 			name: 'login',
-			component: resolve => {
-				setTimeout(() => {
-	                resolve(Login)
-	            }, 0);
-			}
+			component: Login
 		},
 		{
 			path: '/reg',
 			name: 'reg',
-			component: resolve => {
-				setTimeout(() => {
-	                resolve(Reg)
-	            }, 0);
-			}
+			component: Reg
 		},
 		{
 			path: '*',
