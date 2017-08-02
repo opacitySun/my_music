@@ -2,11 +2,12 @@ module.exports = {
 	data() {
 		return {
 			user:{
-				"name":'未知 <a href="javascript:void(0)" v-on:click="goLogin()">登录</a>',
+				"name":'未知',
 				"img":ResourcePath + "/files/default.png",
 				"points":0
 			},
-			loginBtnClass:""
+			loginBtnClass:"",
+			outloginBtnClass:"hidden"
 		}
 	},
 	created(){
@@ -18,6 +19,7 @@ module.exports = {
 				this.user.img = ResourcePath + res.img;
 				this.user.points = res.points;
 				this.loginBtnClass = "hidden";
+				this.outloginBtnClass = "";
 			},function(err){
 				console.log(err);
 			});
@@ -26,12 +28,18 @@ module.exports = {
 			this.user.img = ResourcePath + "/files/default.png";
 			this.user.points = 0;
 			this.loginBtnClass = "";
+			this.outloginBtnClass = "hidden";
 		}
 	},
 	methods:{
 		//登录
 		goLogin:function(){
 			this.$router.push({ path: '/login' });
+		},
+		//退出登录
+		outLogin:function(){
+			window.localStorage.removeItem("userUuid");
+			this.$router.push({ path: '/user' });
 		},
 		//注册
 		goRegister:function(){

@@ -9,6 +9,9 @@
 		    	<em>
 		    		{{user.name}} <a href="javascript:void(0);" :class="loginBtnClass" v-on:click="goLogin()">登录</a>
 		    	</em>
+		    	<em>
+		    		<a href="javascript:void(0);" :class="outloginBtnClass" v-on:click="outLogin()">退出登录</a>
+		    	</em>
 		    </div>
 		    <div class="weui-grids">
 		        <a href="javascript:;" class="weui-grid" v-on:click="goRegister()">
