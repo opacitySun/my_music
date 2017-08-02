@@ -19,7 +19,7 @@
 					<label class="weui-label">密码</label>
 				</div>
 				<div class="weui-cell__bd">
-					<input class="weui-input" type="password" placeholder="请输入密码">
+					<input class="weui-input" type="password" placeholder="密码不少于6位">
 				</div>
 			</div>
 			<div class="weui-cell">
