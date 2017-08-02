@@ -6,7 +6,7 @@
         </main>
         <footer>
         	<div class="col-xs-4 col-sm-4 col-md-4">
-                <router-link to="/" autofocus>
+                <router-link to="/">
             		<i class="fa fa-2x fa-podcast"></i>
             		<p>发现音乐</p>
                 </router-link>
