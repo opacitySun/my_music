@@ -38,8 +38,8 @@
 	                <div><a v-bind:class="playerIcon" v-on:click="musicControl()"></a></div>
 	                <div><a class="button next" v-on:click="playerNext()"></a></div>
 	                <div id="music-collect">
-	                	<a class="button collect" v-on:click="addLikeMusic($event)" title="添加喜欢"></a>
-	                	<a class="button collected hidden" v-on:click="cancelLikeMusic($event)" title="取消喜欢"></a>
+	                	<a class="button collect" v-on:click="addLikeMusic($event)" title="添加收藏"></a>
+	                	<a class="button collected hidden" v-on:click="cancelLikeMusic($event)" title="取消收藏"></a>
 	                </div>
 	            </div>
 	        </div>
@@ -376,17 +376,37 @@ export default {
 	        }
 	        return deg>=360?0:deg;
 		},
-		//添加喜欢
+		//添加收藏
 		addLikeMusic:function(event){
-			var _this = event.target;
-			$(_this).addClass("hidden");
-			$(_this).parent().find("a.collected").removeClass("hidden");
+			var userUUID = window.localStorage.getItem("userUUID");
+			if(userUUID){
+				var id = this.$route.params.id;
+				this.$http.jsonp(ResourcePath+'/addCollectMusic?uuid='+userUUID+'&music_id='+id).then(function(res){
+					var _this = event.target;
+					$(_this).addClass("hidden");
+					$(_this).parent().find("a.collected").removeClass("hidden");
+				},function(err){
+					console.log(err);
+				});
+			}else{
+				this.$router.push({ path: '/login' });
+			}
 		},
-		//取消喜欢
+		//取消收藏
 		cancelLikeMusic:function(event){
-			var _this = event.target;
-			$(_this).addClass("hidden");
-			$(_this).parent().find("a.collect").removeClass("hidden");
+			var userUUID = window.localStorage.getItem("userUUID");
+			if(userUUID){
+				var id = this.$route.params.id;
+				this.$http.jsonp(ResourcePath+'/cancelCollectMusic?uuid='+userUUID+'&music_id='+id).then(function(res){
+					var _this = event.target;
+					$(_this).addClass("hidden");
+					$(_this).parent().find("a.collect").removeClass("hidden");
+				},function(err){
+					console.log(err);
+				});
+			}else{
+				this.$router.push({ path: '/login' });
+			}	
 		},
 		//解析歌词
 		parseLyric:function(lrc){
