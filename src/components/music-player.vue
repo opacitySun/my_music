@@ -37,7 +37,7 @@
 	                <div><a class="button prev" v-on:click="playerPre()"></a></div>
 	                <div><a v-bind:class="playerIcon" v-on:click="musicControl()"></a></div>
 	                <div><a class="button next" v-on:click="playerNext()"></a></div>
-	                <div>
+	                <div id="music-collect">
 	                	<a class="button collect" v-on:click="addLikeMusic($event)" title="添加喜欢"></a>
 	                	<a class="button collected hidden" v-on:click="cancelLikeMusic($event)" title="取消喜欢"></a>
 	                </div>
@@ -191,6 +191,7 @@ export default {
 				$("#cd-this").find("img").attr("src",res.img);
 				this.timeDuration = setInterval(this.setDuration, 500);
 				this.playerStart();
+				this.setCollectByUuid();
 			},function(err){
 				console.log(err);
 			});
@@ -414,6 +415,20 @@ export default {
 		showCD:function(){
 			$("#panel-lyric").addClass("hidden");
 			$("#panel-cd").removeClass("hidden");
+		},
+		//查找uuid下是否有收藏该音乐
+		setCollectByUuid:function(){
+			if(userUUID){
+				var id = this.$route.params.id;
+				this.$http.jsonp(ResourcePath+'/confirmCollectMusic?uuid='+userUUID+'&music_id='+id).then(function(res){
+					if(res.body.success == 1){
+						$("#music-collect").find(".collect").addClass("hidden");
+						$("#music-collect").find(".collected").removeClass("hidden");
+					}
+				},function(err){
+					console.log(err);
+				});
+			}
 		}
 	}
 }

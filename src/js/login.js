@@ -29,7 +29,7 @@ module.exports = {
 				var success = res.body.success;
 				if(success == 1){
 					var result = res.body.result[0];
-					window.localStorage.setItem("userUuid",result.uuid);
+					window.localStorage.setItem("userUUID",result.uuid);
 					this.$router.push({ path: '/user' });
 				}else{
 					$.alert(res.body.flag);

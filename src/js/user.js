@@ -23,7 +23,7 @@ module.exports = {
 			var getPageInfoAsUuid = this.getPageInfoAsUuid;
 			$.confirm("您确定退出登录吗？", function() {
 				//点击确认后的回调函数
-				window.localStorage.removeItem("userUuid");
+				window.localStorage.removeItem("userUUID");
 				getPageInfoAsUuid();
 			}, function() {
 				//点击取消后的回调函数
@@ -36,9 +36,8 @@ module.exports = {
 		},
 		//判断是否存在用户uuid
 		getPageInfoAsUuid:function(){
-			var userUuid = window.localStorage.getItem("userUuid");
-			if(userUuid){
-				this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUuid).then(function(res){
+			if(userUUID){
+				this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUUID).then(function(res){
 					res = res.body.result;
 					this.user.name = res.name;
 					this.user.img = ResourcePath + res.img;
