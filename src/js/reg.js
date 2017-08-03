@@ -38,6 +38,10 @@ module.exports = {
 			var mobile = $("#reg-mobile").val(),
 				pwd = $("#reg-pwd").val(),
 				mcode = $("#reg-mcode").val();
+			if(mobile == '' || mobile.length < 11){
+				$.alert("您填写的手机号不合法");
+				return false;
+			}
 			if(pwd.length < 6){
 				$.alert("密码不能少于6位");
 				return false;
