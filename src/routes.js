@@ -44,7 +44,7 @@ const Routes = {
 		{
 			path: '/reg',
 			name: 'reg',
-			component: NotFound
+			component: Reg
 		},
 		{
 			path: '*',
