@@ -382,9 +382,13 @@ export default {
 			if(userUUID){
 				var id = this.$route.params.id;
 				this.$http.jsonp(ResourcePath+'/addCollectMusic?uuid='+userUUID+'&music_id='+id).then(function(res){
-					var _this = event.target;
-					$(_this).addClass("hidden");
-					$(_this).parent().find("a.collected").removeClass("hidden");
+					if(res.body.success == 1){
+						var _this = event.target;
+						$(_this).addClass("hidden");
+						$(_this).parent().find("a.collected").removeClass("hidden");
+					}else{
+						$.alert(res.body.flag);
+					}
 				},function(err){
 					console.log(err);
 				});
@@ -398,9 +402,13 @@ export default {
 			if(userUUID){
 				var id = this.$route.params.id;
 				this.$http.jsonp(ResourcePath+'/cancelCollectMusic?uuid='+userUUID+'&music_id='+id).then(function(res){
-					var _this = event.target;
-					$(_this).addClass("hidden");
-					$(_this).parent().find("a.collect").removeClass("hidden");
+					if(res.body.success == 1){
+						var _this = event.target;
+						$(_this).addClass("hidden");
+						$(_this).parent().find("a.collect").removeClass("hidden");
+					}else{
+						$.alert(res.body.flag);
+					}
 				},function(err){
 					console.log(err);
 				});
