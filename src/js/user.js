@@ -40,24 +40,28 @@ module.exports = {
 			if(userUUID){
 				this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUUID).then(function(res){
 					if(res.body.success == 1){
-						res = res.body.result;
-						this.user.name = res.name;
-						this.user.img = ResourcePath + res.img;
+						res = res.body.result[0];
 						this.user.points = res.points;
 						this.loginBtnClass = "hidden";
 						this.outloginBtnClass = "";
-					}else{
-						this.$http.jsonp(ResourcePath+'/getUserAction?uuid='+userUUID).then(function(res2){
-							if(res2.body.success == 1){
-								res2 = res2.body.result[0];
-								this.user.name = res2.name;
-								this.loginBtnClass = "hidden";
-								this.outloginBtnClass = "";
-								$.alert('HI~朋友，你还没有完善个人信息，大家都还不知道你是谁，快去完善吧~');
-							}else{
-								$.alert(res2.body.flag);
-							}
-						});
+						if(res.img){
+							this.user.img = ResourcePath + res.img;
+						}
+						if(res.name){
+							this.user.name = res.name;
+						}else{
+							this.$http.jsonp(ResourcePath+'/getUserAction?uuid='+userUUID).then(function(res2){
+								if(res2.body.success == 1){
+									res2 = res2.body.result[0];
+									this.user.name = res2.name;
+									this.loginBtnClass = "hidden";
+									this.outloginBtnClass = "";
+									$.alert('HI~朋友，你还没有完善个人信息，大家都还不知道你是谁，快去完善吧~');
+								}else{
+									$.alert(res2.body.flag);
+								}
+							});
+						}
 					}
 				},function(err){
 					console.log(err);
