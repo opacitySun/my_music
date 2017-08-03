@@ -38,6 +38,10 @@ module.exports = {
 			var mobile = $("#reg-mobile").val(),
 				pwd = $("#reg-pwd").val(),
 				mcode = $("#reg-mcode").val();
+			if(pwd.length < 6){
+				$.alert("密码不能少于6位");
+				return false;
+			}
 			this.$http.jsonp(ResourcePath+'/registerAction?mobile='+mobile+'&pwd='+pwd+'&mcode='+mcode).then(function(res){
 				if(res.body.success == 1){
 					res = res.body.result[0];
