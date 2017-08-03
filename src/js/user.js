@@ -47,7 +47,17 @@ module.exports = {
 						this.loginBtnClass = "hidden";
 						this.outloginBtnClass = "";
 					}else{
-						$.alert(res.body.flag);
+						this.$http.jsonp(ResourcePath+'/getUserAction?uuid='+userUUID).then(function(res2){
+							if(res2.body.success == 1){
+								res2 = res2.body.result;
+								this.user.name = res2.name;
+								this.loginBtnClass = "hidden";
+								this.outloginBtnClass = "";
+								$.alert('HI~朋友，你还没有完善个人信息，大家都还不知道你是谁，快去完善吧~');
+							}else{
+								$.alert(res2.body.flag);
+							}
+						});
 					}
 				},function(err){
 					console.log(err);

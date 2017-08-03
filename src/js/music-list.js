@@ -15,10 +15,14 @@ module.exports = {
 			var userUUID = window.localStorage.getItem("userUUID");
 			if(userUUID){
 				this.$http.jsonp(ResourcePath+'/getUserMusicList?uuid='+userUUID).then(function(res){
-					res = res.body.result;
-					for(var k in res){
-						res[k]["href"] = "/music-detail/"+res[k].id;
-						this.myMusics.push(res[k]);
+					if(res.body.success == 1){
+						res = res.body.result;
+						for(var k in res){
+							res[k]["href"] = "/music-detail/"+res[k].id;
+							this.myMusics.push(res[k]);
+						}
+					}else{
+						$.alert(res.body.flag);
 					}
 				},function(err){
 					console.log(err);
