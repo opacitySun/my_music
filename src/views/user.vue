@@ -32,7 +32,7 @@
 		            </div>
 		            <p class="weui-grid__label">播放历史</p>
 		        </a>
-		        <a href="javascript:;" class="weui-grid">
+		        <a href="javascript:;" class="weui-grid" v-on:click="goUserInfo()">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_info.png" alt="个人信息">
 		            </div>

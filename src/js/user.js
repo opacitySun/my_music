@@ -34,6 +34,10 @@ module.exports = {
 		goRegister:function(){
 			this.$router.push({ path: '/reg' });
 		},
+		//完善个人信息
+		goUserInfo:function(){
+			this.$router.push({ path: '/user-info' });
+		},
 		//判断是否存在用户uuid
 		getPageInfoAsUuid:function(){
 			var userUUID = window.localStorage.getItem("userUUID");
