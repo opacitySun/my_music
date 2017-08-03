@@ -9,9 +9,9 @@ module.exports = {
 		
 	},
 	methods:{
-		//登录
+		//发送验证码
 		sendCode:function(){
-			var mobile = $("#user-mobile").val();
+			var mobile = $("#reg-mobile").val();
 			if(mobile == '' || mobile.length < 11){
 				$.alert("您填写的手机号不合法");
 				return false;
@@ -32,6 +32,23 @@ module.exports = {
 			}else{
 				$("#sendCodeSpaceBtn").text(this.sendCodeSpaceTime+"s");
 			}
+		},
+		//注册
+		regFn:function(){
+			var mobile = $("#reg-mobile").val(),
+				pwd = $("#reg-pwd").val(),
+				mcode = $("#reg-mcode").val();
+			this.$http.jsonp(ResourcePath+'/registerAction?mobile='+mobile+'&pwd='+pwd+'&mcode='+mcode).then(function(res){
+				if(res.body.success == 1){
+					res = res.body.result[0];
+					window.localStorage.setItem("userUUID",res.uuid);
+					this.$router.push({ path: '/user' });
+				}else{
+					$.alert(res.body.flag);
+				}
+			},function(err){
+				console.log(err);
+			});
 		}
 	}
 };

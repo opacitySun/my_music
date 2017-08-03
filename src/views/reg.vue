@@ -7,7 +7,7 @@
 					<label class="weui-label">手机号</label>
 				</div>
 				<div class="weui-cell__bd">
-					<input class="weui-input" type="tel" id="user-mobile" placeholder="请输入手机号">
+					<input id="reg-mobile" class="weui-input" type="tel" placeholder="请输入手机号">
 				</div>
 				<div class="weui-cell__ft">
 					<button class="weui-vcode-btn" id="sendCodeBtn" v-on:click="sendCode()">获取验证码</button>
@@ -19,19 +19,19 @@
 					<label class="weui-label">密码</label>
 				</div>
 				<div class="weui-cell__bd">
-					<input class="weui-input" type="password" placeholder="密码不少于6位">
+					<input id="reg-pwd" class="weui-input" type="password" placeholder="密码不少于6位">
 				</div>
 			</div>
 			<div class="weui-cell">
 				<div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
 				<div class="weui-cell__bd">
-					<input class="weui-input" type="number" placeholder="请输入验证码">
+					<input id="reg-mcode" class="weui-input" type="number" placeholder="请输入验证码">
 				</div>
 			</div>
 		</div>
 		<div class="weui-cells__tips"></div>
 	    <div class="weui-btn-area">
-	        <a href="javascript:void(0)" class="weui-btn weui-btn_plain-primary">注册</a>
+	        <a href="javascript:void(0)" class="weui-btn weui-btn_plain-primary" v-on:click="regFn()">注册</a>
 	    </div>
     </div>
 </template>
