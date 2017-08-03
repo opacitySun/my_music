@@ -49,7 +49,7 @@ module.exports = {
 					}else{
 						this.$http.jsonp(ResourcePath+'/getUserAction?uuid='+userUUID).then(function(res2){
 							if(res2.body.success == 1){
-								res2 = res2.body.result;
+								res2 = res2.body.result[0];
 								this.user.name = res2.name;
 								this.loginBtnClass = "hidden";
 								this.outloginBtnClass = "";
