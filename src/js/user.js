@@ -36,6 +36,7 @@ module.exports = {
 		},
 		//判断是否存在用户uuid
 		getPageInfoAsUuid:function(){
+			var userUUID = window.localStorage.getItem("userUUID");
 			if(userUUID){
 				this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUUID).then(function(res){
 					res = res.body.result;

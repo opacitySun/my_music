@@ -418,6 +418,7 @@ export default {
 		},
 		//查找uuid下是否有收藏该音乐
 		setCollectByUuid:function(){
+			var userUUID = window.localStorage.getItem("userUUID");
 			if(userUUID){
 				var id = this.$route.params.id;
 				this.$http.jsonp(ResourcePath+'/confirmCollectMusic?uuid='+userUUID+'&music_id='+id).then(function(res){

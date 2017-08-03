@@ -12,6 +12,7 @@ module.exports = {
 	methods:{
 		//根据uuid获取列表数据
 		getListAsUuid:function(){
+			var userUUID = window.localStorage.getItem("userUUID");
 			if(userUUID){
 				this.$http.jsonp(ResourcePath+'/getUserMusicList?uuid='+userUUID).then(function(res){
 					res = res.body.result;
