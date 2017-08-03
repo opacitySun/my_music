@@ -16,7 +16,7 @@
 	            <div class="weui-cell__ft" v-html="codeImg" v-on:click="getCodeFn()">{{codeImg}}</div>
 	        </div>
 	    </div>
-	    <div class="weui-cells__tips"></div>
+	    <div class="weui-cells__tips">提示：如验证码失效，点击验证码图片，即可重新生成验证码</div>
 	    <div class="weui-btn-area">
 	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary" v-on:click="loginFn()">登录</a>
 	    </div>
