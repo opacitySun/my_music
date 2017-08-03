@@ -50,7 +50,7 @@
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    color: #ffffff;
+    color: $white;
     font-size: 17px;
     text-align: center;
     padding: 10px;
@@ -114,7 +114,7 @@
   height: 8px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
-  background-color: #ffffff;
+  background-color: $white;
   right: -4px;
   top: -3px;
   -webkit-box-shadow: 0 0 1px 4px #52a9eb;
@@ -235,9 +235,30 @@
         width:100%;
         line-height:2rem;
         font-size:1.2rem;
-        color:#ffffff;
+        color:$white;
         text-align:center;
       }
+    }
+  }
+
+  .show_btn{
+    position:absolute;
+    z-index:20;
+    bottom:1rem;
+    left:2rem;
+    width:3rem;
+    height:3rem;
+    border:1rem solid $white;
+    border-radius:1rem;
+    -webkit-border-radius:1rem;
+    -moz-border-radius:1rem;
+    -o-border-radius:1rem;
+    a{
+      display:block;
+      width:100%;
+      height:100%;
+      color:$white;
+      font-size:2rem;
     }
   }
 }
