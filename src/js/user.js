@@ -39,12 +39,16 @@ module.exports = {
 			var userUUID = window.localStorage.getItem("userUUID");
 			if(userUUID){
 				this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUUID).then(function(res){
-					res = res.body.result;
-					this.user.name = res.name;
-					this.user.img = ResourcePath + res.img;
-					this.user.points = res.points;
-					this.loginBtnClass = "hidden";
-					this.outloginBtnClass = "";
+					if(res.body.success == 1){
+						res = res.body.result;
+						this.user.name = res.name;
+						this.user.img = ResourcePath + res.img;
+						this.user.points = res.points;
+						this.loginBtnClass = "hidden";
+						this.outloginBtnClass = "";
+					}else{
+						$.alert(res.body.flag);
+					}
 				},function(err){
 					console.log(err);
 				});
