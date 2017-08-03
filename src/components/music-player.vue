@@ -206,6 +206,12 @@ export default {
 		playerStart:function(){
 			this.player.play();
 			this.isPlaying = true;
+
+			var lyricUl = $("#cd-lyric");
+			var showCD = this.showCD;
+			lyricUl.on("click","li",function(){
+				showCD();
+			});
 			clearInterval(this.timeId);
 			this.timeId = setInterval(this.playerChange, 500);
 			this.playerIcon = "button pause";
