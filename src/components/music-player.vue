@@ -21,8 +21,8 @@
 	            	<ul id="cd-lyric"></ul>
 	            </div>
 	            <div class="show_btn">
-	            	<a href="javascript:void(0)" class="fa fa-navicon show_lyric" v-on:click="showLyric($event)"></a>
-	            	<a href="javascript:void(0)" class="fa fa-music show_cd hidden" v-on:click="showCD($event)"></a>
+	            	<a href="javascript:void(0)" class="show_lyric" v-on:click="showLyric($event)"></a>
+	            	<a href="javascript:void(0)" class="show_cd hidden" v-on:click="showCD($event)"></a>
 	            </div>
 	        </div>
 	        <div class="player_footer">
