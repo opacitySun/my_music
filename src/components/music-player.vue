@@ -241,9 +241,6 @@ export default {
 					this.lyricNode = parseInt(key);
 					var li = '<li>'+this.lyric[key]+'</li>';
 					$("#cd-lyric").append(li);
-					var thisTop = $("#cd-lyric").position().top;
-					thisTop = thisTop - 30;
-					$("#cd-lyric").animate({top:thisTop+'px'},3000);
 					var style = $("style");
 					style.html('@-webkit-keyframes rotation {from {-webkit-transform: rotate(0deg);}to {-webkit-transform: rotate(360deg);}}');
 				}
