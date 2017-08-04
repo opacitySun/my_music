@@ -19,7 +19,7 @@
 	        </div>
 	    </div>
 	    <div class="weui-cells weui-cells_radio">
-        	<h3>性别</h3>
+	    	<div class="weui-cells__title">性别</div>
 			<label class="weui-cell weui-check__label" for="userinfo-sex1">
 				<div class="weui-cell__bd">
 					<p>正太</p>
