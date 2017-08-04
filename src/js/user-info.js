@@ -1,7 +1,8 @@
 module.exports = {
 	data() {
 		return {
-			points:0
+			points:0,
+			uploadImgStyle:'background-image:url("'+ResourcePath+'/files/default.png")'
 		}
 	},
 	created(){

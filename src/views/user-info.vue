@@ -68,8 +68,7 @@
 			<div class="weui-cell">
 	            <div class="weui-cell__bd">
 	            	<div class="weui-uploader">
-	            		<div class="weui-uploader__file weui-uploader__file_status">
-            				<img src="" />
+	            		<div id="upload-img" class="weui-uploader__file weui-uploader__file_status" :style="uploadImgStyle">
             				<div class="weui-uploader__file-content">50%</div>
             			</div>
             			<div class="weui-uploader__input-box">
