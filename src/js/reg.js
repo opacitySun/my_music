@@ -13,7 +13,7 @@ module.exports = {
 		sendCode:function(){
 			var mobile = $("#reg-mobile").val();
 			if(mobile == '' || mobile.length < 11){
-				$.alert("您填写的手机号不合法");
+				$.toptip('您填写的手机号不合法', 'warning');
 				return false;
 			}
 			this.$http.jsonp(ResourcePath+'/smsCodeAction?mobile='+mobile);
@@ -39,11 +39,11 @@ module.exports = {
 				pwd = $("#reg-pwd").val(),
 				mcode = $("#reg-mcode").val();
 			if(mobile == '' || mobile.length < 11){
-				$.alert("您填写的手机号不合法");
+				$.toptip('您填写的手机号不合法', 'warning');
 				return false;
 			}
 			if(pwd.length < 6){
-				$.alert("密码不能少于6位");
+				$.toptip('密码不能少于6位', 'warning');
 				return false;
 			}
 			this.$http.jsonp(ResourcePath+'/registerAction?mobile='+mobile+'&pwd='+pwd+'&mcode='+mcode).then(function(res){

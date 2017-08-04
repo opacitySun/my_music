@@ -19,12 +19,16 @@ module.exports = {
 				this.codeImg = res.body.imghtml;
 				this.vcode = res.body.vcode;
 			},function(err){
-				console.log(err);
+				$.toptip(err, 'error');
 			});
 		},
 		//登录
 		loginFn:function(){
 			var name = $("#login-name").val(),pwd = $("#login-pwd").val(),vcode = $("#login-vcode").val();
+			if(name == '' || pwd == '' || vcode == ''){
+				$.toptip('请将信息填写完整', 'warning');
+				return false;
+			}
 			this.$http.jsonp(ResourcePath+'/loginAction?name='+name+'&pwd='+pwd+'&vcode='+vcode).then(function(res){
 				var success = res.body.success;
 				if(success == 1){
@@ -32,10 +36,10 @@ module.exports = {
 					window.localStorage.setItem("userUUID",result.uuid);
 					this.$router.push({ path: '/user' });
 				}else{
-					$.alert(res.body.flag);
+					$.toptip(res.body.flag, 'error');
 				}
 			},function(err){
-				console.log(err);
+				$.toptip(err, 'error');
 			});
 		}
 	}
