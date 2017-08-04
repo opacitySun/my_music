@@ -1,6 +1,7 @@
 <template>
     <div>
     	<h2 class="weui-page__title">完善信息</h2>
+    	<div class="weui-cells__title">基本信息</div>
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
 	            <div class="weui-cell__hd"><label class="weui-label">昵称</label></div>
@@ -18,8 +19,8 @@
 	            </div>
 	        </div>
 	    </div>
+	    <div class="weui-cells__title">性别</div>
 	    <div class="weui-cells weui-cells_radio">
-	    	<div class="weui-cells__title">性别</div>
 			<label class="weui-cell weui-check__label" for="userinfo-sex1">
 				<div class="weui-cell__bd">
 					<p>正太</p>
