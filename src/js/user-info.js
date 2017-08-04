@@ -9,6 +9,11 @@ module.exports = {
 		$("main").addClass("h100");
 		$("footer").addClass("hidden");
 	},
+	mounted() {
+		this.$nextTick(function () {
+			this.uploadImgFn();
+		});
+	},
 	methods:{
 		//返回
 		goback:function(){
