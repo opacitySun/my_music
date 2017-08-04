@@ -23,9 +23,10 @@ module.exports = {
 		},
 		//上传头像
 		uploadImgFn:function(){
+			var http = this.$http;
 			$("#uploader-input").change(function(){
 				var formData = new FormData($("#userinfo-form")[0]);
-				this.$http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
+				http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
 					console.log(res);
 				},function(err){
 					console.log(err);
