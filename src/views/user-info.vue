@@ -79,7 +79,7 @@
 	            </div>
 	        </div>
 		</div>
-		<form>
+		</form>
 	    <div class="weui-btn-area">
 	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary" v-on:click="submitFn()">提交</a>
 	    </div>
