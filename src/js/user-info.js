@@ -23,11 +23,17 @@ module.exports = {
 		},
 		//上传头像
 		uploadImgFn:function(){
-			var http = this.$http;
+			var http = this.$http,
+				uploadImgStyle = this.uploadImgStyle;
 			$("#uploader-input").change(function(){
 				var formData = new FormData($("#userinfo-form")[0]);
 				http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
-					console.log(res);
+					if(res.body.success == 1){
+						$.toptip(res.body.flag, 'success');
+						uploadImgStyle = 'background-image:url("'+ResourcePath+res.body.img'")';
+					}else{
+						$.toptip(res.body.flag, 'error');
+					}
 				},function(err){
 					console.log(err);
 				});
