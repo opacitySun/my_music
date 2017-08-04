@@ -22,7 +22,7 @@ module.exports = {
 							this.myMusics.push(res[k]);
 						}
 					}else{
-						$.alert(res.body.flag);
+						$.toptip(res.body.flag, 'success');
 					}
 				},function(err){
 					console.log(err);
