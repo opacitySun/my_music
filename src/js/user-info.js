@@ -24,13 +24,13 @@ module.exports = {
 		//上传头像
 		uploadImgFn:function(){
 			var http = this.$http,
-				uploadImgStyle = this.uploadImgStyle;
+				_this = this;
 			$("#uploader-input").change(function(){
 				var formData = new FormData($("#userinfo-form")[0]);
 				http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
 					if(res.body.success == 1){
 						$.toptip(res.body.flag, 'success');
-						uploadImgStyle = 'background-image:url("'+ResourcePath+res.body.img+'")';
+						_this.uploadImgStyle = 'background-image:url("'+ResourcePath+res.body.img+'")';
 					}else{
 						$.toptip(res.body.flag, 'error');
 					}
