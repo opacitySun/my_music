@@ -1,6 +1,9 @@
 <template>
     <div>
-    	<h2 class="weui-page__title">登录</h2>
+    	<div class="weui-page__head div-box">
+    		<i class="fa fa-chevron-left" v-on:click="goback()"></i>
+    		<h4 class="div-box-flex1">登录</h4>
+    	</div>
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
 	            <div class="weui-cell__hd"><label class="weui-label">账户</label></div>

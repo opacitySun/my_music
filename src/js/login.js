@@ -9,6 +9,12 @@ module.exports = {
 		this.getCodeFn();
 	},
 	methods:{
+		//返回
+		goback:function(){
+			$("main").removeClass("h100");
+			$("footer").removeClass("hidden");
+			this.$router.go(-1);
+		},
 		//注册
 		goRegister:function(){
 			this.$router.push({ path: '/reg' });

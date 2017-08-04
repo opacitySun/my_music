@@ -1,6 +1,9 @@
 <template>
     <div>
-    	<h2 class="weui-page__title">注册</h2>
+    	<div class="weui-page__head div-box">
+    		<i class="fa fa-chevron-left" v-on:click="goback()"></i>
+    		<h4 class="div-box-flex1">注册</h4>
+    	</div>
     	<div class="weui-cells weui-cells_form">
 			<div class="weui-cell weui-cell_vcode">
 				<div class="weui-cell__hd">
