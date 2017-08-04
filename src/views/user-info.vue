@@ -14,13 +14,6 @@
 	            <div class="weui-cell__hd"><label class="weui-label">积分</label></div>
 	            <div class="weui-cell__bd weui-cell_primary">{{points}}</div>
 	        </div>
-			<div class="weui-cell weui-cell_vcode">
-	            <div class="weui-cell__hd"><label class="weui-label">头像</label></div>
-	            <div class="weui-cell__bd weui-cell_primary"><img src="" class="weui-head_img" /></div>
-	            <div class="weui-cell__ft">
-	            	<a href="javascript:void(0);" class="weui-btn weui-btn_primary" v-on:click="uploadImgFn()">上传</a>
-	            </div>
-	        </div>
 	    </div>
 	    <div class="weui-cells__title">性别</div>
 	    <div class="weui-cells weui-cells_radio">
@@ -69,6 +62,22 @@
 					<span class="weui-icon-checked"></span>
 				</div>
 			</label>
+		</div>
+		<div class="weui-cells__title">头像</div>
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell">
+	            <div class="weui-cell__bd">
+	            	<div class="weui-uploader">
+	            		<div class="weui-uploader__file weui-uploader__file_status">
+            				<img src="" />
+            				<div class="weui-uploader__file-content">50%</div>
+            			</div>
+            			<div class="weui-uploader__input-box">
+							<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+						</div>
+	            	</div>
+	            </div>
+	        </div>
 		</div>
 	    <div class="weui-btn-area">
 	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary" v-on:click="submitFn()">提交</a>
