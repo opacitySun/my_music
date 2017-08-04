@@ -8,7 +8,7 @@
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
 	            <div class="weui-cell__hd"><label class="weui-label">昵称</label></div>
-	            <div class="weui-cell__bd weui-cell_primary"><input type="text" id="userinfo-name" class="weui-input" /></div>
+	            <div class="weui-cell__bd weui-cell_primary"><input type="text" id="userinfo-name" class="weui-input" placeholder="无" /></div>
 	        </div>
 	        <div class="weui-cell">
 	            <div class="weui-cell__hd"><label class="weui-label">积分</label></div>
