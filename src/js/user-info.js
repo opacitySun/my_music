@@ -23,11 +23,10 @@ module.exports = {
 		},
 		//上传头像
 		uploadImgFn:function(){
-			var http = this.$http,
-				_this = this;
+			var _this = this;
 			$("#uploader-input").change(function(){
 				var formData = new FormData($("#userinfo-form")[0]);
-				http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
+				_this.$http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
 					if(res.body.success == 1){
 						$.toptip(res.body.flag, 'success');
 						_this.uploadImgStyle = 'background-image:url("'+ResourcePath+res.body.img+'")';
