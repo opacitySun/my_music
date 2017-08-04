@@ -5,12 +5,13 @@ module.exports = {
 		}
 	},
 	created(){
-		
+		$("main").addClass("h100");
+		$("footer").addClass("hidden");
 	},
 	methods:{
-		//跳转到用户中心
-		goUser:function(){
-			this.$router.push({ path: '/user' });
+		//返回
+		goback:function(){
+			this.$router.go(-1);
 		},
 		//上传头像
 		uploadImgFn:function(){

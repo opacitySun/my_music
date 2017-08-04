@@ -99,3 +99,15 @@ footer{
 .weui-check{
 	display:none;
 }
+.weui-page__head{
+	padding:0.5rem 1rem;
+	border-bottom:1px solid #d9d9d9;
+	background:$green;
+	color:$white;
+	i{
+		font-size:2rem;
+		margin-right:1rem;
+		display:block;
+		line-height:2rem;
+	}
+}

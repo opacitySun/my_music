@@ -1,6 +1,9 @@
 <template>
     <div>
-    	<h2 class="weui-page__title">完善信息</h2>
+    	<div class="weui-page__head div-box">
+    		<i class="fa fa-chevron-left" v-on:click="goback()"></i>
+    		<h5 class="div-box-flex1">个人信息</h5>
+    	</div>
     	<div class="weui-cells__title">基本信息</div>
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
