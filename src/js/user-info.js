@@ -30,7 +30,7 @@ module.exports = {
 				http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
 					if(res.body.success == 1){
 						$.toptip(res.body.flag, 'success');
-						uploadImgStyle = 'background-image:url("'+ResourcePath+res.body.img'")';
+						uploadImgStyle = 'background-image:url("'+ResourcePath+res.body.img+'")';
 					}else{
 						$.toptip(res.body.flag, 'error');
 					}
