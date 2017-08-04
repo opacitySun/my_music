@@ -4,6 +4,7 @@
     		<i class="fa fa-chevron-left" v-on:click="goback()"></i>
     		<h4 class="div-box-flex1">个人信息</h4>
     	</div>
+    	<form>
     	<div class="weui-cells__title">基本信息</div>
 		<div class="weui-cells weui-cells_form">
 	        <div class="weui-cell">
@@ -78,6 +79,7 @@
 	            </div>
 	        </div>
 		</div>
+		<form>
 	    <div class="weui-btn-area">
 	        <a href="javascript:void(0)" class="weui-btn weui-btn_primary" v-on:click="submitFn()">提交</a>
 	    </div>
