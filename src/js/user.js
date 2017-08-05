@@ -11,6 +11,8 @@ module.exports = {
 		}
 	},
 	created(){
+		$("main").removeClass("h100");
+		$("footer").removeClass("hidden");
 		this.getPageInfoAsUuid();
 	},
 	methods:{

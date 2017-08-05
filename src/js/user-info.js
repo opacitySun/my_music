@@ -17,8 +17,6 @@ module.exports = {
 	methods:{
 		//返回
 		goback:function(){
-			$("main").removeClass("h100");
-			$("footer").removeClass("hidden");
 			this.$router.go(-1);
 		},
 		//上传头像

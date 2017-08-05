@@ -5,6 +5,8 @@ module.exports = {
 		}
 	},
 	created(){
+		$("main").removeClass("h100");
+		$("footer").removeClass("hidden");
 		this.$http.jsonp(ResourcePath+'/getMusicList').then(function(res){
 			res = res.body.result;
 			for(var k in res){

@@ -88,9 +88,6 @@ export default {
 	methods: {
 		//返回上一页
 		goback:function(){
-			$("main").removeClass("h100");
-			$("footer").removeClass("hidden");
-			//clearInterval(this.timeId);
 			clearInterval(this.timeDuration);
 			this.$router.push({ path: '/' });
 		},
