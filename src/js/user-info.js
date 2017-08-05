@@ -2,7 +2,8 @@ module.exports = {
 	data() {
 		return {
 			points:0,
-			uploadImgStyle:'background-image:url("'+ResourcePath+'/files/default.png")'
+			uploadImgStyle:'background-image:url("'+ResourcePath+'/files/default.png")',
+			headImgPath:""
 		}
 	},
 	created(){
@@ -28,6 +29,7 @@ module.exports = {
 					if(res.body.success == 1){
 						$.toptip(res.body.flag, 'success');
 						_this.uploadImgStyle = 'background-image:url("'+ResourcePath+res.body.img+'")';
+						_this.headImgPath = res.body.img;
 					}else{
 						$.toptip(res.body.flag, 'error');
 					}
@@ -38,7 +40,25 @@ module.exports = {
 		},
 		//提交
 		submitFn:function(){
-			
+			var userUUID = window.localStorage.getItem("userUUID");
+			var name = $("#userinfo-name").val();
+			var sex = $("input[name='userinfo-sex']:checked").val();
+			var query = "uuid="+userUUID;
+			query += '&name='+name;
+			query += '&sex='+sex;
+			if(this.headImgPath != ''){
+				query += '&img='+this.headImgPath;
+			}
+			this.$http.jsonp(ResourcePath+'/saveUserInfoActive?'+query).then(function(res){
+				if(res.body.success == 1){
+					$.toptip(res.body.flag, 'success');
+					this.$router.push({ path: '/user' });
+				}else{
+					$.toptip(res.body.flag, 'error');
+				}
+			},function(err){
+				console.log(err);
+			});
 		}
 	}
 };
