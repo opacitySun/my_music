@@ -13,7 +13,7 @@ module.exports = {
 	methods:{
 		//返回
 		goback:function(){
-			this.$router.go(-1);
+			this.$router.push({ path: '/user' });
 		},
 		//注册
 		goRegister:function(){
