@@ -13,11 +13,11 @@ module.exports = {
 	created(){
 		$("main").addClass("h100");
 		$("footer").addClass("hidden");
+		this.getUserInfo();
 	},
 	mounted() {
 		this.$nextTick(function () {
 			this.uploadImgFn();
-			this.getUserInfo();
 		});
 	},
 	methods:{
