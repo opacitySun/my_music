@@ -3,7 +3,9 @@ module.exports = {
 		return {
 			points:0,
 			uploadImgStyle:'background-image:url("'+ResourcePath+'/files/default.png")',
-			headImgPath:""
+			headImgPath:"",
+			userinfoName:"",
+			userinfoSex:0
 		}
 	},
 	created(){
@@ -13,6 +15,7 @@ module.exports = {
 	mounted() {
 		this.$nextTick(function () {
 			this.uploadImgFn();
+			this.getUserInfo();
 		});
 	},
 	methods:{
@@ -41,8 +44,8 @@ module.exports = {
 		//提交
 		submitFn:function(){
 			var userUUID = window.localStorage.getItem("userUUID");
-			var name = $("#userinfo-name").val();
-			var sex = $("input[name='userinfo-sex']:checked").val();
+			var name = this.userinfoName;
+			var sex = this.userinfoSex;
 			var query = "uuid="+userUUID;
 			query += '&name='+name;
 			query += '&sex='+sex;
@@ -53,6 +56,24 @@ module.exports = {
 				if(res.body.success == 1){
 					$.toptip(res.body.flag, 'success');
 					this.$router.push({ path: '/user' });
+				}else{
+					$.toptip(res.body.flag, 'error');
+				}
+			},function(err){
+				console.log(err);
+			});
+		},
+		//获取用户信息
+		getUserInfo:function(){
+			var userUUID = window.localStorage.getItem("userUUID");
+			this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUUID).then(function(res){
+				if(res.body.success == 1){
+					res = res.body.result[0];
+					this.userinfoName = res.name;
+					this.points = res.points;
+					this.uploadImgStyle = 'background-image:url("'+ResourcePath+res.img+'")';
+					this.headImgPath = res.img;
+					this.userinfoSex = res.sex;
 				}else{
 					$.toptip(res.body.flag, 'error');
 				}

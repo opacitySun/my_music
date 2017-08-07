@@ -9,7 +9,7 @@
 			<div class="weui-cells weui-cells_form">
 		        <div class="weui-cell">
 		            <div class="weui-cell__hd"><label class="weui-label">昵称</label></div>
-		            <div class="weui-cell__bd weui-cell_primary"><input type="text" id="userinfo-name" class="weui-input" placeholder="无" /></div>
+		            <div class="weui-cell__bd weui-cell_primary"><input type="text" v-model="userinfoName" class="weui-input" placeholder="无" /></div>
 		        </div>
 		        <div class="weui-cell">
 		            <div class="weui-cell__hd"><label class="weui-label">积分</label></div>
@@ -23,7 +23,7 @@
 						<p>正太</p>
 					</div>
 					<div class="weui-cell__ft">
-						<input type="radio" value="1" class="weui-check" name="userinfo-sex" id="userinfo-sex1">
+						<input type="radio" value="1" class="weui-check" name="userinfo-sex" id="userinfo-sex1" v-model="userinfoSex">
 						<span class="weui-icon-checked"></span>
 					</div>
 				</label>
@@ -32,7 +32,7 @@
 						<p>猛男</p>
 					</div>
 					<div class="weui-cell__ft">
-						<input type="radio" value="2" name="userinfo-sex" class="weui-check" id="userinfo-sex2" checked="checked">
+						<input type="radio" value="2" name="userinfo-sex" class="weui-check" id="userinfo-sex2" v-model="userinfoSex">
 						<span class="weui-icon-checked"></span>
 					</div>
 				</label>
@@ -41,7 +41,7 @@
 						<p>萝莉</p>
 					</div>
 					<div class="weui-cell__ft">
-						<input type="radio" value="3" name="userinfo-sex" class="weui-check" id="userinfo-sex3" checked="checked">
+						<input type="radio" value="3" name="userinfo-sex" class="weui-check" id="userinfo-sex3" v-model="userinfoSex">
 						<span class="weui-icon-checked"></span>
 					</div>
 				</label>
@@ -50,7 +50,7 @@
 						<p>御姐</p>
 					</div>
 					<div class="weui-cell__ft">
-						<input type="radio" value="4" name="userinfo-sex" class="weui-check" id="userinfo-sex4" checked="checked">
+						<input type="radio" value="4" name="userinfo-sex" class="weui-check" id="userinfo-sex4" v-model="userinfoSex">
 						<span class="weui-icon-checked"></span>
 					</div>
 				</label>
@@ -59,7 +59,7 @@
 						<p>东方不败</p>
 					</div>
 					<div class="weui-cell__ft">
-						<input type="radio" value="0" name="userinfo-sex" class="weui-check" id="userinfo-sex5" checked="checked">
+						<input type="radio" value="0" name="userinfo-sex" class="weui-check" id="userinfo-sex5" v-model="userinfoSex">
 						<span class="weui-icon-checked"></span>
 					</div>
 				</label>
