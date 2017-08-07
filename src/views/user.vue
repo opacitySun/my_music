@@ -44,7 +44,7 @@
 		            </div>
 		            <p class="weui-grid__label">系统通知</p>
 		        </a>
-		        <a href="javascript:;" class="weui-grid">
+		        <a href="javascript:;" class="weui-grid" @click="signinFn()">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_signin.png" alt="签到">
 		            </div>
