@@ -7,7 +7,7 @@ module.exports = {
 			userinfoName:"",
 			userinfoSex:0,
 			uploadTxt:"正在上传",
-			uploadTxtClass:"weui-uploader__file-content hidden"
+			uploadImgClass:"weui-uploader__file"
 		}
 	},
 	created(){
@@ -30,7 +30,7 @@ module.exports = {
 			var _this = this;
 			$("#uploader-input").change(function(){
 				var formData = new FormData($("#userinfo-form")[0]);
-				_this.uploadTxtClass = "weui-uploader__file-content";
+				_this.uploadImgClass = "weui-uploader__file weui-uploader__file_status";
 				_this.$http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
 					if(res.body.success == 1){
 						$.toptip(res.body.flag, 'success');
@@ -39,7 +39,7 @@ module.exports = {
 					}else{
 						$.toptip(res.body.flag, 'error');
 					}
-					_this.uploadTxtClass = "weui-uploader__file-content hidden";
+					_this.uploadImgClass = "weui-uploader__file";
 				},function(err){
 					console.log(err);
 				});

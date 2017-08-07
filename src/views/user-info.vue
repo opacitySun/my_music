@@ -69,8 +69,8 @@
 				<div class="weui-cell">
 		            <div class="weui-cell__bd">
 		            	<div class="weui-uploader">
-		            		<div id="upload-img" class="weui-uploader__file weui-uploader__file_status" :style="uploadImgStyle">
-	            				<div :class="uploadTxtClass">{{uploadTxt}}</div>
+		            		<div id="upload-img" :class="uploadImgClass" :style="uploadImgStyle">
+	            				<div class="weui-uploader__file-content">{{uploadTxt}}</div>
 	            			</div>
 	            			<div class="weui-uploader__input-box">
 								<input id="uploader-input" name="userinfo-img" class="weui-uploader__input" type="file" accept="image/*" />
