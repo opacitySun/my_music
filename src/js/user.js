@@ -91,8 +91,10 @@ module.exports = {
 				this.$http.jsonp(ResourcePath+'/signinAction?uuid='+userUUID).then(function(res){
 					if(res.body.success == 1){
 						$.toast("积分+10");
+					}else if(res.body.success == 2){
+						$.toast(res.body.flag, "forbidden");
 					}else{
-						$.toast("签到失败", "cancel");
+						$.toast('签到失败', "cancel");
 					}
 				},function(err){
 					console.log(err);
