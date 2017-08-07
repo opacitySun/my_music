@@ -48,7 +48,7 @@ module.exports = {
 					return false;
 				}
 				var data = {
-					"uuid"userUUID,
+					"uuid":userUUID,
 					"pwd":confirmPwd,
 					"vcode":vcode
 				};
