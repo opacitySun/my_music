@@ -83,6 +83,23 @@ module.exports = {
 				this.loginBtnClass = "";
 				this.outloginBtnClass = "hidden";
 			}
+		},
+		//签到
+		signinFn:function(){
+			var userUUID = window.localStorage.getItem("userUUID");
+			if(userUUID){
+				this.$http.jsonp(ResourcePath+'/signinAction?uuid='+userUUID).then(function(res){
+					if(res.body.success == 1){
+						$.toast("积分+10");
+					}else{
+						$.toast("签到失败", "cancel");
+					}
+				},function(err){
+					console.log(err);
+				});
+			}else{
+				this.goLogin();
+			}
 		}
 	}
 };
