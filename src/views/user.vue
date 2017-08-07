@@ -7,20 +7,20 @@
 		    	</div>
 		    	<p>积分: {{user.points}}</p>
 		    	<em>
-		    		{{user.name}} <a href="javascript:void(0);" :class="loginBtnClass" v-on:click="goLogin()">登录</a>
+		    		{{user.name}} <a href="javascript:void(0);" :class="loginBtnClass" @click="goLogin()">登录</a>
 		    	</em>
 		    	<em>
-		    		<a href="javascript:void(0);" :class="outloginBtnClass" v-on:click="outLogin()">退出登录</a>
+		    		<a href="javascript:void(0);" :class="outloginBtnClass" @click="outLogin()">退出登录</a>
 		    	</em>
 		    </div>
 		    <div class="weui-grids">
-		        <a href="javascript:;" class="weui-grid" v-on:click="goRegister()">
+		        <a href="javascript:;" class="weui-grid" @click="goRegister()">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_reg.png" alt="注册">
 		            </div>
 		            <p class="weui-grid__label">注册</p>
 		        </a>
-		        <a href="javascript:;" class="weui-grid">
+		        <a href="javascript:;" class="weui-grid" @click="goUserPwd()">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_edit.png" alt="密码修改">
 		            </div>
@@ -32,7 +32,7 @@
 		            </div>
 		            <p class="weui-grid__label">播放历史</p>
 		        </a>
-		        <a href="javascript:;" class="weui-grid" v-on:click="goUserInfo()">
+		        <a href="javascript:;" class="weui-grid" @click="goUserInfo()">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_info.png" alt="个人信息">
 		            </div>

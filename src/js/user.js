@@ -40,6 +40,10 @@ module.exports = {
 		goUserInfo:function(){
 			this.$router.push({ path: '/user-info' });
 		},
+		//修改密码
+		goUserPwd:function(){
+			this.$router.push({ path: '/user-pwd' });
+		},
 		//判断是否存在用户uuid
 		getPageInfoAsUuid:function(){
 			var userUUID = window.localStorage.getItem("userUUID");

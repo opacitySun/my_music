@@ -9,6 +9,7 @@ import MusicList from 'bundle?lazy!./views/music-list';
 import MusicDetail from 'bundle?lazy!./views/music-detail';
 import User from 'bundle?lazy!./views/user';
 import UserInfo from 'bundle?lazy!./views/user-info';
+import UserPwd from 'bundle?lazy!./views/user-pwd';
 import Login from 'bundle?lazy!./views/login';
 import Reg from 'bundle?lazy!./views/reg';
 import NotFound from './components/not-found';
@@ -41,6 +42,11 @@ const Routes = {
 			path: '/user-info',
 			name: 'user-info',
 			component: UserInfo
+		},
+		{
+			path: '/user-pwd',
+			name: 'user-pwd',
+			component: UserPwd
 		},
 		{
 			path: '/login',
