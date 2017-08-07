@@ -47,12 +47,10 @@ module.exports = {
 					$.toptip('两次密码输入不一致', 'warning');
 					return false;
 				}
-				var data = {
-					"uuid":userUUID,
-					"pwd":confirmPwd,
-					"vcode":vcode
-				};
-				this.$http.post(ResourcePath+'/editPwdAction',data).then(function(res){
+				var query = 'uuid='+userUUID;
+				query += '&pwd='+confirmPwd;
+				query += '&vcode='+vcode;
+				this.$http.jsonp(ResourcePath+'/editPwdAction?'+query).then(function(res){
 					var success = res.body.success;
 					if(success == 1){
 						$.toptip('修改成功', 'success');
