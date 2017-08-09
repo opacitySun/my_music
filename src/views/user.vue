@@ -26,7 +26,7 @@
 		            </div>
 		            <p class="weui-grid__label">密码修改</p>
 		        </a>
-		        <a href="javascript:;" class="weui-grid">
+		        <a href="javascript:;" class="weui-grid" @click="goHistory()">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_history.png" alt="播放历史">
 		            </div>

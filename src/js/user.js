@@ -44,6 +44,10 @@ module.exports = {
 		goUserPwd:function(){
 			this.$router.push({ path: '/user-pwd' });
 		},
+		//播放历史
+		goHistory:function(){
+			this.$router.push({ path: '/history' });
+		},
 		//判断是否存在用户uuid
 		getPageInfoAsUuid:function(){
 			var userUUID = window.localStorage.getItem("userUUID");
