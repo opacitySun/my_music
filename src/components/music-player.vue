@@ -89,7 +89,7 @@ export default {
 		//返回上一页
 		goback:function(){
 			clearInterval(this.timeDuration);
-			this.$router.push({ path: '/' });
+			this.$router.go(-1);
 		},
 		MusicQueue:function(){
 			var musics = this.$data.musics;
