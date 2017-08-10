@@ -12,7 +12,7 @@ module.exports = {
 				res = res.body.result;
 				for(var k in res){
 					res[k]["href"] = "/music-detail/"+res[k].id;
-					this.musics.push(res[k]);
+					this.sets.push(res[k]);
 				}
 			}else{
 				$.toptip(res.body.flag, 'success');
