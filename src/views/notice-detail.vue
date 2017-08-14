@@ -1,7 +1,7 @@
 <template>
     <div>
-    	<div class="weui_article">
-    		<h1>{{title}}</h1>
+    	<div class="weui-article">
+    		<h3 class="weui-article_title">{{title}}</h3>
     		<section>
     			<p>{{content}}</p>
     		</section>
