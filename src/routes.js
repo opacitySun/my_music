@@ -14,6 +14,7 @@ import Login from 'bundle?lazy!./views/login';
 import Reg from 'bundle?lazy!./views/reg';
 import History from 'bundle?lazy!./views/history';
 import Notice from 'bundle?lazy!./views/notice';
+import NoticeDetail from 'bundle?lazy!./views/notice-detail';
 import NotFound from './components/not-found';
 
 const Routes = {
@@ -69,6 +70,11 @@ const Routes = {
 			path: '/notice',
 			name: 'notice',
 			component: Notice
+		},
+		{
+			path: '/notice-detail',
+			name: 'notice-detail',
+			component: NoticeDetail
 		},
 		{
 			path: '*',
