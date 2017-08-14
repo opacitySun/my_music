@@ -38,7 +38,7 @@
 		            </div>
 		            <p class="weui-grid__label">个人信息</p>
 		        </a>
-		        <a href="javascript:;" class="weui-grid">
+		        <a href="javascript:;" class="weui-grid" @click="goNotice()">
 		            <div class="weui-grid__icon">
 		                <img src="../images/user_notice.png" alt="系统通知">
 		            </div>

@@ -13,6 +13,7 @@ import UserPwd from 'bundle?lazy!./views/user-pwd';
 import Login from 'bundle?lazy!./views/login';
 import Reg from 'bundle?lazy!./views/reg';
 import History from 'bundle?lazy!./views/history';
+import Notice from 'bundle?lazy!./views/notice';
 import NotFound from './components/not-found';
 
 const Routes = {
@@ -63,6 +64,11 @@ const Routes = {
 			path: '/history',
 			name: 'history',
 			component: History
+		},
+		{
+			path: '/notice',
+			name: 'notice',
+			component: Notice
 		},
 		{
 			path: '*',
