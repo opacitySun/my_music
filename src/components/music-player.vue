@@ -78,7 +78,7 @@ export default {
 	created(){
 		$("main").addClass("h100");
 		$("footer").addClass("hidden");
-		mapState({ collect: state => state.collect });
+		// mapState({ collect: state => state.collect });
 	},
 	mounted() {
 		this.$nextTick(function () {
