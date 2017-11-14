@@ -1,14 +1,7 @@
-const cartProducts = (state, getters) => {
-  return state.cart.added.map(({ id, quantity }) => {
-    const product = state.products.all.find(p => p.id === id)
-    return {
-      title: product.title,
-      price: product.price,
-      quantity
-    }
-  })
+const getCollect = (state) => {
+  return state.collect;
 };
 
 export default {
-	cartProducts: cartProducts
+	getCollect: getCollect
 };

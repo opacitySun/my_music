@@ -42,6 +42,7 @@
 	                <div><a v-bind:class="playerIcon" v-on:click="musicControl()"></a></div>
 	                <div><a class="button next" v-on:click="playerNext()"></a></div>
 	                <div id="music-collect">
+	                	<!-- {{collect}} -->
 	                	<a class="button collect" v-on:click="addLikeMusic($event)" title="添加收藏"></a>
 	                	<a class="button collected hidden" v-on:click="cancelLikeMusic($event)" title="取消收藏"></a>
 	                </div>
@@ -77,6 +78,7 @@ export default {
 	created(){
 		$("main").addClass("h100");
 		$("footer").addClass("hidden");
+		mapState({ collect: state => state.collect });
 	},
 	mounted() {
 		this.$nextTick(function () {
