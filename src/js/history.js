@@ -10,8 +10,8 @@ module.exports = {
 		this.$http.jsonp(ResourcePath+'/getHistoryAction').then(function(res){
 			if(res.body.success == 1){
 				res = res.body.result;
-				for(var k in res){
-					res[k]["href"] = "/music-detail/"+res[k].id;
+				for(let k in res){
+					res[k]["href"] = `/music-detail/${res[k].id}`;
 					this.sets.push(res[k]);
 				}
 			}else{

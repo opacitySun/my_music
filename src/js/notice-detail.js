@@ -6,8 +6,9 @@ module.exports = {
 		}
 	},
 	created(){
-		var id = this.$route.params.id;
-		this.$http.jsonp(ResourcePath+'/getNoticeByIdActive?id='+id).then(function(res){
+		let id = this.$route.params.id;
+		let requestUrl = `${ResourcePath}/getNoticeByIdActive?id=${id}`;
+		this.$http.jsonp(requestUrl).then(function(res){
 			if(res.body.success == 1){
 				res = res.body.result[0];
 				this.title = res.title;

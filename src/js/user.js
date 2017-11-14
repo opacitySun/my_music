@@ -22,7 +22,7 @@ module.exports = {
 		},
 		//退出登录
 		outLogin:function(){
-			var getPageInfoAsUuid = this.getPageInfoAsUuid;
+			let getPageInfoAsUuid = this.getPageInfoAsUuid;
 			$.confirm("您确定退出登录吗？", function() {
 				//点击确认后的回调函数
 				window.localStorage.removeItem("userUUID");
@@ -54,9 +54,10 @@ module.exports = {
 		},
 		//判断是否存在用户uuid
 		getPageInfoAsUuid:function(){
-			var userUUID = window.localStorage.getItem("userUUID");
+			let userUUID = window.localStorage.getItem("userUUID");
 			if(userUUID){
-				this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUUID).then(function(res){
+				let requestUrl = `${ResourcePath}/getUserInfoAction?uuid=${userUUID}`;
+				this.$http.jsonp(requestUrl).then(function(res){
 					if(res.body.success == 1){
 						res = res.body.result[0];
 						this.user.points = res.points;
@@ -94,9 +95,10 @@ module.exports = {
 		},
 		//签到
 		signinFn:function(){
-			var userUUID = window.localStorage.getItem("userUUID");
+			let userUUID = window.localStorage.getItem("userUUID");
 			if(userUUID){
-				this.$http.jsonp(ResourcePath+'/signinAction?uuid='+userUUID).then(function(res){
+				let requestUrl = `${ResourcePath}/signinAction?uuid=${userUUID}`;
+				this.$http.jsonp(requestUrl).then(function(res){
 					if(res.body.success == 1){
 						$.toast("积分+10");
 						this.user.points = res.body.points;

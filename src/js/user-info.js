@@ -27,9 +27,9 @@ module.exports = {
 		},
 		//上传头像
 		uploadImgFn:function(){
-			var _this = this;
+			let _this = this;
 			$("#uploader-input").change(function(){
-				var formData = new FormData($("#userinfo-form")[0]);
+				let formData = new FormData($("#userinfo-form")[0]);
 				_this.uploadImgClass = "weui-uploader__file weui-uploader__file_status";
 				_this.$http.post(ResourcePath+'/uploadHeadImgAction',formData).then(function(res){
 					if(res.body.success == 1){
@@ -47,16 +47,17 @@ module.exports = {
 		},
 		//提交
 		submitFn:function(){
-			var userUUID = window.localStorage.getItem("userUUID");
-			var name = this.userinfoName;
-			var sex = this.userinfoSex;
-			var query = "uuid="+userUUID;
-			query += '&name='+name;
-			query += '&sex='+sex;
+			let userUUID = window.localStorage.getItem("userUUID"),
+				name = this.userinfoName,
+				sex = this.userinfoSex;
+			let query = `uuid=${userUUID}`;
+			query += `&name=${name}`;
+			query += `&sex=${sex}`;
 			if(this.headImgPath != ''){
-				query += '&img='+this.headImgPath;
+				query += `&img=${this.headImgPath}`;
 			}
-			this.$http.jsonp(ResourcePath+'/saveUserInfoActive?'+query).then(function(res){
+			let requestUrl = `${ResourcePath}/saveUserInfoActive?${query}`;
+			this.$http.jsonp(requestUrl).then(function(res){
 				if(res.body.success == 1){
 					$.toptip(res.body.flag, 'success');
 					this.$router.push({ path: '/user' });
@@ -69,8 +70,9 @@ module.exports = {
 		},
 		//获取用户信息
 		getUserInfo:function(){
-			var userUUID = window.localStorage.getItem("userUUID");
-			this.$http.jsonp(ResourcePath+'/getUserInfoAction?uuid='+userUUID).then(function(res){
+			let userUUID = window.localStorage.getItem("userUUID");
+			let requestUrl = `${ResourcePath}/getUserInfoAction?uuid=${userUUID}`;
+			this.$http.jsonp(requestUrl).then(function(res){
 				if(res.body.success == 1){
 					res = res.body.result[0];
 					this.userinfoName = res.name;

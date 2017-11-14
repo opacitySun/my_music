@@ -36,9 +36,9 @@ module.exports = {
 		},
 		//提交修改
 		submitFn:function(){
-			var userUUID = window.localStorage.getItem("userUUID");
+			let userUUID = window.localStorage.getItem("userUUID");
 			if(userUUID){
-				var newPwd = this.newPwd,confirmPwd = this.confirmPwd,vcode = this.vcode;
+				let newPwd = this.newPwd,confirmPwd = this.confirmPwd,vcode = this.vcode;
 				if(newPwd == '' || confirmPwd == '' || vcode == ''){
 					$.toptip('请将信息填写完整', 'warning');
 					return false;
@@ -47,11 +47,12 @@ module.exports = {
 					$.toptip('两次密码输入不一致', 'warning');
 					return false;
 				}
-				var query = 'uuid='+userUUID;
-				query += '&pwd='+confirmPwd;
-				query += '&vcode='+vcode;
-				this.$http.jsonp(ResourcePath+'/editPwdAction?'+query).then(function(res){
-					var success = res.body.success;
+				let query = `uuid=${userUUID}`;
+				query += `&pwd=${confirmPwd}`;
+				query += `&vcode=${vcode}`;
+				let requestUrl = `${ResourcePath}/editPwdAction?${query}`;
+				this.$http.jsonp(requestUrl).then(function(res){
+					let success = res.body.success;
 					if(success == 1){
 						$.toptip('修改成功', 'success');
 						this.$router.push({ path: '/user' });

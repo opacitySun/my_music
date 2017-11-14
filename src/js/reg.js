@@ -16,7 +16,7 @@ module.exports = {
 		},
 		//发送验证码
 		sendCode:function(){
-			var mobile = $("#reg-mobile").val();
+			let mobile = $("#reg-mobile").val();
 			if(mobile == '' || mobile.length < 11){
 				$.toptip('您填写的手机号不合法', 'warning');
 				return false;
@@ -40,7 +40,7 @@ module.exports = {
 		},
 		//注册
 		regFn:function(){
-			var mobile = $("#reg-mobile").val(),
+			let mobile = $("#reg-mobile").val(),
 				pwd = $("#reg-pwd").val(),
 				mcode = $("#reg-mcode").val();
 			if(mobile == '' || mobile.length < 11){
@@ -51,9 +51,10 @@ module.exports = {
 				$.toptip('密码不能少于6位', 'warning');
 				return false;
 			}
-			this.$http.jsonp(ResourcePath+'/registerAction?mobile='+mobile+'&pwd='+pwd+'&mcode='+mcode).then(function(res){
+			let requestUrl = `${ResourcePath}/registerAction?mobile=${mobile}&pwd=${pwd}&mcode=${mcode}`;
+			this.$http.jsonp(requestUrl).then(function(res){
 				if(res.body.success == 1){
-					var goUser = this.goUser;
+					let goUser = this.goUser;
 					$.alert('Hello~朋友，恭喜你注册成功，希望你能喜欢这里~',function(){
 						res = res.body.result[0];
 						window.localStorage.setItem("userUUID",res.uuid);

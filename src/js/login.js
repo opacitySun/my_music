@@ -30,15 +30,16 @@ module.exports = {
 		},
 		//登录
 		loginFn:function(){
-			var name = $("#login-name").val(),pwd = $("#login-pwd").val(),vcode = $("#login-vcode").val();
+			let name = $("#login-name").val(),pwd = $("#login-pwd").val(),vcode = $("#login-vcode").val();
 			if(name == '' || pwd == '' || vcode == ''){
 				$.toptip('请将信息填写完整', 'warning');
 				return false;
 			}
-			this.$http.jsonp(ResourcePath+'/loginAction?name='+name+'&pwd='+pwd+'&vcode='+vcode).then(function(res){
-				var success = res.body.success;
+			let requestUrl = `${ResourcePath}/loginAction?name=${name}&pwd=${pwd}&vcode=${vcode}`;
+			this.$http.jsonp(requestUrl).then(function(res){
+				let success = res.body.success;
 				if(success == 1){
-					var result = res.body.result[0];
+					let result = res.body.result[0];
 					window.localStorage.setItem("userUUID",result.uuid);
 					this.$router.push({ path: '/user' });
 				}else{
