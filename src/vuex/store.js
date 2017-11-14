@@ -7,7 +7,7 @@ import * as getters from './getters';
 Vue.use(Vuex);
 
 const state = {
-	user:JSON.parse(window.localStorage.getItem("userUUID")) || {},
+	user:window.localStorage.getItem("userUUID") || {},
 	collect:''
 };
 
