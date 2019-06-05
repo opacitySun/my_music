@@ -10,7 +10,7 @@ import VueResource from 'vue-resource';
 import JqueryWeui from 'jquery-weui/dist/js/jquery-weui.min.js';
 import Routes from './routes';
 import App from './app.vue';
-import Store from './vuex/store';
+// import Store from './vuex/store';
 import Global from './js/global';
 
 Vue.use(VueRouter);
@@ -25,7 +25,7 @@ new Vue({
     el: '#app',
     JqueryWeui,
     Global,
-    Store,
+    // Store,
     router: router,
     render: h => h(App)
 });
